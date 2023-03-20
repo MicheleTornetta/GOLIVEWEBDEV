@@ -1,0 +1,147 @@
+/*Colors*/
+
+:root {
+  --background: #141414; /*dark grey*/
+  --btn: #5a5af8; /*purple*/
+  --accent1: #c7493a; /*light orange*/
+  --accent2: #fbeec1; /*cream*/
+  --accent3: #917164; /*tan*/
+  --accent4: #ad8174; /*nude*/
+  --text: #eeeeee; /*white*/
+  --textdk: #141414; /*dark grey*/  
+
+}
+
+//Global
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+main {
+  background-color: var(--background);
+}
+
+h1 {
+  font-size: 40px;
+  color: var(--text);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 20px 0 20px;
+}
+
+h2 {
+  font-size: 20px;
+  color: var(--text);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 20px 0 20px;
+}
+
+h3 {
+  font-size: 18px;
+  color: var(--text);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 20px 10px 0;
+  font-weight: bolder;
+}
+
+h4 {
+  font-size: 30px;
+  color: var(--text);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 20px 10px 0;
+  font-weight: bolder;
+}
+
+p {
+  color: var(--text);
+  padding: 0 0 10px 0;
+}
+
+li {
+  color: var(--text);
+  padding: 10px 20px 10px 40px;
+  list-style-type: none;
+  font-size: larger;
+}
+
+a {
+  padding: 20px 20px 0px 0px;
+  text-decoration: none;
+  color: var(--background)
+}
+
+a:visited {
+  color: var(--btn);
+  // text-shadow: 1px 1px var(--accent2);
+}
+
+a:hover {
+  color: var(--accent1);
+  text-decoration: underline;
+  // text-shadow: 1px 1px var(--accent2);
+}
+
+/*THIS IS THE HEADER SECTION W/NAV BAR*/
+
+header {
+  padding: 20px;
+  background-color: var(--accent4);
+  color: var(--BG);
+  // text-shadow: 2px 2px #333333;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 840px) {
+  .shrink-wrap {
+      flex-direction: column;
+  }
+}
+
+nav {
+  align-items: center;
+  background-color: var(--text);
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 20px 20px 20px;
+  flex-direction: row;
+}
+
+nav a {
+  flex-direction: row;
+  padding-right: 20px;
+  margin: 5px 10px;
+  padding: 10px;
+  font-size: 2em;
+  list-style-type: none;
+  background-color: var(--text);
+  color: var(--BG);
+  // text-shadow: 2px 2px var(--accent3)
+}
+
+.toplogo {
+  height: 75px;
+  justify-self: baseline;
+}
+
+@media screen and (max-width: 840px) {
+  nav {
+      flex-direction: column;
+  }
+}
+
+footer h2 {
+  background-color: var(--text);
+  padding: 10px 0 5px 20px;
+  color: var(--textdk) !important;
+}
