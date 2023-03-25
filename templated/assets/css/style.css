@@ -22,7 +22,7 @@ main {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 40px;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;
@@ -30,7 +30,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 20px;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;
@@ -38,7 +38,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 18px;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;
@@ -47,7 +47,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1em;
+  font-size: 30px;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;
@@ -70,15 +70,26 @@ li {
 a {
   padding: 20px 20px 0px 0px;
   text-decoration: none;
-  color: var(--text);
+  color: var(--background);
+}
+
+a:visited {
+  color: var(--btn);
+  /* text-shadow: 1px 1px var(--accent2); */
+}
+
+a:hover {
+  color: var(--accent1);
+  text-decoration: underline;
+  /* text-shadow: 1px 1px var(--accent2); */
 }
 
 /*THIS IS THE HEADER SECTION W/NAV BAR*/
 header {
   padding: 20px;
-  background-color: var(--accent4);
+  background-color: var(--accent3);
   color: var(--BG);
-  text-shadow: 2px 2px #333333;
+  /* text-shadow: 2px 2px #333333; */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -92,12 +103,13 @@ header {
 }
 nav {
   align-items: center;
-  background-color: var(--accent1);
+  background-color: var(--text);
   display: flex;
   justify-content: space-around;
   padding: 15px 20px 20px 20px;
   flex-direction: row;
 }
+
 nav a {
   flex-direction: row;
   padding-right: 20px;
@@ -105,9 +117,9 @@ nav a {
   padding: 10px;
   font-size: 2em;
   list-style-type: none;
-  background-color: var(--accent1);
-  color: var(--text);
-  text-shadow: 2px 2px var(--background);
+  background-color: var(--text);
+  color: var(--BG);
+  /* text-shadow: 2px 2px var(--accent3); */
 }
 
 .toplogo {
@@ -119,11 +131,10 @@ nav a {
   nav {
     flex-direction: column;
   }
-}
+}/*# sourceMappingURL=style.css.map */
 
 footer h2 {
   background-color: var(--text);
   padding: 10px 0 5px 20px;
   color: var(--textdk) !important;
 }
-/*# sourceMappingURL=style.css.map */
