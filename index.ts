@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
@@ -14,7 +14,7 @@ function runServer() {
 
   app.use(express.json());
 
-  app.get("/*", (req, res) => {
+  app.get("/*", (req: Request, res: Response) => {
     let path = req.url;
 
     if (path.endsWith("/")) {
