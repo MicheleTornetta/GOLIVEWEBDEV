@@ -8,8 +8,15 @@
   --accent3: #917164; /*tan*/
   --accent4: #ad8174; /*nude*/
   --text: #eeeeee; /*white*/
-  --textdk: #141414; /*dark grey*/  
+  --textdk: #141414; /*dark grey*/
+}
 
+.purple {
+  color: var(--btn);
+}
+
+.grey {
+  color: #ddd;
 }
 
 //Global
@@ -18,27 +25,15 @@
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
 
-body {
-  margin: 0;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
   display: flex;
-
 }
 
 main {
-  background-color: var(--background);
-  background-image: url("/assets/images/background/PurBG.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -51,8 +46,6 @@ main {
 //   padding-top: 20px;
 //   padding-bottom: 20px;
 // }
-
-
 
 h1 {
   font-size: 40px;
@@ -103,7 +96,7 @@ li {
 a {
   padding: 20px 20px 0px 0px;
   text-decoration: none;
-  color: var(--background)
+  color: var(--background);
 }
 
 a:visited {
@@ -117,15 +110,8 @@ a:hover {
   // text-shadow: 1px 1px var(--accent2);
 }
 
-
-
-
 @media screen and (max-width: 840px) {
   .shrink-wrap {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
-
-
-
-

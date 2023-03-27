@@ -1,25 +1,47 @@
 nav {
-    align-items: center;
-    background-color: var(--text);
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 20px 20px 20px;
-    flex-direction: row;
+  align-items: center;
+  // Note: in `nav.js` this is changed to be transparent.
+  // This is styled here for browsers with javascript disabled.
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  flex-direction: row;
+  width: 100%;
+  position: fixed;
+
+  ul {
+    flex: 1;
+    li {
+      display: inline-block;
+      list-style: none;
+
+      font-size: 0.9em;
+      padding: 0 10px;
+
+      a {
+        flex-direction: row;
+        padding-right: 20px;
+        padding: 16px 10px;
+        font-size: 2em;
+        list-style-type: none;
+        color: #eee;
+
+        &:visited {
+          color: #eee;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+          text-decoration: none;
+          color: #eee;
+        }
+      }
+    }
   }
-  
-  nav a {
-    flex-direction: row;
-    padding-right: 20px;
-    margin: 5px 10px;
-    padding: 10px;
-    font-size: 2em;
-    list-style-type: none;
-    background-color: var(--text);
-    color: var(--BG);
-    // text-shadow: 2px 2px var(--accent3)
-  }
-  
-  .toplogo {
-    height: 75px;
-    justify-self: baseline;
-  }
+}
+
+.toplogo {
+  height: 75px;
+  justify-self: baseline;
+}

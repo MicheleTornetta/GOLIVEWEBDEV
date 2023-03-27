@@ -8,14 +8,26 @@
     <%- include('templates/nav.ejs') %>
 
     <main>
-      <section>
-        <article>
-          <div>
-            <div>
-              <h1></h1>
-            </div>
+      <header>
+        <div class="header-cover">
+          <div class="header-card">
+            <h1>go live image here w/out text</h1>
+            <h1>
+              <span class="purple">Go</span><span class="grey">Live</span>
+              <span class="purple">Web</span><span class="grey">Dev</span>
+            </h1>
+            <hr />
+            <p>Catchy slogan about web development</p>
           </div>
-        </article>
+        </div>
+      </header>
+
+      <section id="header-end" style="background-color: #333">
+        <script>
+          for (let i = 0; i < 100; i++) {
+            document.write("<p>Content</p>");
+          }
+        </script>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
