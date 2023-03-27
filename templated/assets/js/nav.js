@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
             
             // This asks the browser to run this function ~ 60 times a second, which is great for
             // rendering stuff
-            requestAnimationFrame(animatedNavBackground);
+            requestAnimationFrame(animateNavBackground);
         }
 
         // Calls `animateNavBackground` the first time to start the cycle
