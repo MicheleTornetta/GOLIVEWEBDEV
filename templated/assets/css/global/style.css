@@ -28,7 +28,7 @@ body {
 
 main {
   background-color: var(--background);
-  background-image: url("/assets/images/logo/GoLive-WebDevPur.png");
+  background-image: url("/assets/images/background/PurBG.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
