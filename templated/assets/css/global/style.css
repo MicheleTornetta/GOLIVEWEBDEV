@@ -1,5 +1,4 @@
 /*Colors*/
-
 :root {
   --background: #141414; /*dark grey*/
   --btn: #5a5af8; /*purple*/
@@ -8,11 +7,8 @@
   --accent3: #917164; /*tan*/
   --accent4: #ad8174; /*nude*/
   --text: #eeeeee; /*white*/
-  --textdk: #141414; /*dark grey*/  
-
+  --textdk: #141414; /*dark grey*/
 }
-
-//Global
 
 * {
   box-sizing: border-box;
@@ -21,8 +17,23 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+body {
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
 main {
   background-color: var(--background);
+  background-image: url("/assets/images/logo/GoLive-WebDevPur.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h1 {
@@ -74,74 +85,20 @@ li {
 a {
   padding: 20px 20px 0px 0px;
   text-decoration: none;
-  color: var(--background)
+  color: var(--background);
 }
 
 a:visited {
   color: var(--btn);
-  // text-shadow: 1px 1px var(--accent2);
 }
 
 a:hover {
   color: var(--accent1);
   text-decoration: underline;
-  // text-shadow: 1px 1px var(--accent2);
 }
-
-/*THIS IS THE HEADER SECTION W/NAV BAR*/
-
-header {
-  padding: 20px;
-  background-color: var(--accent4);
-  color: var(--BG);
-  // text-shadow: 2px 2px #333333;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 
 @media screen and (max-width: 840px) {
   .shrink-wrap {
-      flex-direction: column;
+    flex-direction: column;
   }
-}
-
-nav {
-  align-items: center;
-  background-color: var(--text);
-  display: flex;
-  justify-content: space-around;
-  padding: 15px 20px 20px 20px;
-  flex-direction: row;
-}
-
-nav a {
-  flex-direction: row;
-  padding-right: 20px;
-  margin: 5px 10px;
-  padding: 10px;
-  font-size: 2em;
-  list-style-type: none;
-  background-color: var(--text);
-  color: var(--BG);
-  // text-shadow: 2px 2px var(--accent3)
-}
-
-.toplogo {
-  height: 75px;
-  justify-self: baseline;
-}
-
-@media screen and (max-width: 840px) {
-  nav {
-      flex-direction: column;
-  }
-}
-
-footer h2 {
-  background-color: var(--text);
-  padding: 10px 0 5px 20px;
-  color: var(--textdk) !important;
-}
+}/*# sourceMappingURL=style.css.map */

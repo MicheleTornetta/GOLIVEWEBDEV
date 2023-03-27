@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('templates/head.ejs') %>
+    <title>GoLive WebDev</title>
+  </head>
+  <body>
+    <%- include('templates/nav.ejs') %>
+
+    <main>
+      <article>
+        <div>
+          <form class="form" id="form" method="post">
+            <div>
+              <label for="username"><h3>Username:</h3></label>
+              <input id="username" required name="username" />
+            </div>
+            <div>
+              <label for="password"><h3>Password:</h3></label>
+              <input id="password" type="password" required name="password" />
+            </div>
+            <input type="submit" value="Login" />
+            <div>
+              <a href="/signup.html"><h2>Not a member? Sign up instead!</h2></a>
+            </div>
+          </form>
+          <script defer>
+            document.getElementById("form").onsubmit = function (e) {
+              e.preventDefault();
+
+              const username = document.getElementById("username").value;
+              const password = document.getElementById("password").value;
+
+              fetch("/api/users/login/", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username,
+                  password,
+                }),
+              }).then((res) => {
+                if (res.status === 200) {
+                  res.json().then((res) => {
+                    console.log(res);
+                    if (res.err) {
+                      alert(res.err);
+                    } else {
+                      window.location.href = "/";
+                    }
+                  });
+                } else {
+                  alert("Invalid username/password!");
+                }
+              });
+            };
+          </script>
+        </div>
+      </article>
+    </main>
+    <%- include('templates/footer.ejs') %>
+  </body>
+</html>

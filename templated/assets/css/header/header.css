@@ -1,0 +1,10 @@
+/*THIS IS THE HEADER SECTION W/NAV BAR*/
+header {
+  padding: 20px;
+  background-color: var(--accent4);
+  color: var(--BG);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=header.css.map */

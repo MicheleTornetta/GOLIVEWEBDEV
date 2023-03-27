@@ -1,0 +1,12 @@
+/*THIS IS THE HEADER SECTION W/NAV BAR*/
+
+header {
+  padding: 20px;
+  background-color: var(--accent4);
+  color: var(--BG);
+  // text-shadow: 2px 2px #333333;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
