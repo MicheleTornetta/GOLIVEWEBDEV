@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Sets the nav bar to be transparent
         nav.style.backgroundColor = `rgba(51, 51, 51, ${BASE_ALPHA})`;
 
-        const animatedNavBackground = () => {
+        const animateNavBackground = () => {
             // Distance from end of header to end of navigation bar used to determine
             // how transparent the nav bar should be
             const distFromNav = headerEnd.getBoundingClientRect().y 
@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animatedNavBackground);
         }
 
-        requestAnimationFrame(animatedNavBackground);
+        // Calls `animateNavBackground` the first time to start the cycle
+        requestAnimationFrame(animateNavBackground);
     }
 });
