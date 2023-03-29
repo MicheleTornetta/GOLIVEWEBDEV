@@ -1,0 +1,7 @@
+.logincontainer {
+  display: flex; /* or inline-flex */
+  flex: 1;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: space-between;
+}/*# sourceMappingURL=login.css.map */
