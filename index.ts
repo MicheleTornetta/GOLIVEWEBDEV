@@ -2,9 +2,9 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
-import mongoose from 'mongoose';
-import { connectToDatabase } from "./client/database.client"
-import { userRouter } from "./routes/user.router";
+// import mongoose from 'mongoose';
+import { connectToDatabase } from "./server/dbClient/database.client"
+import { userRouter } from "./server/routes/user.router";
 
 runServer();
 

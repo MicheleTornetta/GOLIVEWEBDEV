@@ -2,7 +2,7 @@
 
 import express, { Request, Response } from "express";
 import { ObjectId } from "mongodb";
-import { client } from "../client/database.client";
+import { client } from "../dbClient/database.client";
 import User from "../models/user";
 
 // Global Config

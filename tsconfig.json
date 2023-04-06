@@ -16,5 +16,5 @@
     }
   },
   "lib": ["es2021"],
-  "include": ["src/**/*"]
+  "include": ["server/**/*"]
 }
