@@ -1,3 +1,5 @@
+// https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
+
 // External Dependencies
 import * as mongoDB from "mongodb";
 import * as dotenv from "dotenv";
