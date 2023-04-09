@@ -3,32 +3,47 @@
   <head>
     <%- include('templates/head.ejs') %>
     <script src="./assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/blog/blog.css" />
     <title>GoLive WebDev</title>
   </head>
   <body>
     <%- include('templates/nav.ejs') %>
-
     <main>
-      <section>
-        <article>
+      <header>
+        <section class="blog-page">
           <div>
-            <h1>Compose</h1>
-            <form action="/compose" method="post">
-              <label class="form-label">Title</label>
-              <input type="text" name="postTitle" class="form-control" />
-              <label class="form-label">Post</label>
-              <textarea
-                cols="30"
-                rows="10"
-                class="form-control"
-                name="postBody"
-              ></textarea>
-              <button type="submit" class="btn btn-primary publish">
-                Publish
-              </button>
-            </form>
+            <h1 class="blog-title">GoLive WebDev Blog</h1>
           </div>
-        </article>
+          <div class="blog-article">this is where the article goes</div>
+        </section>
+      </header>
+      <section class="blog-create">
+        <div>
+          <h1>Compose</h1>
+          <form action="/compose" method="post">
+            <label class="form-label">Title</label>
+            <input type="text" name="postTitle" class="form-control" />
+            <div></div>
+            <label class="form-label">Post</label>
+            <textarea
+              cols="100"
+              rows="10"
+              class="form-control"
+              name="postBody"
+            ></textarea>
+            <button type="submit" class="btn btn-primary publish">
+              Publish
+            </button>
+          </form>
+        </div>
+      </section>
+      <section id="header-end" style="background-color: #333">
+        <script>
+          for (let i = 0; i < 5; i++) {
+            document.write("<p>Content</p>");
+          }
+        </script>
+        <div></div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>

@@ -1,18 +1,6 @@
-// .logincontainer {
-//   display: flex; /* or inline-flex */
-//   flex: 1;
-//   flex-direction: row;
-//   padding-top: 20px;
-//   justify-content: space-between;
-// }
-
-// .space {
-//   height: max(80vh, 600px);
-// }
-
 /*THIS IS THE HEADER SECTION W/OUT NAV BAR*/
 
-.login-page {
+header {
   background-color: var(--accent4);
   display: flex;
   justify-content: center;
@@ -26,10 +14,12 @@
   background-attachment: fixed;
   background-size: cover;
 
-  .login-cover {
+  .header-cover {
     background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+
     display: flex;
-    flex: 1;
     justify-content: center;
     align-items: center;
 

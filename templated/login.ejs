@@ -2,16 +2,18 @@
 <html lang="en">
   <head>
     <%- include('templates/head.ejs') %>
+    <link rel="stylesheet" href="./assets/css/login/login.css" />
     <title>GoLive WebDev</title>
   </head>
   <body>
     <%- include('templates/nav.ejs') %>
 
     <main>
-      <container>
+      <header>
+      <section class="login-page" >
         <div class="login-cover"> 
           <h1>Login</h1>  
-          <form class="form" id="form" method="post">
+          <form class="form" id="login-form" method="post">
             <div>
               <label for="username"><h3>Username:</h3></label>
               <input id="username" required name="username" />
@@ -22,11 +24,11 @@
             </div>
             <input type="submit" value="Login" />
             <div>
-              <a href="/signup.html"><h2>Not a member? Sign up instead!</h2></a>
+              <h2>Not a member? Sign up instead!</h2>
             </div>
           </form>
           <script defer>
-            document.getElementById("form").onsubmit = function (e) {
+            document.getElementById("login-form").onsubmit = function (e) {
               e.preventDefault();
 
               const username = document.getElementById("username").value;
@@ -58,9 +60,9 @@
             };
           </script>
         </div>
-        <div class="grid">
+        <div class="login-cover">
           <h1>Sign Up</h1>
-          <form class="form" id="form">
+          <form class="form" id="signup-form">
             <div>
               <label for="username"><h3>Username:</h3></label>
               <input id="username" name="username" required />
@@ -71,33 +73,28 @@
             </div>
             <div>
               <label for="password"><h3>Password:</h3></label>
-              <input id="password" type="password" name="password" required />
+              <input id="password" type="password" name="password" minlength="8" required />
             </div>
             <input type="submit" value="Sign up" />
           </form>
 
           <script defer>
-            document.getElementById("form").onsubmit = function (e) {
-              e.preventDefault(); // then go to home page
+            document.getElementById("signup-form").onsubmit = function (e) {
+              e.preventDefault(); 
 
               const username = document.getElementById("username").value;
-              const password = document.getElementById("password").value;
               const email = document.getElementById("email").value;
-
-              if (password.length < 8) {
-                alert("Your password must be at least 8 characters.");
-                return;
-              }
-
-              fetch("/api/users/", {
+              const password = document.getElementById("password").value;
+              
+              fetch("/api/user/register/", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                   username,
-                  password,
                   email,
+                  password,
                 }),
               }).then((res) => {
                 const status = res.status;
@@ -109,7 +106,7 @@
                       window.location.href = "/";
                     }
                   } else {
-                    alert(res.err || "Invalid email!");
+                    alert(res.err);
                   }
                 });
               });
@@ -117,7 +114,9 @@
           </script>
         </div>
       </div>
-    </container>
+    </section>
+  </header>
+  <div id="header-end"></div>
     </main>
     <%- include('templates/footer.ejs') %>
   </body>

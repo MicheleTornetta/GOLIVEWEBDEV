@@ -1,32 +1,32 @@
-// .logincontainer {
-//   display: flex; /* or inline-flex */
-//   flex: 1;
-//   flex-direction: row;
-//   padding-top: 20px;
-//   justify-content: space-between;
-// }
+.postcontainer {
+  display: flex; /* or inline-flex */
+  flex: 1;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: space-between;
+}
 
-// .space {
-//   height: max(80vh, 600px);
-// }
+.space {
+  height: max(80vh, 600px);
+}
 
-/*THIS IS THE HEADER SECTION W/OUT NAV BAR*/
 
-.login-page {
-  background-color: var(--accent4);
+.blog-page {
+  // background-color: var(--accent4);
   display: flex;
+  flex: 1;
+  padding-top: 150px;
   justify-content: center;
   align-items: center;
   height: max(80vh, 600px);
-  // text-shadow: 2px 2px #333333;
+  
+  // background-color: var(--background);
+  // background-image: url("/assets/images/background/PurBG.png");
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-size: cover;
 
-  background-color: var(--background);
-  background-image: url("/assets/images/background/PurBG.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-
-  .login-cover {
+  .blog-cover {
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex: 1;
@@ -66,4 +66,12 @@
       }
     }
   }
+}
+
+.blog-create {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
