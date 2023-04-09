@@ -9,7 +9,12 @@
     "outDir": "dist",
     "lib": [
       "ES2021.String"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+        "*": ["node_modules/*"]
+    }
   },
-  "lib": ["es2021"]
+  "lib": ["es2021"],
+  "include": ["server/**/*"]
 }

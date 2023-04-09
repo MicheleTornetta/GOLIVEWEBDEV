@@ -1,23 +1,42 @@
 {
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "bootstrap": "^5.3.0-alpha1",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "glob": "^9.3.4",
+    "postgres": "^3.3.4",
+    "sequelize": "^6.26.0"
   },
-  "name": "website-router",
+  "name": "go-live-web-dev",
   "version": "1.0.0",
+  "description": "Welcome to GoLive WebDev your website development service.",
   "main": "index.js",
+  "keywords": [
+    "website development",
+    "website building service",
+    "website hosting",
+    "website marketing"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && node dist/index"
+    "start": "npx tsc && node dist/index",
+    "setup": "npx tsc && node dist/server/db/init-tables.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicheleTornetta/WebDevPortfolio.git"
+  },
+  "author": "GoLive WebDev",
+  "license": "MIT",
   "devDependencies": {
     "@types/ejs": "^3.1.1",
     "@types/express": "^4.17.13",
+    "@types/node": "^16.4.7",
+    "prettier": "^2.3.2",
+    "sequelize-cli": "^6.6.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.7.3"
   }
 }
