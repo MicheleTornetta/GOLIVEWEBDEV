@@ -1,98 +1,98 @@
-// External Dependencies
+// // External Dependencies
 
-import express, { Request, Response } from "express";
-import { ObjectId } from "mongodb";
-import { client } from "../dbClient/database.client";
-import User from "../models/user";
+// import express, { Request, Response } from "express";
+// import { ObjectId } from "mongodb";
+// import { client } from "../dbClient/database.client";
+// import User from "../models/user";
 
-// Global Config
+// // Global Config
 
-export const userRouter = express.Router();
+// export const userRouter = express.Router();
 
-userRouter.use(express.json());
+// userRouter.use(express.json());
 
-// GET
+// // GET
 
-userRouter.get("/", async (_req: Request, res: Response) => {
-    try {
-       const user = (await client.user.find({}).toArray()) as User[];
+// userRouter.get("/", async (_req: Request, res: Response) => {
+//     try {
+//        const user = (await client.user.find({}).toArray()) as User[];
 
-        res.status(200).send(users);
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-});
+//         res.status(200).send(users);
+//     } catch (error) {
+//         res.status(500).send(error.message);
+//     }
+// });
 
-userRouter.get("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+// userRouter.get("/:id", async (req: Request, res: Response) => {
+//     const id = req?.params?.id;
 
-    try {
+//     try {
         
-        const query = { _id: new ObjectId(id) };
-        const user = (await client.users.findOne(query)) as User;
+//         const query = { _id: new ObjectId(id) };
+//         const user = (await client.users.findOne(query)) as User;
 
-        if (user) {
-            res.status(200).send(user);
-        }
-    } catch (error) {
-        res.status(404).send(`Unable to find matching user with id: ${req.params.id}`);
-    }
-});
+//         if (user) {
+//             res.status(200).send(user);
+//         }
+//     } catch (error) {
+//         res.status(404).send(`Unable to find matching user with id: ${req.params.id}`);
+//     }
+// });
 
-// POST
+// // POST
 
-userRouter.post("/", async (req: Request, res: Response) => {
-    try {
-        const newUser = req.body as User;
-        const result = await client.user.insertOne(newUser);
+// userRouter.post("/", async (req: Request, res: Response) => {
+//     try {
+//         const newUser = req.body as User;
+//         const result = await client.user.insertOne(newUser);
 
-        result
-            ? res.status(201).send(`Successfully created a new user with id ${result.insertedId}`)
-            : res.status(500).send("Failed to create a new user.");
-    } catch (error) {
-        console.error(error);
-        res.status(400).send(error.message);
-    }
-});
+//         result
+//             ? res.status(201).send(`Successfully created a new user with id ${result.insertedId}`)
+//             : res.status(500).send("Failed to create a new user.");
+//     } catch (error) {
+//         console.error(error);
+//         res.status(400).send(error.message);
+//     }
+// });
 
-// PUT
+// // PUT
 
-userRouter.put("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+// userRouter.put("/:id", async (req: Request, res: Response) => {
+//     const id = req?.params?.id;
 
-    try {
-        const updatedUser: User = req.body as User;
-        const query = { _id: new ObjectId(id) };
+//     try {
+//         const updatedUser: User = req.body as User;
+//         const query = { _id: new ObjectId(id) };
       
-        const result = await client.userClient.updateOne(query, { $set: updatedUser });
+//         const result = await client.userClient.updateOne(query, { $set: updatedUser });
 
-        result
-            ? res.status(200).send(`Successfully updated user with id ${id}`)
-            : res.status(304).send(`User with id: ${id} not updated`);
-    } catch (error) {
-        console.error(error.message);
-        res.status(400).send(error.message);
-    }
-});
+//         result
+//             ? res.status(200).send(`Successfully updated user with id ${id}`)
+//             : res.status(304).send(`User with id: ${id} not updated`);
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(400).send(error.message);
+//     }
+// });
 
-// DELETE
+// // DELETE
 
-userRouter.delete("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+// userRouter.delete("/:id", async (req: Request, res: Response) => {
+//     const id = req?.params?.id;
 
-    try {
-        const query = { _id: new ObjectId(id) };
-        const result = await client.user.deleteOne(query);
+//     try {
+//         const query = { _id: new ObjectId(id) };
+//         const result = await client.user.deleteOne(query);
 
-        if (result && result.deletedCount) {
-            res.status(202).send(`Successfully removed user with id ${id}`);
-        } else if (!result) {
-            res.status(400).send(`Failed to remove user with id ${id}`);
-        } else if (!result.deletedCount) {
-            res.status(404).send(`User with id ${id} does not exist`);
-        }
-    } catch (error) {
-        console.error(error.message);
-        res.status(400).send(error.message);
-    }
-});
+//         if (result && result.deletedCount) {
+//             res.status(202).send(`Successfully removed user with id ${id}`);
+//         } else if (!result) {
+//             res.status(400).send(`Failed to remove user with id ${id}`);
+//         } else if (!result.deletedCount) {
+//             res.status(404).send(`User with id ${id} does not exist`);
+//         }
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(400).send(error.message);
+//     }
+// });

@@ -1,31 +1,26 @@
 // https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
 
 // External Dependencies
-import * as mongoDB from "mongodb";
-import * as dotenv from "dotenv";
+
+import dotenv from "dotenv";
+import postgres from "postgres";
 
 // Global Variables
 
 // Initialize Connection
+dotenv.config({ path: "./vars.env" });
 
-export async function connectToDatabase () {
-    dotenv.config();
- 
-    const client: mongoDB.MongoClient = new mongoDB.MongoClient(process.env.DB_CONN_STRING);
-            
-    await client.connect();
-        
-    const db: mongoDB.Db = client.db(process.env.DB_NAME);
-   
-    const user.Client: mongoDB.Client = db.client(process.env.CLIENT_NAME);
- 
-      client.user = userClient;
-       
-     console.log(`Successfully connected to database: ${db.databaseName} and client: ${userClient.clientName}`);
- }
+const sql = postgres({
+  host: process.env.DB_HOST, // Postgres ip address[s] or domain name[s]
+  port: Number(process.env.DB_PORT), // Postgres server port[s]
+  database: process.env.DB_NAME, // Name of database to connect to
+  username: process.env.DB_USER, // Username of database user
+  password: process.env.DB_PASSWORD, // Password of database user
+});
 
- //validation to our existing clients
-
+export default sql;
+//validation to our existing clients
+/*
  await db.command({
     "collMod": process.env.USER_CLIENT_NAME,
     "validator": {
@@ -89,4 +84,6 @@ export async function connectToDatabase () {
             }
         }
      }
+     
 });
+*/

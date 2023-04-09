@@ -3,12 +3,21 @@ import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
 // import mongoose from 'mongoose';
-import { connectToDatabase } from "./server/dbClient/database.client"
-import { userRouter } from "./server/routes/user.router";
+// import { connectToDatabase } from "./server/dbClient/database.client"
+// import { userRouter } from "./server/routes/user.router";
+
+import sql from './db/connection';
 
 runServer();
 
-function runServer() {
+async function runServer() {  
+  const result = await sql`
+    SELECT * FROM Users;
+  `;
+
+  console.log('About to print!');
+  console.log(result);
+
   dotenv.config({ path: "./vars.env" });
 
   const app: Express = express();
@@ -24,7 +33,7 @@ function runServer() {
       path += "index.html";
     }
 
-    path = path.replaceAll(".html", ".ejs");
+    path = path.replace(".html", ".ejs");
 
     if (path.includes(".ejs")) {
       ejs.renderFile("templated/" + path, function (err, compiled) {
@@ -54,27 +63,4 @@ function runServer() {
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.static("public"));
 // app.set("view engine", "ejs");
-
-// connection to mongodb
-
-connectToDatabase()
-    .then(() => {
-        app.use("/user", userRouter);
-
-        app.listen(port, () => {
-            console.log(`Server started at http://localhost:${port}`);
-        });
-    })
-    .catch((error: Error) => {
-        console.error("Database connection failed", error);
-        process.exit();
-    });
-
-//https://www.mongodb.com/compatibility/using-typescript-with-mongodb-tutorial
-
-// mongoose.connect('mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@glwd.ije945m.mongodb.net/?retryWrites=true&w=majority', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   });
-
 
