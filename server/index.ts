@@ -8,7 +8,8 @@ import userRouter from "./routes/api/users-router";
 import sql from './db/connection';
 import User from "./models/user";
 
-
+// Makes the `Request` object have a `session` field.
+// This was added via the `express-session` package.
 declare global {
   namespace Express {
     interface Request {
