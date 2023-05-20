@@ -1,8 +1,10 @@
-function checkAuth (req, res, next) {
-    if (req.session.user) 
+import { Request, Response } from "express";
+
+function checkAuth(req: Request, res: Response, next: Function) {
+    if (req.session.user)
         next();
     else
-        res.status(400).json({err: 'You must be logged in to perform this action.'});
+        res.status(400).json({ err: 'You must be logged in to perform this action.' });
 }
 
-module.exports = checkAuth;
+export default checkAuth;

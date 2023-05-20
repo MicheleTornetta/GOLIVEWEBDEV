@@ -3,19 +3,35 @@ import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
 
-import { userRouter } from "./routes/api/users-router";
+import userRouter from "./routes/api/users-router";
 
 import sql from './db/connection';
+import User from "./models/user";
+
+
+declare global {
+  namespace Express {
+    interface Request {
+      session: {
+        user?: string
+      }
+    }
+  }
+}
+
 
 runServer();
 
-async function runServer() {  
-  const result = await sql`
+async function runServer() {
+  const result = await sql<User[]>`
     SELECT * FROM Users;
   `;
 
   console.log('About to print!');
-  console.log(result);
+
+  for (let i = 0; i < result.length; i++) {
+    console.log(result[i].username);
+  }
 
   dotenv.config({ path: "./vars.env" });
 
@@ -52,7 +68,7 @@ async function runServer() {
   });
 
   http.createServer(app).listen(PORT_HTTP, () => {
-    console.log(`Listening on ${PORT_HTTP}!`);
+    console.log(`Listening on http://127.0.0.1:${PORT_HTTP}`);
   });
 }
 

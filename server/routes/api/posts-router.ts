@@ -1,62 +1,63 @@
 // External Dependencies
 
-const router = require("express").Router();
-const Users = require('./user');
-const Post = require("../../models/posts");
-const checkAuth = require("../auth/authentication");
+import { Request, Response } from "express";
 
+import express from "express";
+import checkAuth from "../auth/authentication";
 
-router.post("/", checkAuth, async (req, res) => {
-  try {
-    // create a post
-    console.log(req.session.user);
+const router = express.Router();
 
-    await Post.create({
-      user_id: req.session.user,
-      title: req.body.title,
-      article: req.body.article,
-      date: new Date(),
-    });
+router.post("/", checkAuth, async (req: Request, res: Response) => {
+  // try {
+  //   // create a post
+  //   console.log(req.session.user);
 
-    res.json({"message": "Success"});
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+  //   await Post.create({
+  //     user_id: req.session.user,
+  //     title: req.body.title,
+  //     article: req.body.article,
+  //     date: new Date(),
+  //   });
+
+  //   res.json({ "message": "Success" });
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
 });
 
-router.delete('/:id', checkAuth, async (req, res) => {
-  const result = await Post.destroy({
-    cascade: true,
-    where: {
-      id: req.params.id,
-      user_id: req.session.user
-    }
-  });
+router.delete('/:id', checkAuth, async (req: Request, res: Response) => {
+  // const result = await Post.destroy({
+  //   cascade: true,
+  //   where: {
+  //     id: req.params.id,
+  //     user_id: req.session.user
+  //   }
+  // });
 
-  res.status(200).json({
-    success: result !== 0
-  });
+  // res.status(200).json({
+  //   success: result !== 0
+  // });
 })
 
-router.put("/:id", checkAuth, async (req, res) => {
-  try {
-    // update a post
-    const result = await Post.update({
-      title: req.body.title,
-      article: req.body.article,
-      date: new Date(),
-    }, {
-      where: {
-        id: req.params.id,
-        user_id: req.session.user
-      }
-    });
+router.put("/:id", checkAuth, async (req: Request, res: Response) => {
+  // try {
+  //   // update a post
+  //   const result = await Post.update({
+  //     title: req.body.title,
+  //     article: req.body.article,
+  //     date: new Date(),
+  //   }, {
+  //     where: {
+  //       id: req.params.id,
+  //       user_id: req.session.user
+  //     }
+  //   });
 
-    res.json({updatedRows: result[0]});
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  //   res.json({ updatedRows: result[0] });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
-module.exports = router;
+export default router;
