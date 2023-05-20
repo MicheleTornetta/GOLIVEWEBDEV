@@ -2,9 +2,8 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
-// import mongoose from 'mongoose';
-// import { connectToDatabase } from "./server/dbClient/database.client"
-// import { userRouter } from "./server/routes/user.router";
+
+import { userRouter } from "./routes/api/users-router";
 
 import sql from './db/connection';
 

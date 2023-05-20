@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Clients (
     street VARCHAR(250) NOT NULL,
     street2 VARCHAR(250),
     city VARCHAR(250) NOT NULL,
-    state VARCHAR(250) NOT NULL,
-    zip VARCHAR(250) NOT NULL,
+    state CHAR(2) NOT NULL,
+    zip INT(5) NOT NULL,
 	
-	user_id INT NOT NULL REFERENCES Users
+	user_id INT FOREIGN KEY NOT NULL REFERENCES Users
 );
