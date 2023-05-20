@@ -33,7 +33,9 @@ async function runServer() {
     console.log(result[i].username);
   }
 
-  dotenv.config({ path: "./vars.env" });
+  if (dotenv.config({ path: "./vars.env" }).error) {
+    throw new Error('Missing vars.env!');
+  }
 
   const app: Express = express();
 
