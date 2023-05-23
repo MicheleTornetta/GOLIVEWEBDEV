@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('templates/head.ejs') %>
-    <link rel="stylesheet" href="./assets/css/home/home.css" />
+
+<head>
+  <%- include('templates/head.ejs') %>
+    <link rel="stylesheet" href="/assets/css/home/home.css" />
 
     <title>GoLive WebDev</title>
-  </head>
-  <body>
-    <%- include('templates/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('templates/nav.ejs') %>
 
     <main>
       <header>
         <div class="header-cover">
           <div class="header-card">
-            <img
-              src="assets/images/logo/GLWDCirclePur50.png"
-              class="logocircle"
-              alt="GoLive WebDev logo."
-            />
+            <img src="assets/images/logo/GLWDCirclePur50.png" class="logocircle" alt="GoLive WebDev logo." />
             <h1>
               <span class="purple">Go</span><span class="grey">Live</span>
               <span class="purple">Web</span><span class="grey">Dev</span>
@@ -37,5 +35,6 @@
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-  </body>
+</body>
+
 </html>

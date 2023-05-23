@@ -20,7 +20,6 @@ declare global {
   }
 }
 
-
 runServer();
 
 async function runServer() {
