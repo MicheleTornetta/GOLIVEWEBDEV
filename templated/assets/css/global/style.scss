@@ -8,13 +8,18 @@
   --accent2: #fbeec1; // cream
   --accent3: #917164; // tan
   --accent4: #ad8174; // nude
-  --text: #eeeeee; // white
+  --white: #eee;
+  --text: #141414; // not white
   --textdk: #141414; // dark grey
   --textblk: #000000; // dark grey
 }
 
 .purple {
   color: var(--btn);
+}
+
+.grey {
+  color: var(--white);
 }
 
 //Global
@@ -44,9 +49,13 @@
   display: flex;
 }
 
+html {
+  background-color: #333;
+}
+
 main {
   padding-bottom: 20px;
-  background-color: #333;
+  background-color: #eee;
 }
 
 // #bgimg {

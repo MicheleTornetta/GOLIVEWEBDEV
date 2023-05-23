@@ -33,6 +33,10 @@ header {
   background-attachment: fixed;
   background-size: cover;
 
+  p {
+    color: var(--white);
+  }
+
   h1 {
     text-transform: none;
   }
