@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('templates/head.ejs') %>
-    <link rel="stylesheet" href="./assets/css/contact/contact.css" />
+
+<head>
+  <%- include('templates/head.ejs') %>
+    <link rel="stylesheet" href="/assets/css/contact/contact.css" />
     <title>GoLive WebDev</title>
-  </head>
-  <body>
-    <%- include('templates/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('templates/nav.ejs') %>
 
     <main>
       <header>
@@ -26,51 +28,19 @@
               required
             />
             <div></div>
-            <input
-              type="text"
-              class="contact-form-text"
-              placeholder="Your Company"
-              companyname="companyname"
-              required
-            />
+            <input type="text" class="contact-form-text" placeholder="Your Company" companyname="companyname"
+              required />
             <div></div>
-            <input
-              type="email"
-              class="contact-form-text"
-              placeholder="Your email"
-              name="youremail"
-              required
-            />
+            <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
             <div></div>
-            <input
-              type="phone"
-              class="contact-form-text"
-              placeholder="Your Phone Number"
-              name="yourphonenumber"
-              required
-            />
+            <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="yourphonenumber"
+              required />
             <div></div>
-            <input
-              type="text"
-              class="contact-form-text"
-              name="yoursubject"
-              placeholder="Subject"
-              required
-            />
+            <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
             <div></div>
-            <textarea
-              class="contact-form-message"
-              placeholder="Your message"
-              name="yourmessage"
-            ></textarea>
+            <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
             <div></div>
-            <input
-              type="submit"
-              id="form-submit"
-              class="contact-form-btn"
-              value="Send"
-              required
-            />
+            <input type="submit" id="form-submit" class="contact-form-btn" value="Send" required />
             <div></div>
           </form>
         </div>
@@ -85,5 +55,6 @@
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-  </body>
+</body>
+
 </html>

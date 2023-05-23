@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('templates/head.ejs') %>
-    <script src="./assets/js/script.js" defer></script>
-    <link rel="stylesheet" href="./assets/css/blog/blog.css" />
+
+<head>
+  <%- include('templates/head.ejs') %>
+    <script src="/assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/blog/blog.css" />
     <title>GoLive WebDev</title>
-  </head>
-  <body>
-    <%- include('templates/nav.ejs') %>
+</head>
+
+<body>
+  <%- include('templates/nav.ejs') %>
     <main>
       <header>
         <section class="blog-page">
@@ -25,12 +27,7 @@
             <input type="text" name="postTitle" class="form-control" />
             <div></div>
             <label class="form-label">Post</label>
-            <textarea
-              cols="100"
-              rows="10"
-              class="form-control"
-              name="postBody"
-            ></textarea>
+            <textarea cols="100" rows="10" class="form-control" name="postBody"></textarea>
             <button type="submit" class="btn btn-primary publish">
               Publish
             </button>
@@ -47,5 +44,6 @@
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-  </body>
+</body>
+
 </html>

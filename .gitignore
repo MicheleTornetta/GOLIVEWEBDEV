@@ -104,3 +104,7 @@ vars.env
 
 # TernJS port file
 .tern-port
+
+
+*.css
+*.css.map
