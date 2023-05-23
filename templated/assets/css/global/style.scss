@@ -1,25 +1,35 @@
-/*Colors*/
+// Colors
 
 :root {
-  --background: #141414; /*dark grey*/
-  --btn: #5a5af8; /*purple*/
-  --accent1: #c7493a; /*light orange*/
-  --accent2: #fbeec1; /*cream*/
-  --accent3: #917164; /*tan*/
-  --accent4: #ad8174; /*nude*/
-  --text: #eeeeee; /*white*/
-  --textdk: #141414; /*dark grey*/
+  --background: #141414; // dark grey
+  --btn: #5a5af8; // purple
+  --header: #5a5af8; // purple
+  --accent1: #c7493a; // light orange
+  --accent2: #fbeec1; // cream
+  --accent3: #917164; // tan
+  --accent4: #ad8174; // nude
+  --text: #eeeeee; // white
+  --textdk: #141414; // dark grey
 }
 
 .purple {
   color: var(--btn);
 }
 
-.grey {
-  color: #ddd;
-}
-
 //Global
+
+.has-aside {
+  display: flex;
+  flex-direction: row;
+
+  :not(aside) {
+    flex: 1;
+  }
+
+  aside {
+    padding: 0 30px;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -35,6 +45,7 @@
 
 main {
   padding-bottom: 20px;
+  background-color: #333;
 }
 
 // #bgimg {
@@ -48,7 +59,7 @@ main {
 // }
 
 h1 {
-  font-size: 40px;
+  font-size: 3.6em;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;
@@ -56,7 +67,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 2.5em;
   color: var(--text);
   align-items: flex-end;
   justify-content: flex-end;

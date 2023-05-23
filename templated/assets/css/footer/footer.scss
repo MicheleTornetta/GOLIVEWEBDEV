@@ -1,5 +1,9 @@
-footer h2 {
-  background-color: var(--text);
-  padding: 10px 0 5px 20px;
-  color: var(--textdk);
+footer {
+  background-color: var(--textdk);
+  text-align: center;
+
+  p {
+    padding: 10px 0 5px 20px;
+    color: var(--text);
+  }
 }
