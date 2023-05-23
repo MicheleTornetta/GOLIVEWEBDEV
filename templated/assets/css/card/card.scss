@@ -1,0 +1,27 @@
+.card {
+    border: solid thin var(--background);
+    box-shadow: 7px 5px var(--background);
+    width: 30%;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--btn);
+    // opacity: .8;
+
+}
+
+.cardBtn {
+    background-color: var(--background);
+    opacity: .9;
+    color: var(--text);
+    width: 150px;
+    padding: 5px;
+
+}
+
+.cardImg {
+    align-self: center;
+    justify-self: baseline;
+    padding: 5px;
+    width: 70%;
+    
+}

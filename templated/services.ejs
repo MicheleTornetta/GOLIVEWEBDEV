@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('templates/head.ejs') %>
+  <head>
+    <%- include('templates/head.ejs') %>
+    <link rel="stylesheet" href="/assets/css/card/card.css" />
     <script src="/assets/js/script.js" defer></script>
     <title>GoLive WebDev</title>
-</head>
+  </head>
 
-<body>
-  <%- include('templates/nav.ejs') %>
+  <body>
+    <%- include('templates/nav.ejs') %>
 
     <main>
-      <header>
-        <section id="header-end">
-          <article>
-            <div>
-              <div></div>
-            </div>
-          </article>
-        </section>
-      </header>
+      <header></header>
+      <section>
+        <div>
+          <section class="card">
+            <h1>Hosting</h1>
+            <img src="/assets/images/logo/GoLive-WebDevPurWht.png" class="cardImg" alt="bla" />
+            <h3>Dedicated Hosting</h3>
+            <p>Some blurb about a service</p>
+            <button class="cardBtn">Click Here</button>
+          </section>
+        </div>
+      </section>
     </main>
     <%- include('templates/footer.ejs') %>
-</body>
-
+  </body>
 </html>
