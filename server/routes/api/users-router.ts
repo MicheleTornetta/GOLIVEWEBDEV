@@ -1,101 +1,149 @@
 // External Dependencies
 
 import express, { Request, Response } from "express";
-import User from "../../models/user";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import sql from '../../db/connection';
+import rateLimit from 'express-rate-limit'
 
 // Global Config
 
 const userRouter = express.Router();
-
-
 userRouter.use(express.json());
 
-// GET
+const ONE_HOUR = 60 * 60 * 1000;
+const MAX_REGISTRATIONS_PER_TIME_FRAME = 2;
 
-userRouter.get("/", async (_req: Request, res: Response) => {
-    // try {
-    //     const user = (await client.user.find({}).toArray()) as User[];
-
-    //     res.status(200).send(user);
-    // } catch (error) {
-    //     res.status(500).send(error.message);
-    // }
+const registerLimiter = rateLimit({
+    windowMs: ONE_HOUR,
+    max: MAX_REGISTRATIONS_PER_TIME_FRAME,
+    standardHeaders: true,
+    legacyHeaders: false,
+    skipFailedRequests: true,
+    message: {
+        error: 'Too many account registrations.'
+    }
 });
 
-userRouter.get("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+const FIFTEEN_MINUTES = 15 * 60 * 1000;
+const MAX_LOGIN_REQUESTS_PER_TIME_FRAME = 15;
 
-    // try {
-
-    //     const query = { _id: new ObjectId(id) };
-    //     const user = (await client.users.findOne(query)) as User;
-
-    //     if (user) {
-    //         res.status(200).send(user);
-    //     }
-    // } catch (error) {
-    //     res.status(404).send(`Unable to find matching user with id: ${req.params.id}`);
-    // }
+const loginLimiter = rateLimit({
+    windowMs: FIFTEEN_MINUTES,
+    max: MAX_LOGIN_REQUESTS_PER_TIME_FRAME,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        error: 'Too many attempts, please try again later.'
+    },
+    skipSuccessfulRequests: true,
 });
 
-// POST
+userRouter.post('/register', registerLimiter, async (req: Request<any, any, {
+    username: string | undefined,
+    password: string | undefined,
+    email: string | undefined
+}>, res: Response<{ error?: string, username?: string }>) => {
+    const { username, password, email } = req.body;
 
-userRouter.post("/", async (req: Request, res: Response) => {
-    // try {
-    //     const newUser = req.body as User;
-    //     const result = await client.user.insertOne(newUser);
+    if (!username || !password || !email) {
+        res.status(403).send({
+            error: 'Missing username, password, or email.'
+        });
+        return;
+    }
 
-    //     result
-    //         ? res.status(201).send(`Successfully created a new user with id ${result.insertedId}`)
-    //         : res.status(500).send("Failed to create a new user.");
-    // } catch (error) {
-    //     console.error(error);
-    //     res.status(400).send(error.message);
-    // }
+    const alreadyExists = await sql<{ alreadyExists: number }[]>`SELECT 1 AS already_exists FROM Users WHERE username = ${username} OR email = ${email}`;
+
+    if (alreadyExists.length) {
+        res.status(403).send({
+            error: 'A user with that username or email already exists.',
+        });
+        return;
+    }
+
+    if (password.length < 10) {
+        res.status(403).send({
+            error: 'Password must be at least 10 characters.'
+        });
+        return;
+    }
+
+    const splitEmail = email.split('@');
+
+    if (splitEmail.length !== 2 || !splitEmail[1].includes('.')) {
+        res.status(403).send({
+            error: 'Invalid email provided.'
+        });
+        return;
+    }
+
+    const saltRounds = 10;
+
+    bcrypt.hash(password, saltRounds, (err, encrypted) => {
+        if (err) {
+            res.status(500).send({
+                error: 'Something went wrong.'
+            });
+            throw err;
+        }
+
+        sql`
+            INSERT INTO Users (username, password, email)
+                VALUES (${username}, ${encrypted}, ${email});
+        `.execute();
+
+        res.send({
+            username
+        });
+    });
 });
 
-// PUT
+userRouter.post('/login', loginLimiter, async (req: Request<any, any, {
+    username: string | undefined,
+    password: string | undefined
+}>, res: Response<{ error?: string, username?: string }>) => {
+    const { username, password } = req.body;
 
-userRouter.put("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+    if (!username || !password) {
+        res.status(400).send({
+            error: 'Invalid username or password.'
+        });
+        return;
+    }
 
-    // try {
-    //     const updatedUser: User = req.body as User;
-    //     const query = { _id: new ObjectId(id) };
+    const user = await sql<{ password: string }[]>`
+        SELECT password FROM Users WHERE Username = ${username}
+    `;
 
-    //     const result = await client.userClient.updateOne(query, { $set: updatedUser });
+    if (user.length !== 1) {
+        res.status(400).send({
+            error: 'Invalid username or password.'
+        });
+        return;
+    }
 
-    //     result
-    //         ? res.status(200).send(`Successfully updated user with id ${id}`)
-    //         : res.status(304).send(`User with id: ${id} not updated`);
-    // } catch (error) {
-    //     console.error(error.message);
-    //     res.status(400).send(error.message);
-    // }
+    const encryptedPassword = user[0].password;
+
+    bcrypt.compare(password, encryptedPassword, (err, same) => {
+        if (err) {
+            res.status(500).send({
+                error: 'Something went wrong.'
+            });
+            throw err;
+        }
+
+        if (same) {
+            res.send({
+                username
+            });
+        }
+        else {
+            res.status(400).send({
+                error: 'Invalid username or password.'
+            });
+        }
+    });
 });
-
-// DELETE
-
-userRouter.delete("/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
-
-    // try {
-    //     const query = { _id: new ObjectId(id) };
-    //     const result = await client.user.deleteOne(query);
-
-    //     if (result && result.deletedCount) {
-    //         res.status(202).send(`Successfully removed user with id ${id}`);
-    //     } else if (!result) {
-    //         res.status(400).send(`Failed to remove user with id ${id}`);
-    //     } else if (!result.deletedCount) {
-    //         res.status(404).send(`User with id ${id} does not exist`);
-    //     }
-    // } catch (error) {
-    //     console.error(error.message);
-    //     res.status(400).send(error.message);
-    // }
-});
-
-
 
 export default userRouter;

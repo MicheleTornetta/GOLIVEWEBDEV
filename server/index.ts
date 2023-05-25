@@ -3,10 +3,9 @@ import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
 
-import userRouter from "./routes/api/users-router";
-
 import sql from './db/connection';
 import User from "./models/user";
+import router from './routes';
 
 // Makes the `Request` object have a `session` field.
 // This was added via the `express-session` package.
@@ -14,7 +13,10 @@ declare global {
   namespace Express {
     interface Request {
       session: {
-        user?: string
+        /**
+         * If a user is logged in, this will not be null.
+         */
+        user?: LoggedInUser
       }
     }
   }
@@ -23,16 +25,6 @@ declare global {
 runServer();
 
 async function runServer() {
-  const result = await sql<User[]>`
-    SELECT * FROM Users;
-  `;
-
-  console.log('About to print!');
-
-  for (let i = 0; i < result.length; i++) {
-    console.log(result[i].username);
-  }
-
   if (dotenv.config({ path: "./vars.env" }).error) {
     throw new Error('Missing vars.env!');
   }
@@ -42,6 +34,8 @@ async function runServer() {
   const PORT_HTTP = process.env.PORT_HTTP;
 
   app.use(express.json());
+
+  app.use('/api', router);
 
   app.get("/*", (req: Request, res: Response) => {
     let path = req.url;

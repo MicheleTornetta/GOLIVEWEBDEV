@@ -2,11 +2,11 @@
 
 import express from "express";
 import Comments from "../../models/comments";
-import checkAuth from "../auth/authentication";
+import checkLoggedIn from "../auth/authentication";
 
 const router = express.Router();
 
-router.post("/:id", checkAuth, async (req, res) => {
+router.post("/:id", checkLoggedIn, async (req, res) => {
   // try {
   //   // create a comment
   //   await Comments.create({
