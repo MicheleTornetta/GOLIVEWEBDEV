@@ -12,58 +12,72 @@
 
 /*THIS IS THE HEADER SECTION W/OUT NAV BAR*/
 
-.login-page {
-  background-color: var(--accent4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: max(80vh, 600px);
-  // text-shadow: 2px 2px #333333;
+// .login-page {
+//   background-color: var(--accent4);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: max(80vh, 600px);
+//   // text-shadow: 2px 2px #333333;
 
-  background-color: var(--background);
-  background-image: url("/assets/images/background/PurBG.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+//   background-color: var(--background);
+//   background-image: url("/assets/images/background/PurBG.png");
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-size: cover;
 
-  .login-cover {
-    background-color: rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+//   .login-cover {
+//     background-color: rgba(0, 0, 0, 0.2);
+//     display: flex;
+//     flex: 1;
+//     justify-content: center;
+//     align-items: center;
 
-    .header-card {
-      width: 100%;
-      height: 50%;
-      width: 60%;
+//     .header-card {
+//       width: 100%;
+//       height: 50%;
+//       width: 60%;
 
-      // centers it
-      margin: 0 auto;
+//       // centers it
+//       margin: 0 auto;
 
-      background-color: rgba(0, 0, 0, 0.5);
+//       background-color: rgba(0, 0, 0, 0.5);
 
-      color: var(--BG);
+//       color: var(--BG);
 
-      padding: 10%;
+//       padding: 10%;
 
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      flex-direction: column;
+//       text-align: center;
+//       display: flex;
+//       justify-content: center;
+//       align-content: center;
+//       flex-direction: column;
 
-      hr {
-        color: #ddd;
-      }
+//       hr {
+//         color: #ddd;
+//       }
 
-      * {
-        margin: 10px 0;
-      }
+//       * {
+//         margin: 10px 0;
+//       }
 
       p {
         font-size: 1.3em;
+        color: var(--white);
       }
-    }
-  }
-}
+
+      h1 {
+        color: var(--white) !important; 
+      }
+
+      h2 {
+        color: var(--white) !important;
+      }
+
+      h3 {
+        color: var(--white) !important;
+      }
+
+//     }
+//   }
+// }
