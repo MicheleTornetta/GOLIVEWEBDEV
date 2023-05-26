@@ -3,11 +3,11 @@
 import { Request, Response } from "express";
 
 import express from "express";
-import checkLoggedIn from "../auth/authentication";
+import { requiresAuth } from "express-openid-connect";
 
 const router = express.Router();
 
-router.post("/", checkLoggedIn, async (req: Request, res: Response) => {
+router.post("/", requiresAuth, async (req: Request, res: Response) => {
   // try {
   //   // create a post
   //   console.log(req.session.user);
@@ -26,7 +26,7 @@ router.post("/", checkLoggedIn, async (req: Request, res: Response) => {
   // }
 });
 
-router.delete('/:id', checkLoggedIn, async (req: Request, res: Response) => {
+router.delete('/:id', requiresAuth, async (req: Request, res: Response) => {
   // const result = await Post.destroy({
   //   cascade: true,
   //   where: {
@@ -40,7 +40,7 @@ router.delete('/:id', checkLoggedIn, async (req: Request, res: Response) => {
   // });
 })
 
-router.put("/:id", checkLoggedIn, async (req: Request, res: Response) => {
+router.put("/:id", requiresAuth, async (req: Request, res: Response) => {
   // try {
   //   // update a post
   //   const result = await Post.update({

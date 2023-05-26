@@ -2,25 +2,9 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
+import { auth, requiresAuth } from 'express-openid-connect';
 
-import sql from './db/connection';
-import User from "./models/user";
 import router from './routes';
-
-// Makes the `Request` object have a `session` field.
-// This was added via the `express-session` package.
-declare global {
-  namespace Express {
-    interface Request {
-      session: {
-        /**
-         * If a user is logged in, this will not be null.
-         */
-        user?: LoggedInUser
-      }
-    }
-  }
-}
 
 runServer();
 
@@ -31,11 +15,31 @@ async function runServer() {
 
   const app: Express = express();
 
+  const authConfig = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.AUTH_SECRET,
+    baseURL: 'http://localhost:8080',
+    clientID: process.env.AUTH_CLIENT_ID,
+    issuerBaseURL: process.env.AUTH_ISSUER_BASE_URL
+  };
+
+  // auth router attaches /login, /logout, and /callback routes to the baseURL
+  app.use(auth(authConfig));
+
   const PORT_HTTP = process.env.PORT_HTTP;
 
   app.use(express.json());
 
   app.use('/api', router);
+
+  app.get('/amiloggedin', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  });
+
+  app.get('/profile', requiresAuth(), (req, res) => {
+    res.send(JSON.stringify(req.oidc.user));
+  });
 
   app.get("/*", (req: Request, res: Response) => {
     let path = req.url;
@@ -47,7 +51,10 @@ async function runServer() {
     path = path.replace(".html", ".ejs");
 
     if (path.includes(".ejs")) {
-      ejs.renderFile("templated/" + path, function (err, compiled) {
+      console.log(req.oidc.user);
+      ejs.renderFile("templated/" + path, {
+        user: req.oidc.user
+      }, function (err, compiled) {
         if (err) {
           res.status(404).send("404 not found ;(");
         } else {
