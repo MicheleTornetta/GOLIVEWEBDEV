@@ -1,5 +1,12 @@
 .card {
 
+    img {
+        align-self: center;
+        justify-self: center;
+        padding: 5px;
+        width: 70%;
+    }
+
     p,
     h3,
     h2 {
@@ -8,7 +15,7 @@
 
     h2 {
         padding-bottom: 20px;
-        padding-left: 0;
+        padding-left: 10;
     }
 
     p {
@@ -22,8 +29,9 @@
     padding: 20px;
     margin: 20px;
     background-color: var(--btn);
-    display: flex;
+    display: grid;
     flex-direction: column;
+
 
     button {
         background-color: var(--background);
@@ -36,12 +44,11 @@
         align-self: center;
         border: none;
         cursor: pointer;
+        justify-self: center;
+        margin-top: auto;
+
+
     }
 
-    img {
-        align-self: center;
-        justify-self: baseline;
-        padding: 5px;
-        width: 70%;
-    }
+
 }

@@ -4,6 +4,7 @@
 <head>
   <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/card/card.css" />
+    <link rel="stylesheet" href="/assets/css/services/services.css" />
     <script src="/assets/js/script.js" defer></script>
     <title>GoLive WebDev</title>
 </head>
@@ -12,30 +13,33 @@
   <%- include('templates/nav.ejs') %>
 
     <main>
-      <header></header>
+      <header>
+        <h1 class="services">GoLive WebDev Services</h1>
+      </header>
       <section>
-        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center;">
+        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center; flex:1;">
           <section class="card">
-            <img src="/assets/images/temp.png" />
+            <img src="/assets/images/home/servers2.png" />
+            <h2>Custom Website</h2>
+            <p>We will build and maintain your website.</p>
+            <p>We will update your website up to twice a month for free.</p>
+            <p>Want weekly or even daily changes? We can do that too!</p>
+            <button>Click Here</button>
+          </section>
+
+          <section class="card">
+            <img src="/assets/images/home/servers2.png" />
             <h2>Dedicated Hosting</h2>
-            <p>We provide deidcated hosting</p>
+            <p>We provide deidcated hosting that will help address regulatory requirements and corporate compliance so you don't have too!</p>
             <p>So you don't have to worry!</p>
             <button>Click Here</button>
           </section>
 
           <section class="card">
-            <img src="/assets/images/temp.png" />
-            <h2>Dedicated Hosting</h2>
-            <p>We provide deidcated hosting</p>
-            <p>So you don't have to worry!</p>
-            <button>Click Here</button>
-          </section>
-
-          <section class="card">
-            <img src="/assets/images/temp.png" />
-            <h2>Dedicated Hosting</h2>
-            <p>We provide deidcated hosting</p>
-            <p>So you don't have to worry!</p>
+            <img src="/assets/images/home/servers2.png" />
+            <h2>SQL Database</h2>
+            <p>We can build a database.</p>
+            <p>Capture your customer's information</p>
             <button>Click Here</button>
           </section>
         </div>
