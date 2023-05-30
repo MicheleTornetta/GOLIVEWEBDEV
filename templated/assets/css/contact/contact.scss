@@ -1,63 +1,133 @@
-// /*THIS IS THE HEADER SECTION W/OUT NAV BAR*/
+.contact-header {
 
-// header {
-//   background-color: var(--accent4);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: max(80vh, 600px);
-//   // text-shadow: 2px 2px #333333;
+}
 
-//   background-color: var(--background);
-//   background-image: url("/assets/images/background/PurBG.png");
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-size: cover;
+h1 {
+    color: var(--white);
+}   
 
-//   .header-cover {
-//     background-color: rgba(0, 0, 0, 0.2);
-//     width: 100%;
-//     height: 100%;
+.contact {
 
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
+    p,
+    h3,
+    h2 {
+        color: var(--textdk);
+        font-size: larger;
+    }
+  
+    h2 {
+        padding-bottom: 10px;
+        padding: 10px;
+        color: var(--textdk);
+    }
+  
+    h1 {
+      color: var(--textdk);
+      font-size: xx-large;
+      padding: 10px;
+  }
+  
+    p {
+        padding: 10px;
+        color: var(--textdk);
+    }
+  
+    border: solid thin var(--background);
+    box-shadow: 7px 5px var(--background);
+    width: 60%;
+    min-width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+  
+    // button {
+    //     background-color: var(--background);
+    //     opacity: .9;
+    //     color: var(--white);
+    //     width: 150px;
+    //     padding: 16px 12px;
+    //     margin: 10px 0;
+    //     font-size: 1.3em;
+    //     align-self: center;
+    //     border: none;
+    //     cursor: pointer;
+    // }
+  
+    // img {
+    //     align-self: center;
+    //     justify-self: baseline;
+    //     padding: 5px;
+    //     width: 70%;
+    // }
+  }
+  
+  .card-contact {
+  
+    p,
+    h3,
+    h2 {
+        color: var(--white);
+        font-size: larger;
+    }
+  
+    h2 {
+        padding-bottom: 10px;
+        padding: 10px;
+    }
+  
+    h1 {
+      color: var(--textdk);
+      font-size: xx-large;
+      padding: 10px;
+  }
+  
+    p {
+        padding-left: 10px;
+    }
+  
+    border: solid thin var(--background);
+    box-shadow: 7px 5px var(--background);
+    width: 25%;
+    min-width: 300px;
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--btn);
+    display: flex;
+    flex-direction: column;
+  
+    .email-button {
+        background-color: var(--background);
+        opacity: .9;
+        color: var(--white);
+        width: 150px;
+        padding: 16px 12px;
+        margin: 10px 0;
+        font-size: 1.3em;
+        align-self: center;
+        border: none;
+        cursor: pointer;
+        justify-self: center;
+        margin-top: auto;
+    }
 
-//     .header-card {
-//       width: 100%;
-//       height: 50%;
-//       width: 60%;
+    .contact-form-text {
+        padding: 2px;
+        margin: 10px 0;
+    }
 
-//       // centers it
-//       margin: 0 auto;
-
-//       background-color: rgba(0, 0, 0, 0.5);
-
-//       color: var(--BG);
-
-//       padding: 10%;
-
-//       text-align: center;
-//       display: flex;
-//       justify-content: center;
-//       align-content: center;
-//       flex-direction: column;
-
-//       hr {
-//         color: #ddd;
-//       }
-
-//       * {
-//         margin: 10px 0;
-//       }
-
-//       p {
-//         font-size: 1.3em;
-//       }
-
-
-//     }
-//   }
-// }
-
-
+    .contact-form-message {
+        padding: 2px;
+        margin: 10px 0;  
+    }
+  
+    img {
+        align-self: center;
+        justify-self: baseline;
+        padding: 5px;
+        width: 80%;
+    }
+  }
+  
+  

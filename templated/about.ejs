@@ -3,7 +3,8 @@
 
 <head>
   <%- include('templates/head.ejs') %>
-    <link rel="stylesheet" href="/assets/css/home/home.css" />
+    <link rel="stylesheet" href="/assets/css/card/card.css" />
+    <link rel="stylesheet" href="/assets/css/about/about.css" />
     <title>GoLive WebDev</title>
 </head>
 
@@ -14,13 +15,35 @@
       <header>
         <h1>About Us</h1>
       </header>
-      <section id="header-end" class="has-aside">
-        <aside>
-          <h2>Who We Are</h2>
-        </aside>
-        <article>
-          <p>We make websites for cool people. We are based in lebanon. Other stuff here.</p>
-        </article>
+      <section id="header-end" class="about-article">
+      <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center;"></div>
+        <article class="aboutpage">
+            <h2>Who We Are</h2>
+            <h3>A team who specializes in frontend and backend website and web app developement.</h3>
+              <p>blah blah blah.</p>
+              <p>blah blah blah.  </p> 
+          </article>
+        </div>
+      </section>
+      <section class="aboutbio">
+        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center; flex:1;">
+          <section class="card">
+            <img src="/assets/images/about/michele.png" />
+            <h3>Michele Tornetta</h3>
+            <p>We will build and maintain your website.</p>
+            <p>We will update your website up to twice a month for free.</p>
+            
+          </section>
+
+          <section class="card">
+            <img src="/assets/images/about/anthony.png" />
+            <h3>Anthony Tornetta</h3>
+            <p>I grew up in Lebanon County Pennsylvania.  I started coding when I was 8 years old and have a passion for backend development.  </p>
+            <p>So you don't have to worry!</p>
+          </section>
+
+
+        </div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
