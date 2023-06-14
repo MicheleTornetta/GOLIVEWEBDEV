@@ -1,133 +1,111 @@
 .contact-header {
-
 }
 
 h1 {
-    color: var(--white);
-}   
+  color: var(--white);
+}
 
 .contact {
-
-    p,
-    h3,
-    h2 {
-        color: var(--textdk);
-        font-size: larger;
-    }
-  
-    h2 {
-        padding-bottom: 10px;
-        padding: 10px;
-        color: var(--textdk);
-    }
-  
-    h1 {
-      color: var(--textdk);
-      font-size: xx-large;
-      padding: 10px;
+  p,
+  h3,
+  h2 {
+    color: var(--textdk);
+    font-size: larger;
   }
-  
-    p {
-        padding: 10px;
-        color: var(--textdk);
-    }
-  
-    border: solid thin var(--background);
-    box-shadow: 7px 5px var(--background);
-    width: 60%;
-    min-width: 300px;
+
+  h2 {
+    padding-bottom: 10px;
     padding: 10px;
-    margin: 10px;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-  
-    // button {
-    //     background-color: var(--background);
-    //     opacity: .9;
-    //     color: var(--white);
-    //     width: 150px;
-    //     padding: 16px 12px;
-    //     margin: 10px 0;
-    //     font-size: 1.3em;
-    //     align-self: center;
-    //     border: none;
-    //     cursor: pointer;
-    // }
-  
-    // img {
-    //     align-self: center;
-    //     justify-self: baseline;
-    //     padding: 5px;
-    //     width: 70%;
-    // }
+    color: var(--textdk);
   }
-  
-  .card-contact {
-  
-    p,
-    h3,
-    h2 {
-        color: var(--white);
-        font-size: larger;
-    }
-  
-    h2 {
-        padding-bottom: 10px;
-        padding: 10px;
-    }
-  
-    h1 {
-      color: var(--textdk);
-      font-size: xx-large;
-      padding: 10px;
-  }
-  
-    p {
-        padding-left: 10px;
-    }
-  
-    border: solid thin var(--background);
-    box-shadow: 7px 5px var(--background);
-    width: 25%;
-    min-width: 300px;
+
+  h1 {
+    color: var(--textdk);
+    font-size: xx-large;
     padding: 10px;
-    margin: 10px;
-    background-color: var(--btn);
-    display: flex;
-    flex-direction: column;
-  
-    .email-button {
-        background-color: var(--background);
-        opacity: .9;
-        color: var(--white);
-        width: 150px;
-        padding: 16px 12px;
-        margin: 10px 0;
-        font-size: 1.3em;
-        align-self: center;
-        border: none;
-        cursor: pointer;
-        justify-self: center;
-        margin-top: auto;
-    }
-
-    .contact-form-text {
-        padding: 2px;
-        margin: 10px 0;
-    }
-
-    .contact-form-message {
-        padding: 2px;
-        margin: 10px 0;  
-    }
-  
-    img {
-        align-self: center;
-        justify-self: baseline;
-        padding: 5px;
-        width: 80%;
-    }
   }
-  
-  
+
+  p {
+    padding: 10px;
+    color: var(--textdk);
+  }
+
+  border: solid thin var(--background);
+  box-shadow: 4px 2px var(--background);
+  width: 25%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+
+  img {
+    align-self: center;
+    // justify-self: baseline;
+    padding: 5px;
+    width: 80%;
+    justify-self: center;
+    margin-top: auto;
+  }
+}
+
+.card-contact {
+  p,
+  h3,
+  h2 {
+    color: var(--white);
+    font-size: larger;
+  }
+
+  h2 {
+    padding-bottom: 10px;
+    padding: 10px;
+  }
+
+  h1 {
+    color: var(--white);
+    font-size: xx-large;
+    padding: 10px;
+    align-self: center;
+  }
+
+  p {
+    padding-left: 10px;
+  }
+
+  border: solid thin var(--background);
+  box-shadow: 7px 5px var(--background);
+  width: 60%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--btn);
+  display: flex;
+  flex-direction: column;
+
+  .email-button {
+    background-color: var(--background);
+    opacity: 0.9;
+    color: var(--white);
+    width: 150px;
+    padding: 16px 12px;
+    margin: 10px 0;
+    font-size: 1.3em;
+    align-self: center;
+    border: none;
+    cursor: pointer;
+    justify-self: center;
+    margin-top: auto;
+  }
+
+  .contact-form-text {
+    padding: 5px;
+    margin: 10px 0;
+  }
+
+  .contact-form-message {
+    padding: 5px;
+    margin: 10px 0;
+  }
+}
