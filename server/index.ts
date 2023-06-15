@@ -31,7 +31,7 @@ async function runServer() {
 
   app.use(express.json());
 
-  app.use('/api', router);
+  app.use('/', router);
 
   app.get('/amiloggedin', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
