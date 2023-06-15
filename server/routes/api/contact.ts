@@ -12,7 +12,8 @@ interface ContactRequest {
     company: string;
     email: string;
     phoneNumber: string | null;
-    timeZone: string;
+    timeZone: 'est' | 'cst' | 'mst' | 'pst';
+    preferredContactMethod: 'phone' | 'email',
     subject: string;
     message: string;
 }
