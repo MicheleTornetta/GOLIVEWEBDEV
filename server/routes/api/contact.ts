@@ -13,7 +13,7 @@ interface ContactRequest {
     email: string;
     phoneNumber: string | null;
     timeZone: 'est' | 'cst' | 'mst' | 'pst';
-    preferredContactMethod: 'phone' | 'email',
+    preferredContactMethod: 'phone' | 'email' | 'any',
     subject: string;
     message: string;
 }
@@ -43,7 +43,7 @@ router.post('/', contactLimiter,
             return;
         }
 
-        if (preferredContactMethod !== 'email' && preferredContactMethod !== 'phone') {
+        if (preferredContactMethod !== 'email' && preferredContactMethod !== 'phone' && preferredContactMethod !== 'any') {
             res.status(400).send({
                 error: 'Invalid contact method.'
             });
