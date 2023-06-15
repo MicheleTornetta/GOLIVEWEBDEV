@@ -12,6 +12,7 @@ interface ContactRequest {
     company: string;
     email: string;
     phoneNumber: string | null;
+    timeZone: string;
     subject: string;
     message: string;
 }
