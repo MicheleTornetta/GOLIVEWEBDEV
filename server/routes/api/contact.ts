@@ -50,6 +50,13 @@ router.post('/', contactLimiter,
             return;
         }
 
+        if (preferredContactMethod === 'phone' && !phoneNumber) {
+            res.status(400).send({
+                error: 'Missing phone number - preferred contact method is by phone.'
+            });
+            return;
+        }
+
         if (timeZone !== 'cst' && timeZone !== 'est' && timeZone !== 'mst' && timeZone != 'pst') {
             res.status(400).send({
                 error: 'Invalid timezone.'
@@ -62,13 +69,15 @@ router.post('/', contactLimiter,
 Email: ${email}
 Company: ${company ?? 'NONE'}
 ${phoneNumber ? `Phone Number: ${phoneNumber}` : 'No Phone Number Provided.'}
+Time Zone: ${timeZone}
+Preferred Contact Method: ${preferredContactMethod}
 
 ${message}
 `;
 
         const mailOptions = {
             from: 'contact.form@golivewebdev.com',
-            to: 'cornchipgonecodin@gmail.com',
+            to: process.env.CONTACT_EMAIL_ACCOUNT,
             subject,
             text
         };
