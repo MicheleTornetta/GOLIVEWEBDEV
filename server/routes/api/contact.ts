@@ -25,7 +25,7 @@ const ONE_HOUR = 60 * 60 * 1000;
 
 const contactLimiter = rateLimit({
     windowMs: ONE_HOUR,
-    max: 20000,
+    max: 5,
     standardHeaders: true,
     legacyHeaders: false,
 });
