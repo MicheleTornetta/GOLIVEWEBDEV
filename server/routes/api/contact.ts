@@ -9,7 +9,7 @@ const router = express.Router();
 
 interface ContactRequest {
     name: string;
-    company: string;
+    company: string | null;
     email: string;
     phoneNumber: string | null;
     timeZone: 'est' | 'cst' | 'mst' | 'pst';
@@ -34,11 +34,25 @@ const contactLimiter = rateLimit({
 
 router.post('/', contactLimiter,
     (req: Request<any, any, ContactRequest>, res: Response<ContactResponse>) => {
-        const { name, company, email, phoneNumber, subject, message } = req.body;
+        const { name, company, email, phoneNumber, subject, message, preferredContactMethod, timeZone } = req.body;
 
-        if (!name || !company || !email || !subject || !message) {
+        if (!name || !email || !subject || !message || !preferredContactMethod || !timeZone) {
             res.status(400).send({
                 error: 'Missing required field.'
+            });
+            return;
+        }
+
+        if (preferredContactMethod !== 'email' && preferredContactMethod !== 'phone') {
+            res.status(400).send({
+                error: 'Invalid contact method.'
+            });
+            return;
+        }
+
+        if (timeZone !== 'cst' && timeZone !== 'est' && timeZone !== 'mst' && timeZone != 'pst') {
+            res.status(400).send({
+                error: 'Invalid timezone.'
             });
             return;
         }
@@ -46,7 +60,7 @@ router.post('/', contactLimiter,
         const text =
             `From: ${name}
 Email: ${email}
-Company: ${company}
+Company: ${company ?? 'NONE'}
 ${phoneNumber ? `Phone Number: ${phoneNumber}` : 'No Phone Number Provided.'}
 
 ${message}
