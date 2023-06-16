@@ -1,33 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('templates/head.ejs') %>
+  <head>
+    <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/contact/contact.css" />
     <title>GoLive WebDev</title>
-</head>
+  </head>
 
-<body>
-  <%- include('templates/nav.ejs') %>
+  <body>
+    <%- include('templates/nav.ejs') %>
 
     <main>
-      <header>
+      <header class="contact-header">
         <h1>Contact Us</h1>
       </header>
+
       <section id="header-end">
-        <form class="contact-form" action="http://localhost:8080/contact" method="post" class="contact-form">
-          <input type="text" class="contact-form-text" placeholder="Your name" name="yourname" required />
-          <input type="text" class="contact-form-text" placeholder="Your Company" companyname="companyname" required />
-          <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
-          <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="yourphonenumber"
-            required />
-          <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
-          <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
-          <input type="submit" id="form-submit" class="contact-form-btn" value="Send" required />
-        </form>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            flex-basis: content;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <article class="contact">
+            <h1>Let's Talk</h1>
+            <p>Discuss your needs with a specialist.</p>
+            <p>
+              Please do fill out the Contact Us form and we'll connect with you
+              using the method you prefer.
+            </p>
+            <img src="/assets/images/home/servers2.png" />
+            <img src="/assets/images/home/servers2.png" />
+          </article>
+
+          <form
+            class="card-contact"
+            action="http://localhost:8080/contact"
+            method="post"
+            class="contact-form"
+          >
+            <h1>Want more information?</h1>
+            <label>Your Name</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              placeholder="Your name"
+              name="yourname"
+              required
+            />
+            <label>Your Company</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              placeholder="Your Company"
+              companyname="companyname"
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              class="contact-form-text"
+              placeholder="Your email"
+              name="youremail"
+              required
+            />
+            <label>Best Phone Number</label>
+            <input
+              type="phone"
+              class="contact-form-text"
+              placeholder="Your Phone Number"
+              name="yourphonenumber"
+              required
+            />
+            <label>Your Time Zone</label>
+            <select
+              type="timezone"
+              class="contact-form-text"
+              placeholder="Your Time Zone"
+              name="yourtimezone"
+              required
+            >
+              <option value="est">EST</option>
+              <option value="cst">CST</option>
+              <option value="mst">MST</option>
+              <option value="pst">PST</option>
+            </select>
+            <label>Preferred Contact Method</label>
+            <select
+              type="contactmethod"
+              class="contact-form-text"
+              placeholder="Preferred Contact Method"
+              name="perferredcontactmethod"
+              required
+            >
+              <option value="nopreference">Any Contact Method</option>
+              <option value="phone">By Phone</option>
+              <option value="email">By Email</option>
+            </select>
+            <label>Subject</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              name="yoursubject"
+              placeholder="Subject"
+              required
+            />
+            <label>Your Message</label>
+            <textarea
+              class="contact-form-message"
+              placeholder="Your message"
+              name="yourmessage"
+            ></textarea>
+            <div></div>
+            <input
+              type="submit"
+              id="form-submit"
+              class="email-button"
+              value="Send"
+              required
+            />
+          </form>
+        </div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-</body>
-
+  </body>
 </html>

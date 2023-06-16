@@ -3,7 +3,7 @@
 
 <head>
   <%- include('templates/head.ejs') %>
-    <script src="/assets/js/script.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/blog/blog.css" />
     <title>GoLive WebDev</title>
 </head>
@@ -14,36 +14,36 @@
       <header>
         <section class="blog-page">
           <div>
-            <h1 class="blog-title">GoLive WebDev Blog</h1>
+            <h1>
+              <span class="purple">Go</span><span class="white">Live</span>
+              <span class="purple">Web</span><span class="white">Dev</span> Blog</h1>
+                <p>Put a little blub here.</p>
           </div>
-          <div class="blog-article">this is where the article goes</div>
         </section>
-      </header>
-      <section class="blog-create">
-        <div>
-          <h1>Compose</h1>
-          <form action="/compose" method="post">
-            <label class="form-label">Title</label>
-            <input type="text" name="postTitle" class="form-control" />
-            <div></div>
-            <label class="form-label">Post</label>
-            <textarea cols="100" rows="10" class="form-control" name="postBody"></textarea>
-            <button type="submit" class="btn btn-primary publish">
-              Publish
-            </button>
-          </form>
+      </header id="header-end">
+      <section>
+        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center; flex:1;">
+          <section class="card-blog">
+            <img src="/assets/images/home/servers2.png" />
+            <h1>Custom Website</h1>
+            <p>We will build and maintain your website.</p>
+            <p>We will update your website up to twice a month for free.</p>
+            <p>Want weekly or even daily changes? We can do that too!</p>
+            <button class="comment-button">Comment</button>
+          </section>
+
+          <section class="card-bloglist">
+            <img src="/assets/images/home/servers2.png" />
+            <h2>Previous Articles</h2>
+            <p>Blog 1</p>
+            <p>Blog 2</p>
+          </section>
+
         </div>
       </section>
-      <section id="header-end">
-        <script>
-          for (let i = 0; i < 5; i++) {
-            document.write("<p>Content</p>");
-          }
-        </script>
-        <div></div>
-      </section>
-    </main>
-    <%- include('templates/footer.ejs') %>
-</body>
-
-</html>
+ 
+     </main>
+     <%- include('templates/footer.ejs') %>
+ </body>
+ 
+ </html>

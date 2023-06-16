@@ -16,8 +16,8 @@ nav {
       display: inline-block;
       list-style: none;
 
-      font-size: 0.9em;
-      padding: 0 10px;
+      font-size: 1.3em;
+      padding: 0 20px;
 
       a {
         flex-direction: row;
@@ -44,4 +44,5 @@ nav {
 .toplogo {
   height: 75px;
   justify-self: baseline;
+  padding: 0 20px;
 }

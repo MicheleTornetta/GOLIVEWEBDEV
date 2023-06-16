@@ -1,77 +1,80 @@
-// .postcontainer {
-//   display: flex; /* or inline-flex */
-//   flex: 1;
-//   flex-direction: row;
-//   padding-top: 20px;
-//   justify-content: space-between;
-// }
+h1 {
+  color: var(--textwhite);
+}
 
-// .space {
-//   height: max(80vh, 600px);
-// }
+.blog-page {
+  p,
+  h3,
+  h2 {
+    color: var(--textwhite);
+    font-size: larger;
+  }
+}
 
+.card-blog {
+  p,
+  h3,
+  h2 {
+    font-size: larger;
+  }
 
-// .blog-page {
-//   // background-color: var(--accent4);
-//   display: flex;
-//   flex: 1;
-//   padding-top: 150px;
-//   justify-content: center;
-//   align-items: center;
-//   height: max(80vh, 600px);
-  
-//   // background-color: var(--background);
-//   // background-image: url("/assets/images/background/PurBG.png");
-//   // background-repeat: no-repeat;
-//   // background-attachment: fixed;
-//   // background-size: cover;
+  h1 {
+    color: var(--textdrk);
+  }
 
-//   .blog-cover {
-//     background-color: rgba(0, 0, 0, 0.2);
-//     display: flex;
-//     flex: 1;
-//     justify-content: center;
-//     align-items: center;
+  p {
+    padding-left: 10px;
+  }
 
-//     .header-card {
-//       width: 100%;
-//       height: 50%;
-//       width: 60%;
+  border: solid thin var(--background);
+  box-shadow: 7px 5px var(--background);
+  width: 65%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
 
-//       // centers it
-//       margin: 0 auto;
+  .comment-button {
+    align-self: auto;
+    padding: 7px 7px 10px 7px;
+    width: 20%;
+  }
+}
 
-//       background-color: rgba(0, 0, 0, 0.5);
+.card-bloglist {
+  p,
+  h3,
+  h2 {
+    color: var(--textwhite);
+    font-size: larger;
 
-//       color: var(--BG);
+  }
 
-//       padding: 10%;
+  h2 {
+    padding-bottom: 10px;
+    padding: 10px;
+  }
 
-//       text-align: center;
-//       display: flex;
-//       justify-content: center;
-//       align-content: center;
-//       flex-direction: column;
+  h1 {
+    color: var(--textwhite);
+    font-size: xx-large;
+    padding: 10px;
+    align-self: center;
+  }
 
-//       hr {
-//         color: #ddd;
-//       }
+  p {
+    padding-left: 10px;
+  }
 
-//       * {
-//         margin: 10px 0;
-//       }
-
-//       p {
-//         font-size: 1.3em;
-//       }
-//     }
-//   }
-// }
-
-// .blog-create {
-//   background-color: rgba(0, 0, 0, 0.2);
-//   display: flex;
-//   flex: 1;
-//   justify-content: center;
-//   align-items: center;
-// }
+  border: solid thin var(--background);
+  box-shadow: 7px 5px var(--background);
+  width: 25%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--btn);
+  display: flex;
+  flex-direction: column;
+}

@@ -24,7 +24,6 @@ header {
   justify-content: center;
   align-items: center;
   height: max(80vh, 600px);
-  // text-shadow: 2px 2px #333333;
 
   background-color: var(--background);
   background-image: url("/assets/images/background/PurBG.png");
@@ -33,7 +32,7 @@ header {
   background-size: cover;
 
   p {
-    color: var(--white);
+    color: var(--textwhite);
   }
 
   h1 {

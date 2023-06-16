@@ -1,19 +1,18 @@
 window.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('nav');
-    const headerEnd = document.getElementById('header-end');
-
+   
     const BASE_ALPHA = 0.2;
-
     const DISTANCE_SCALING = 2;
+    const FADE_IN_DISTANCE = 150;
 
-    if(nav && headerEnd) {
+    if(nav) {
         // Sets the nav bar to be transparent
         nav.style.backgroundColor = `rgba(51, 51, 51, ${BASE_ALPHA})`;
 
         const animateNavBackground = () => {
             // Distance from end of header to end of navigation bar used to determine
             // how transparent the nav bar should be
-            const distFromNav = headerEnd.getBoundingClientRect().y 
+            const distFromNav = (FADE_IN_DISTANCE - window.scrollY) 
                 - (1 + DISTANCE_SCALING) * nav.getBoundingClientRect().height;
             
             // Alpha calcualted as a percentage - 

@@ -3,7 +3,7 @@
 
 <head>
   <%- include('templates/head.ejs') %>
-    <link rel="stylesheet" href="/assets/css/home/home.css" />
+  <link rel="stylesheet" href="/assets/css/home/home.css" />
 
     <title>GoLive WebDev</title>
 </head>
@@ -15,10 +15,10 @@
       <header class="header-big">
         <div class="header-cover">
           <div class="header-card">
-            <img src="assets/images/logo/GLWDCirclePur50.png" class="logocircle" alt="GoLive WebDev logo." />
+            <img src="assets/images/logo/GLWDCirclePur.png" class="logocircle" alt="GoLive WebDev logo." />
             <h1>
-              <span class="purple">Go</span><span class="grey">Live</span>
-              <span class="purple">Web</span><span class="grey">Dev</span>
+              <span class="purple">Go</span><span class="white">Live</span>
+              <span class="purple">Web</span><span class="white">Dev</span>
             </h1>
             <hr />
             <p>Go Live on the Web so the world can see you!</p>
@@ -27,11 +27,18 @@
       </header>
 
       <section id="header-end">
-        <script>
-          for (let i = 0; i < 100; i++) {
-            document.write("<p>Content</p>");
-          }
-        </script>
+        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center;">
+          <article class="homepage">
+            <h1>How Can You Have A Great Website?</h1>
+            <h2>It's simple, have us build it for you!</h2>
+              <p>Let's face it, there are many cookie-cutter, drag and drop website building services available.  These website building packages do have their place.</p>
+              <p>However, if you want to stand out from the crowd, you need a custom website that is unique to you.  </p> 
+          </article>
+        <article class="homepage-side">
+          <img src="/assets/images/home/servers3.png" alt="place holder">
+          <p>Connect with your customers.</p>
+        </article>
+      </div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
