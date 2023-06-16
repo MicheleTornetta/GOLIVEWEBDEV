@@ -3,8 +3,25 @@ import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
 import { auth, requiresAuth } from 'express-openid-connect';
+import session from "express-session";
 
 import router from './routes';
+import sql from "./db/connection";
+
+interface User {
+  username: string,
+  email: string,
+  userId: number,
+}
+
+/**
+ * Extend express session interfaces to support the userId being stored.
+ */
+declare module 'express-session' {
+  interface SessionData {
+    user: User | undefined;
+  }
+}
 
 runServer();
 
@@ -27,19 +44,61 @@ async function runServer() {
   // auth router attaches /login, /logout, and /callback routes to the baseURL
   app.use(auth(authConfig));
 
+  const sess = {
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      secure: false
+    }
+  };
+
+  if (app.get('env') === 'production') {
+    app.set('trust proxy', 1) // trust first proxy
+    sess.cookie.secure = true // serve secure cookies
+  }
+
+  app.use(session(sess));
+
   const PORT_HTTP = process.env.PORT_HTTP;
 
   app.use(express.json());
 
+  app.use(async (req: Request, _, next) => {
+    if (!req.session.user && req.oidc.isAuthenticated()) {
+      interface SqlUser {
+        user_id: number,
+        username: string,
+        email: string
+      };
+
+      let matchedUsers = (await sql<SqlUser[]>`SELECT user_id, username, email FROM Users WHERE email = ${req.oidc.user.email} LIMIT 1`);
+
+      if (matchedUsers.length === 0) {
+        await sql`INSERT INTO Users (username, email) VALUES (${req.oidc.user.nickname}, ${req.oidc.user.email})`;
+        matchedUsers = (await sql<SqlUser[]>`SELECT user_id, username, email FROM Users WHERE email = ${req.oidc.user.email} LIMIT 1`);
+      }
+
+      if (matchedUsers.length === 0) {
+        throw new Error('The database might have died - this should never be reached.');
+      }
+
+      const user = matchedUsers[0];
+
+      req.session.user = {
+        email: user.email,
+        userId: user.user_id,
+        username: user.username
+      };
+    }
+    else if (!req.oidc.isAuthenticated()) {
+      req.session.user = undefined;
+    }
+
+    next();
+  });
+
   app.use('/', router);
-
-  app.get('/amiloggedin', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  });
-
-  app.get('/profile', requiresAuth(), (req, res) => {
-    res.send(JSON.stringify(req.oidc.user));
-  });
 
   app.get("/*", (req: Request, res: Response) => {
     let path = req.url;
@@ -51,7 +110,6 @@ async function runServer() {
     path = path.replace(".html", ".ejs");
 
     if (path.includes(".ejs")) {
-      console.log(req.oidc.user);
       ejs.renderFile("templated/" + path, {
         user: req.oidc.user
       }, function (err, compiled) {
@@ -71,7 +129,7 @@ async function runServer() {
   });
 
   http.createServer(app).listen(PORT_HTTP, () => {
-    console.log(`Listening on http://127.0.0.1:${PORT_HTTP}`);
+    console.log(`Listening on http://localhost:${PORT_HTTP}`);
   });
 }
 
