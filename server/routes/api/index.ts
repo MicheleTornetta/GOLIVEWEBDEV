@@ -2,7 +2,7 @@ import express from 'express';
 
 
 import postRoutes from './posts-router';
-import commentsRoutes from './comments-routes';
+import commentsRoutes from './comments';
 import contact from './contact';
 
 const router = express.Router();

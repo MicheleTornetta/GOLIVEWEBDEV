@@ -10,8 +10,6 @@ import postgres from "postgres";
 // Initialize Connection
 dotenv.config({ path: "./vars.env" });
 
-console.log(process.env.DB_HOST);
-
 const sql = postgres({
   host: process.env.DB_HOST, // Postgres ip address[s] or domain name[s]
   port: Number(process.env.DB_PORT), // Postgres server port[s]

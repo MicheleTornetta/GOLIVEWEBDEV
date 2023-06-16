@@ -3,8 +3,25 @@ import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
 import { auth, requiresAuth } from 'express-openid-connect';
+import session from "express-session";
 
 import router from './routes';
+import setupSession from "./auth";
+
+interface User {
+  username: string,
+  email: string,
+  userId: number,
+}
+
+/**
+ * Extend express session interfaces to support the user being stored.
+ */
+declare module 'express-session' {
+  interface SessionData {
+    user: User | undefined;
+  }
+}
 
 runServer();
 
@@ -27,19 +44,29 @@ async function runServer() {
   // auth router attaches /login, /logout, and /callback routes to the baseURL
   app.use(auth(authConfig));
 
+  const sess = {
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      secure: false
+    }
+  };
+
+  if (app.get('env') === 'production') {
+    app.set('trust proxy', 1) // trust first proxy
+    sess.cookie.secure = true // serve secure cookies
+  }
+
+  app.use(session(sess));
+
   const PORT_HTTP = process.env.PORT_HTTP;
 
   app.use(express.json());
 
+  app.use(setupSession);
+
   app.use('/', router);
-
-  app.get('/amiloggedin', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  });
-
-  app.get('/profile', requiresAuth(), (req, res) => {
-    res.send(JSON.stringify(req.oidc.user));
-  });
 
   app.get("/*", (req: Request, res: Response) => {
     let path = req.url;
@@ -51,7 +78,6 @@ async function runServer() {
     path = path.replace(".html", ".ejs");
 
     if (path.includes(".ejs")) {
-      console.log(req.oidc.user);
       ejs.renderFile("templated/" + path, {
         user: req.oidc.user
       }, function (err, compiled) {
@@ -71,7 +97,7 @@ async function runServer() {
   });
 
   http.createServer(app).listen(PORT_HTTP, () => {
-    console.log(`Listening on http://127.0.0.1:${PORT_HTTP}`);
+    console.log(`Listening on http://localhost:${PORT_HTTP}`);
   });
 }
 

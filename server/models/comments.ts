@@ -1,4 +1,4 @@
-interface Comments {
+interface Comment {
   id: number,
   comment: string,
   date: Date,
@@ -6,5 +6,5 @@ interface Comments {
   post_id: number,
 }
 
-export default Comments;
+export default Comment;
 
