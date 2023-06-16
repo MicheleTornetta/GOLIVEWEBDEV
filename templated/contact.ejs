@@ -12,8 +12,8 @@
   <%- include('templates/nav.ejs') %>
 
     <main>
-      <header>
-        <h1 class="contact-header">Contact Us</h1>
+      <header class="contact-header">
+        <h1 >Contact Us </h1>
       </header>
 
       <section id="header-end">
@@ -32,25 +32,33 @@
 
         <form class="card-contact" action="http://localhost:8080/contact" method="post" class="contact-form">
           <h1>Want more information?</h1>
+          <label>Your Name</label>
           <input type="text" class="contact-form-text" placeholder="Your name" name="yourname" required />
+          <label>Your Company</label>
           <input type="text" class="contact-form-text" placeholder="Your Company" companyname="companyname"/>
+          <label>Email</label>
           <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
+          <label>Best Phone Number</label>
           <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="yourphonenumber"
           required />
+          <label>Your Time Zone</label>
           <select type="timezone" class="contact-form-text" placeholder="Your Time Zone" name="yourtimezone"
           required>
-          <option value="EST">EST </option>
-          <option value="CST">CST </option>
-          <option value="MST">MST </option>
-          <option value="PST">PST </option>
+          <option value="est">EST </option>
+          <option value="cst">CST </option>
+          <option value="mst">MST </option>
+          <option value="pst">PST </option>
           </select>
+          <label>Preferred Contact Method</label>
           <select type="contactmethod" class="contact-form-text" placeholder="Preferred Contact Method" name="perferredcontactmethod"
           required >
-          <option value="nopreference">No Preferred Contact Method</option>
+          <option value="nopreference">Any Contact Method</option>
           <option value="phone">By Phone</option>
           <option value="email">By Email </option>
           </select>
+          <label>Subject</label>
           <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
+          <label>Your Message</label>
           <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
           <div></div>
           <input type="submit" id="form-submit" class="email-button" value="Send" required />

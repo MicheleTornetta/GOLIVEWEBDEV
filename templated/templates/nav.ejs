@@ -4,15 +4,19 @@
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/services.html">Services</a></li>
-    <li><a href="/projects.html">Projects</a></li>
+    <!-- <li><a href="/projects.html">Projects</a></li> -->
     <li><a href="/about.html">About</a></li>
     <li><a href="/contact.html">Contact</a></li>
     <% if (user) { %>
-      <li><a href="/logout">Logout</a></li>
-      <% } else { %>
-        <li><a href="/login">Login</a></li>
-        <% } %>
-          <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+    <li><a href="/login">Login</a></li>
+    <% } %>
+    <li><a href="/blog.html">Blog</a></li>
   </ul>
-  <img src="/assets/images/logo/GoLive-WebDevPurWht.png" class="toplogo" alt="GoLive WebDev logo." />
+  <img
+    src="/assets/images/logo/GoLive-WebDevPurWht.png"
+    class="toplogo"
+    alt="GoLive WebDev logo."
+  />
 </nav>
