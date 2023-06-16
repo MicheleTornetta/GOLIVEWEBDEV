@@ -6,7 +6,7 @@ import { auth, requiresAuth } from 'express-openid-connect';
 import session from "express-session";
 
 import router from './routes';
-import sql from "./db/connection";
+import setupSession from "./auth";
 
 interface User {
   username: string,
@@ -15,7 +15,7 @@ interface User {
 }
 
 /**
- * Extend express session interfaces to support the userId being stored.
+ * Extend express session interfaces to support the user being stored.
  */
 declare module 'express-session' {
   interface SessionData {
@@ -64,39 +64,7 @@ async function runServer() {
 
   app.use(express.json());
 
-  app.use(async (req: Request, _, next) => {
-    if (!req.session.user && req.oidc.isAuthenticated()) {
-      interface SqlUser {
-        user_id: number,
-        username: string,
-        email: string
-      };
-
-      let matchedUsers = (await sql<SqlUser[]>`SELECT user_id, username, email FROM Users WHERE email = ${req.oidc.user.email} LIMIT 1`);
-
-      if (matchedUsers.length === 0) {
-        await sql`INSERT INTO Users (username, email) VALUES (${req.oidc.user.nickname}, ${req.oidc.user.email})`;
-        matchedUsers = (await sql<SqlUser[]>`SELECT user_id, username, email FROM Users WHERE email = ${req.oidc.user.email} LIMIT 1`);
-      }
-
-      if (matchedUsers.length === 0) {
-        throw new Error('The database might have died - this should never be reached.');
-      }
-
-      const user = matchedUsers[0];
-
-      req.session.user = {
-        email: user.email,
-        userId: user.user_id,
-        username: user.username
-      };
-    }
-    else if (!req.oidc.isAuthenticated()) {
-      req.session.user = undefined;
-    }
-
-    next();
-  });
+  app.use(setupSession);
 
   app.use('/', router);
 
