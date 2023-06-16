@@ -2,6 +2,7 @@
 
 import express, { Request, Response } from "express";
 import sql from "../../db/connection";
+import rateLimit from "express-rate-limit";
 
 const router = express.Router();
 
@@ -10,7 +11,16 @@ interface Comment {
     postId: number,
 }
 
-router.post('/create', async (req: Request<any, any, Comment>, res: Response) => {
+const ONE_HOUR = 60 * 60 * 1000;
+
+const commentRateLimiter = rateLimit({
+    windowMs: ONE_HOUR,
+    max: 5,
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
+router.post('/create', commentRateLimiter, async (req: Request<any, any, Comment>, res: Response) => {
     if (!req.session.user) {
         res.status(400).send({
             error: 'Must be logged in to do this!'
