@@ -33,4 +33,8 @@ h1 {
 
 .card.bio {
   width: 40%;
+
+  section {
+    flex: 1;
+  }
 }
