@@ -16,34 +16,35 @@
           <div>
             <h1>
               <span class="purple">Go</span><span class="white">Live</span>
-              <span class="purple">Web</span><span class="white">Dev</span> Blog</h1>
-                <p>Put a little blub here.</p>
+              <span class="purple">Web</span><span class="white">Dev</span> Blog
+            </h1>
+            <p>Put a little blub here.</p>
           </div>
         </section>
       </header id="header-end">
       <section>
-        <div style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center; flex:1;">
+        <div
+          style="display: flex; flex-direction: row; flex-basis: content; flex-wrap: wrap; justify-content: center; flex:1;">
           <section class="card-blog">
-            <img src="/assets/images/home/servers2.png" />
-            <h1>Custom Website</h1>
-            <p>We will build and maintain your website.</p>
-            <p>We will update your website up to twice a month for free.</p>
-            <p>Want weekly or even daily changes? We can do that too!</p>
-            <button class="comment-button">Comment</button>
+            <%- blogHtml %>
+              <button class="comment-button">Comment</button>
           </section>
 
           <section class="card-bloglist">
             <img src="/assets/images/home/servers2.png" />
-            <h2>Previous Articles</h2>
-            <p>Blog 1</p>
-            <p>Blog 2</p>
+            <h2>Articles</h2>
+            <ul>
+              <% for (const article of allPosts) { %>
+                <li><a class="article-post" href="/blog/<%= article.post_id %>">
+                    <%= article.title %>
+                  </a></li>
+                <% } %>
+            </ul>
           </section>
-
         </div>
       </section>
- 
-     </main>
-     <%- include('templates/footer.ejs') %>
- </body>
- 
- </html>
+    </main>
+    <%- include('templates/footer.ejs') %>
+</body>
+
+</html>

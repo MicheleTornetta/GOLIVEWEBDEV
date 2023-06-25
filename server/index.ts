@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import http from "http";
 import ejs from "ejs";
-import { auth, requiresAuth } from 'express-openid-connect';
+import { auth } from 'express-openid-connect';
 import session from "express-session";
 
 import router from './routes';
@@ -100,11 +100,3 @@ async function runServer() {
     console.log(`Listening on http://localhost:${PORT_HTTP}`);
   });
 }
-
-
-//middleware
-
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static("public"));
-// app.set("view engine", "ejs");
-
