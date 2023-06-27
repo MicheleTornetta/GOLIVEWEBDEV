@@ -18,7 +18,7 @@
               <span class="purple">Go</span><span class="white">Live</span>
               <span class="purple">Web</span><span class="white">Dev</span> Blog
             </h1>
-            <p>Put a little blub here.</p>
+            <p>PLease login to leave a comment.</p>
           </div>
         </section>
       </header id="header-end">
@@ -31,11 +31,11 @@
           </section>
 
           <section class="card-bloglist">
-            <img src="/assets/images/home/servers2.png" />
-            <h2>Articles</h2>
+            <img src="/assets/images/blog/triangledown.png" />
+            <h1>Articles</h1>
             <ul>
               <% for (const article of allPosts) { %>
-                <li><a class="article-post" href="/blog/<%= article.post_id %>">
+                <li class="article-post"><a href="/blog/<%= article.post_id %>">
                     <%= article.title %>
                   </a></li>
                 <% } %>
