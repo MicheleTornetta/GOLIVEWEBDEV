@@ -22,19 +22,16 @@ h1 {
     color: var(--textdrk);
   }
 
-  p {
-    padding-left: 10px;
+  a {
+    color: var(--textdrk);
   }
 
-  border: solid thin var(--background);
   box-shadow: 7px 5px var(--background);
   width: 65%;
   min-width: 300px;
-  padding: 10px;
   margin: 10px;
   background-color: var(--white);
-  display: flex;
-  flex-direction: column;
+  // flex-direction: column;
 
   .comment-button {
     align-self: auto;
@@ -50,19 +47,16 @@ h1 {
 .card-bloglist {
   p,
   h3,
-  h2
-{
+  h2 {
     color: var(--textwhite);
     font-size: larger;
-
   }
 
   .article-post {
-    color: var(--textwhite); 
-    a {
     color: var(--textwhite);
+    a {
+      color: var(--textwhite);
     }
-    padding: 0;
     margin-left: 30px;
   }
 
@@ -94,7 +88,5 @@ h1 {
 
   img {
     width: 100%;
-    padding: 0;
-    
   }
 }

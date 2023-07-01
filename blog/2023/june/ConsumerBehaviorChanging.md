@@ -1,27 +1,25 @@
 # How Can You Keep Up with Consumer Behavior?
 
 ## In today's market, you need to have a website to reach the modern consumer.
-<p align="left" >
-<img width="350" height="200" src="/assets/images/blog/2023/june/cbc6_25_23.jpg" alt="Customer searching on cell phone - photo by Daria Nepriakhina" >
-</p>
 
-### Written by: <em>Michele Tornetta</em>
+<img width="45%" height="auto" src="/assets/images/blog/2023/june/cbc6_25_23.jpg" alt="Customer searching on cell phone - photo by Daria Nepriakhina" >
 
-Showcasing your business online is no longer an additional way to market your business, it's the primary way to attract customers.  After all the most popular way to find a business is through search engines.  Almost half of all consumers use this method; with the second most popular way people choose a business is through television advertisements.  Let's face it, TV ads are expensive!  
+_Written by: Michele Tornetta_
 
-It's necessary to meet your customers where they are.  It goes without saying, unless you have a previous relationship with a customer, you are not going to be the business that comes to mind when they have a need.
+Showcasing your business online is no longer an additional way to market your business, it's the primary way to attract customers. After all, the most popular way to find a business is through search engines such as Google. Almost half of all consumers use this method. Are you comfortable with half of your potential clients never finding you?
 
-Advertising in the local newspaper was fine wever years ago, but today, it doesn't do much to attract new business since readership goes down year after year.  
+It's necessary to meet your customers where they are. Advertising in the local newspaper was fine 20 years ago, but today, with readership going down each year, it doesn't do much to attract new business.
 
-<p align="center" >
-<img width="700" height="400" src="/assets/images/blog/2023/june/ConsumerTrends2022.png" alt="2022 State of U.S. Consumer Trends Report" >
-</p>
+<img style="width: 80%; margin-left: 10%;" src="/assets/images/blog/2023/june/ConsumerTrends2022.png" alt="2022 State of U.S. Consumer Trends Report">
 
-Today's consumers turn more and more to their phone to search for products and services.  If you have no web app or mobile friendly website, they aren't going to find you or in the the case of a site that isn't mobile friendly, stick around long enough to find out how you can solve their need.
+_<p style="text-align: center">Visit [Hubspot](https://offers.hubspot.com/thank-you/us-consumer-trends-report-2022?hubs_signup-url=offers.hubspot.com%2F2022-consumer-trends-report-download&hubs_signup-cta=Download%20Now&hubs_offer=offers.hubspot.com%2F2022-consumer-trends-report-download) for a copy of U.S. Consumer Trends</p>_
 
-Think about the last time you needed a product or service.  If you're like me, the first place I go is google.  Even when someone recommends a business, I still look up the companie's website to get to know that business.  
+Today's consumers turn more and more to their phones to search for products and services. If you have no web app or mobile friendly website, they aren't going to find you.
 
-Of course, having a static website isn't enough, it needs to be mobile friendly.  While people certainly use desktops and laptops, the majority of customers use their cell phone to search.  So, your website or web app needs to be attractive, mobile friendly with easy navigation so that anyone can find what they're looking for. 
+Think about the last time you needed a product or service. If you're like me, the first place you'd go is Google. Even when someone recommends a business, I still look up the company's website to get to know that business.
 
+Having a poorly made website could do more damage than good. When I find a website is unusable on a phone, I am immediately turned off and start searching elsewhere. I am not unique in this practice. Most customers, when given a poor experience on a website, will view your business just as poorly.
 
+## The Bottom Line
 
+You need a website, but not just any website. You need a good-looking, functional, and accessible website to give your customers a great first impression.
