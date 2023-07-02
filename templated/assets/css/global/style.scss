@@ -88,8 +88,6 @@ h3 {
 h4 {
   font-size: 1.4em;
   color: var(--textdk);
-  // align-items: flex-end;
-  // justify-content: flex-end;
   padding-bottom: 20px;
   font-weight: bolder;
 }
@@ -102,20 +100,16 @@ p {
 
 li {
   color: var(--textdk);
-  // padding: 10px 20px 10px 40px;
-  // list-style-type: none;
-  // font-size: larger;
 }
 
 a {
-  // padding: 20px 20px 0px 0px;
   text-decoration: none;
   color: var(--background);
   font-size: large;
 }
 
 a:visited {
-  color: var(--white);
+  color: var(--header);
 }
 
 a:hover {
