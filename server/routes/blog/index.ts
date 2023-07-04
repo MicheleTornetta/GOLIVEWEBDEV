@@ -50,9 +50,9 @@ async function renderAndSend(filePaths: DatabaseResult, req: Request, res: Respo
 
     readFile(`./blog/${filePath}`, (err, data) => {
         if (err) {
-            res.status(404).redirect('/');
-
+            res.status(404).redirect('/404');
             console.error(err);
+            return;
         }
 
         const blogHtml = marked.parse(data.toLocaleString(), {

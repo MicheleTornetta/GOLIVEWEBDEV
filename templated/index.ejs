@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('templates/head.ejs') %>
+
+<head>
+  <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/home/home.css" />
 
     <title>GoLive WebDev</title>
-  </head>
+</head>
 
-  <body>
-    <%- include('templates/nav.ejs') %>
+<body>
+  <%- include('templates/nav.ejs') %>
 
     <main>
       <header class="header-big">
         <div class="header-cover">
           <div class="header-card">
-            <img
-              src="assets/images/logo/GLWDCirclePur.png"
-              class="logocircle"
-              alt="GoLive WebDev logo."
-            />
+            <img src="assets/images/logo/GLWDCirclePur.png" class="logocircle" alt="GoLive WebDev logo." />
             <h1>
               <span class="purple">Go</span><span class="white">Live</span>
               <span class="purple">Web</span><span class="white">Dev</span>
@@ -30,15 +27,13 @@
       </header>
 
       <section>
-        <div
-          style="
+        <div style="
             display: flex;
             flex-direction: row;
             flex-basis: content;
             flex-wrap: wrap;
             justify-content: center;
-          "
-        >
+          ">
           <article class="homepage">
             <h1>How Can You Have A Great Website?</h1>
             <h2>
@@ -55,16 +50,13 @@
             </p>
           </article>
           <article class="homepage-side">
-            <img
-              style="width: 100%"
-              src="/assets/images/home/gabriel.png"
-              alt="Group of potential customers."
-            />
+            <img style="width: 100%" src="/assets/images/home/gabriel.png" alt="Group of potential customers." />
             <p>Connect with your customers and brand your business.</p>
           </article>
         </div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-  </body>
+</body>
+
 </html>

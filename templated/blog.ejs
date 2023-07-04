@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('templates/head.ejs') %>
+
+<head>
+  <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/blog/blog.css" />
     <title>GoLive WebDev</title>
-  </head>
+</head>
 
-  <body>
-    <%- include('templates/nav.ejs') %>
+<body>
+  <%- include('templates/nav.ejs') %>
     <main>
       <header>
         <section class="blog-page">
           <div>
-            <h1>
-              <span class="purple">Go</span><span class="white">Live</span>
-              <span class="purple">Web</span><span class="white">Dev</span> Blog
-            </h1>
+            <h1>Blog</h1>
           </div>
         </section>
       </header>
       <section>
-        <div
-          style="
+        <div style="
             display: flex;
             flex-direction: row;
             flex-basis: content;
             flex-wrap: wrap;
             justify-content: center;
             flex: 1;
-          "
-        >
+          ">
           <section class="card-blog main-content">
             <%- blogHtml %>
-            <button class="comment-button">Comment</button>
-            <section class="comment-card">
+              <button class="comment-button">Comment</button>
+              <section class="comment-card">
                 <h3>Comments</h3>
                 <div class="comments">
                   <ul style="list-style: none;">
-                    <li ></li>
+                    <li></li>
                   </ul>
                 </div>
-            </section>
+              </section>
           </section>
 
           <section class="card-bloglist">
@@ -49,17 +45,18 @@
             <h1>Articles</h1>
             <ul>
               <% for (const article of allPosts) { %>
-              <li class="article-post">
-                <a href="/blog/<%= article.post_id %>">
-                  <%= article.title %>
-                </a>
-              </li>
-              <% } %>
+                <li class="article-post">
+                  <a href="/blog/<%= article.post_id %>">
+                    <%= article.title %>
+                  </a>
+                </li>
+                <% } %>
             </ul>
           </section>
         </div>
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-  </body>
+</body>
+
 </html>
