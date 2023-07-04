@@ -9,6 +9,17 @@
   --textdk: #141414; // dark grey
 }
 
+ .main-content {
+    display: flex;
+    margin: 20px 20px;
+    padding: 30px;
+    flex-direction: column;
+    border: solid thin var(--background);
+    img {
+      margin: 10px 0 15px 0;
+    }
+ }
+
 .purple {
   color: var(--btn);
 }
@@ -58,70 +69,52 @@ main {
 h1 {
   font-size: 3.6em;
   color: var(--textdk);
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0 20px 10px 10px;
+  padding-bottom: 20px;
 }
 
 h2 {
   font-size: 2.5em;
   color: var(--textdk);
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0 20px 10px 10px;
+  padding-bottom: 20px;
 }
 
 h3 {
   font-size: 1.5em;
   color: var(--textdk);
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0 20px 10px 10px;
+  padding-bottom: 20px;
   font-weight: bolder;
 }
 
 h4 {
   font-size: 1.4em;
   color: var(--textdk);
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0 20px 10px 10px;
+  padding-bottom: 20px;
   font-weight: bolder;
 }
 
 p {
   color: var(--textdk);
-  padding: 10px 20px 10px 10px;
+  padding-bottom: 15px;
   font-size: 1.4em;
 }
 
 li {
   color: var(--textdk);
-  padding: 10px 20px 10px 40px;
-  list-style-type: none;
-  font-size: larger;
 }
 
 a {
-  padding: 20px 20px 0px 0px;
   text-decoration: none;
   color: var(--background);
   font-size: large;
 }
 
 a:visited {
-  color: var(--white);
+  color: var(--header);
 }
 
 a:hover {
   color: var(--white);
   text-decoration: underline;
-}
-
-img {
-  align-self: center;
-  justify-self: center;
-  padding: 0 20px;
 }
 
 button {
@@ -140,4 +133,31 @@ button {
   .shrink-wrap {
     flex-direction: column;
   }
+}
+
+hr {
+  width: 95%;
+  height: 6px;
+  background-color: var(--header);
+  margin: 0 0 10px 2.5%;
+}
+
+.button {
+  background-color: var(--background);
+  width: 40%;
+  padding: 16px 12px;
+  margin: 10px 0;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: var(--white);
+  text-align: center;
+  
+  &:visited {
+      color: var(--white);
+  }
+  &:hover {
+      color: var(--white);
+      text-decoration: none;
+  }
+
 }

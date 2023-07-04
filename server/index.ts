@@ -68,7 +68,7 @@ async function runServer() {
 
   app.use('/', router);
 
-  app.get("/*", (req: Request, res: Response) => {
+  app.get("/*", (req: Request, res: Response, next: Function) => {
     let path = req.url;
 
     if (path.endsWith("/")) {
@@ -82,7 +82,7 @@ async function runServer() {
         user: req.oidc.user
       }, function (err, compiled) {
         if (err) {
-          res.status(404).send("404 not found ;(");
+          next();
         } else {
           res.status(200).send(compiled);
         }
@@ -98,5 +98,9 @@ async function runServer() {
 
   http.createServer(app).listen(PORT_HTTP, () => {
     console.log(`Listening on http://localhost:${PORT_HTTP}`);
+  });
+
+  app.get('/*', (_, res) => {
+    res.status(404).send("404 not found ;(");
   });
 }

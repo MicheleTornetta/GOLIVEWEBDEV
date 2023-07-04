@@ -1,4 +1,6 @@
 (() => {
+    const NAV_RGB_BACKGROUND_COLOR = `17, 17, 17`;
+
     window.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('nav');
         addHamburgerLogic(nav);
@@ -29,7 +31,7 @@
 
         if (nav) {
             // Sets the nav bar to be transparent
-            nav.style.backgroundColor = `rgba(51, 51, 51, ${BASE_ALPHA})`;
+            nav.style.backgroundColor = `rgba(${NAV_RGB_BACKGROUND_COLOR}, ${BASE_ALPHA})`;
 
             const animateNavBackground = () => {
                 // Distance from end of header to end of navigation bar used to determine
@@ -49,7 +51,7 @@
                     percentage = 1;
                 }
 
-                nav.style.backgroundColor = `rgba(51, 51, 51, ${percentage})`;
+                nav.style.backgroundColor = `rgba(${NAV_RGB_BACKGROUND_COLOR}, ${percentage})`;
 
                 // This asks the browser to run this function ~ 60 times a second, which is great for
                 // rendering stuff
