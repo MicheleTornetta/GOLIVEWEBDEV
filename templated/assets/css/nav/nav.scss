@@ -2,7 +2,7 @@ nav {
   align-items: center;
   // Note: in `nav.js` this is changed to be transparent.
   // This is styled here for browsers with javascript disabled.
-  background-color: #111;
+  background-color: var(--background);
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -63,6 +63,7 @@ nav {
       padding: 0 2px;
 
       a {
+        text-decoration: none;
         flex-direction: row;
         padding-right: 20px;
         padding: 16px 10px;

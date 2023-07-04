@@ -9,16 +9,17 @@
   --textdk: #141414; // dark grey
 }
 
- .main-content {
-    display: flex;
-    margin: 20px 20px;
-    padding: 30px;
-    flex-direction: column;
-    border: solid thin var(--background);
-    img {
-      margin: 10px 0 15px 0;
-    }
- }
+.main-content {
+  display: flex;
+  margin: 20px 20px;
+  padding: 30px;
+  flex-direction: column;
+  border: solid thin var(--background);
+
+  img {
+    margin: 10px 0 15px 0;
+  }
+}
 
 .purple {
   color: var(--btn);
@@ -103,7 +104,6 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: var(--background);
   font-size: large;
 }
@@ -151,13 +151,14 @@ hr {
   cursor: pointer;
   color: var(--white);
   text-align: center;
-  
+
   &:visited {
-      color: var(--white);
+    color: var(--white);
   }
+
   &:hover {
-      color: var(--white);
-      text-decoration: none;
+    color: var(--white);
+    text-decoration: none;
   }
 
 }
