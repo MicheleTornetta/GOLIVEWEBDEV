@@ -4,7 +4,7 @@
 
 <img width="55%" height="auto" src="/assets/images/blog/2023/july/xssblog.png" alt="Cybercriminal using website to attack victim." >
 
-_Written by: Michele Tornetta_
+_Written by: Anthony Tornetta_
 
 This is attack focused on the user of your website, not the website itself. The attacker may hijack a user session, capture keystrokes, steal critical user information and more.
 
