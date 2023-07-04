@@ -24,6 +24,14 @@
     color: var(--textdk);
   }
 
+  li {
+    display: flex 1;
+    list-style: circle;
+    font-size: 1.2em;
+    padding: 0 2px;
+    margin: 0 0 0 35px;
+  }
+
   border: solid thin var(--background);
   box-shadow: 4px 2px var(--background);
   width: 25%;
