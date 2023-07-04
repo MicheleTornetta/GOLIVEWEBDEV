@@ -18,6 +18,15 @@
         padding-left: 10px;
     }
 
+    button,
+    .button {
+        min-width: 40%;
+    }
+
+    section {
+        flex: 1;
+    }
+
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
     width: 30%;
@@ -25,7 +34,6 @@
     padding: 20px;
     margin: 20px;
     background-color: var(--btn);
-    display: grid;
+    display: flex;
     flex-direction: column;
-
 }

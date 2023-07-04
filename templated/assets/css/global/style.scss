@@ -7,7 +7,7 @@
   --white: #eeeeee;
   --textwhite: #eeeeee;
   --textdk: #141414; // dark grey
- }
+}
 
  .main-content {
     display: flex;
@@ -121,15 +121,12 @@ button {
   background-color: var(--background);
   opacity: .9;
   color: var(--textwhite);
-  width: 40%;
   padding: 16px 12px;
-  margin: 10px 0;
   font-size: 1.3em;
   align-self: center;
   border: none;
   cursor: pointer;
   justify-self: center;
-  margin-top: auto;
 }
 
 @media screen and (max-width: 840px) {
