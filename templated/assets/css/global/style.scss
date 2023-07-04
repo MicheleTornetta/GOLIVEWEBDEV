@@ -137,3 +137,34 @@ button {
     flex-direction: column;
   }
 }
+
+hr {
+  width: 95%;
+  height: 6px;
+  background-color: var(--header);
+  margin: 0 0 10px 2.5%;
+}
+
+.button {
+  background-color: var(--background);
+  width: 40%;
+  padding: 16px 12px;
+  margin: 10px 0;
+  font-size: 1.3em;
+  align-self: center;
+  border: none;
+  cursor: pointer;
+  justify-self: center;
+  margin-top: auto;
+  color: var(--white);
+  text-align: center;
+  
+  &:visited {
+      color: var(--white);
+  }
+  &:hover {
+      color: var(--white);
+      text-decoration: none;
+  }
+
+}
