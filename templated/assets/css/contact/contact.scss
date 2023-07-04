@@ -1,8 +1,5 @@
-h1 {
-  color: var(--textwhite);
-}
-
 .contact {
+
   p,
   h3,
   h2 {
@@ -47,6 +44,7 @@ h1 {
 }
 
 .card-contact {
+
   p,
   h3,
   h2 {
@@ -107,7 +105,10 @@ h1 {
   }
 }
 
-input, textarea, option, select {
+input,
+textarea,
+option,
+select {
   font-size: 1.0em;
 }
 

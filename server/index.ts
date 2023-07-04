@@ -88,19 +88,26 @@ async function runServer() {
         }
       });
     } else {
-      res
-        .status(200)
-        .sendFile(
-          __dirname.substring(0, __dirname.length - 5) + "/templated/" + path
-        );
+      next();
     }
+  });
+
+  app.use(express.static('templated/'));
+
+  app.get('/*', (req, res) => {
+    ejs.renderFile("templated/404.ejs", {
+      user: req.oidc.user
+    }, function (err, compiled) {
+      if (err) {
+        console.error(err);
+        res.status(404).send('404');
+      } else {
+        res.status(404).send(compiled);
+      }
+    });
   });
 
   http.createServer(app).listen(PORT_HTTP, () => {
     console.log(`Listening on http://localhost:${PORT_HTTP}`);
-  });
-
-  app.get('/*', (_, res) => {
-    res.status(404).send("404 not found ;(");
   });
 }
