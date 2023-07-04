@@ -10,15 +10,57 @@ nav {
   position: fixed;
   z-index: 10;
 
+  #hamburger {
+    display: none;
+    cursor: pointer;
+    flex: 0;
+    background-color: transparent;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    .bars {
+      height: min-content;
+
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: var(--textwhite);
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+    }
+
+    &.change .bars {
+      .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+      }
+
+      .bar2 {
+        opacity: 0;
+      }
+
+      .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+
   ul {
     flex: 1;
 
     li {
       display: inline-block;
       list-style: none;
-
-      font-size: 1.3em;
-      padding: 0 20px;
+      font-size: 1em;
+      padding: 0 2px;
 
       a {
         flex-direction: row;
@@ -36,6 +78,53 @@ nav {
           background-color: rgba(0, 0, 0, 0.2);
           text-decoration: none;
           color: #eee;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 916px) {
+    overflow-y: auto;
+
+    #hamburger {
+      display: flex;
+      flex: 1;
+
+      img {
+        display: inline-block;
+      }
+    }
+
+    ul,
+    img {
+      display: none;
+    }
+
+    &.expanded {
+      max-height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+
+      #hamburger {
+        width: 100%;
+        text-align: center;
+      }
+
+      ul {
+        display: block;
+        flex: none;
+        width: 100%;
+
+        li {
+          display: block;
+          width: 100%;
+
+          a {
+            width: 100%;
+            display: block;
+            text-align: center;
+          }
         }
       }
     }
