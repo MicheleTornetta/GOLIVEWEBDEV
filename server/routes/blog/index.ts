@@ -3,6 +3,7 @@ import sql from '../../db/connection';
 import { marked } from 'marked';
 import { readFile } from 'fs';
 import ejs from 'ejs';
+import { rateLimit } from 'express-rate-limit';
 
 const router = express.Router();
 
@@ -81,7 +82,7 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
         SELECT 
             Comments.created_date, 
             comment as text, 
-            COALESCE(Users.username, '<deleted>') 
+            COALESCE(Users.username, '<deleted>') as username
         FROM Comments 
             LEFT JOIN Users ON Users.user_id = Comments.user_id
             WHERE post_id = ${postId}
@@ -91,10 +92,12 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             user: req.oidc.user,
             blogHtml,
             allPosts,
+            postId,
             comments
         }, function (err, compiled) {
             if (err) {
-                res.status(404).send("404 not found ;(");
+                console.error(err);
+                res.status(404).send("Post not found");
             } else {
                 res.status(200).send(compiled);
             }
@@ -102,5 +105,6 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
 
     });
 }
+
 
 export default router;

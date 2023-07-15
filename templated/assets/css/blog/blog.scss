@@ -25,8 +25,6 @@
   // flex-direction: column;
 
   .comment-button {
-    align-self: auto;
-    padding: 7px 7px 10px 7px;
     width: 20%;
   }
 
@@ -88,8 +86,44 @@
     margin-bottom: 10px;
   }
 
-  input {
-    width: 100%;
+  h2 {
+    font-size: 2.0em;
+  }
 
+  li {
+    display: block;
+    margin: 10px;
+
+    .comment-header {
+      width: 50%;
+      border-bottom: thin solid var(--btn);
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .username {
+      font-size: 1.3em;
+      width: 80%;
+      display: inline-block;
+    }
+
+    .date {
+      display: inline-block;
+      font-size: 0.7em;
+      color: grey;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .text {
+      padding: 10px;
+    }
+  }
+
+  input[type=submit] {
+    margin-top: 10px;
   }
 }

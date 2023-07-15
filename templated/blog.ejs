@@ -5,6 +5,10 @@
   <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/blog/blog.css" />
+    <script>
+      var postId = <%= postId %>;
+    </script>
+    <script defer src="/assets/js/blog.js"></script>
     <title>GoLive WebDev</title>
 </head>
 
@@ -33,23 +37,34 @@
               <div class="comments">
                 <h2>Comments</h2>
 
-                <% if (comments.length !==0) { %>
-                  <label for="comment">Comment below</label>
-                  <textarea name="comment" id="comment-text" cols="30" rows="3"></textarea>
-                  <button class="comment-button">Add Comment</button>
-
-                  <ul style="list-style: none;">
-                    <% for(const comment of comments) { %>
-                      <li>
-                        <%= comment.commenter %>: <%= comment.text %>
-                      </li>
-                      <% } %>
-                  </ul>
-                  <% } else { %>
-                    <label for="comment">No comments yet, be the first to say something!</label>
-                    <input name="comment" id="comment-text" />
-                    <button class="comment-button">Add Comment</button>
+                <ul style="list-style: none;">
+                  <% for(const comment of comments) { %>
+                    <li>
+                      <div class="comment-header">
+                        <div class="username">
+                          <%= comment.username %>
+                        </div>
+                        <div class="date">
+                          <%= comment.created_date.toLocaleDateString('en-US') %>
+                        </div>
+                      </div>
+                      <div class="text">
+                        <%= comment.text %>
+                      </div>
+                    </li>
                     <% } %>
+                </ul>
+
+                <form method="POST" id="comment-form">
+                  <% if (comments.length===0) { %>
+                    <label for="comment">No comments yet, be the first to say something!</label>
+                    <% } else { %>
+                      <label for="comment">Add your thoughts!</label>
+                      <% } %>
+                        <textarea required minlength="1" maxlength="1999" style="width: 100%;" rows="4" name="comment"
+                          id="comment-text"></textarea>
+                        <input type="submit" id="submit-comment" value="Add Comment" class="comment-button" />
+                </form>
               </div>
           </section>
 
