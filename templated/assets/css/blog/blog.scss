@@ -4,17 +4,10 @@
   h3,
   h2 {
     color: var(--textwhite);
-    font-size: larger;
   }
 }
 
 .card-blog {
-
-  p,
-  h3,
-  h2 {
-    font-size: larger;
-  }
 
   h1 {
     color: var(--textdrk);
@@ -48,7 +41,6 @@
   h3,
   h2 {
     color: var(--textwhite);
-    font-size: larger;
   }
 
   .article-post {
@@ -87,10 +79,17 @@
 
 .comment-card {
   margin: 20px;
-
 }
 
 
 .comments {
-  border: solid thin var(--background);
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input {
+    width: 100%;
+
+  }
 }
