@@ -55,10 +55,12 @@ async function renderAndSend(filePaths: DatabaseResult, req: Request, res: Respo
             return;
         }
 
-        const blogHtml = marked.parse(data.toLocaleString(), {
+        let blogHtml = marked.parse(data.toLocaleString(), {
             mangle: false,
             headerIds: false,
         });
+
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         ejs.renderFile("templated/blog.ejs", {
             user: req.oidc.user,
