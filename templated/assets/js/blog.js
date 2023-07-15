@@ -29,7 +29,26 @@
                 });
 
                 if (res.ok) {
-                    alert('Added comment!');
+                    const commentsBox = document.getElementById('comments-box');
+
+                    // For next time, remove dompurify and just have the
+                    // server run it through ejs & send back the result
+                    // to display it
+                    commentsBox.innerHTML += `
+                    <li>
+                    <div class="comment-header">
+                      <div class="username">
+                        ${DOMPurify.sanitize(username)}
+                      </div>
+                      <div class="date">
+                        ${new Date().toLocaleDateString('en-US')}
+                      </div>
+                    </div>
+                    <div class="text">
+                      ${DOMPurify.sanitize(value)}
+                    </div>
+                  </li>
+                    `;
                 }
                 else {
                     alert('Error submitting your comment, please try again later.');

@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/blog/blog.css" />
     <script>
-      var postId = <%= postId %>;
+      var postId = Number('<%= postId %>');
+      var username = '<%= user.username %>';
     </script>
     <script defer src="/assets/js/blog.js"></script>
+    <script src="/assets/js/dompurify.js"></script>
     <title>GoLive WebDev</title>
 </head>
 
@@ -37,7 +39,7 @@
               <div class="comments">
                 <h2>Comments</h2>
 
-                <ul style="list-style: none;">
+                <ul id="comments-box" style="list-style: none;">
                   <% for(const comment of comments) { %>
                     <li>
                       <div class="comment-header">
