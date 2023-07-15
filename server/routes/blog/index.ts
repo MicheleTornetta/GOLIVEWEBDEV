@@ -70,10 +70,11 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             return;
         }
 
-        const blogHtml = marked.parse(data.toLocaleString(), {
+        let blogHtml = marked.parse(data.toLocaleString(), {
             mangle: false,
             headerIds: false,
         });
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         const comments = await sql<{
             created_date: Date,
