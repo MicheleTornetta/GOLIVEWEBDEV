@@ -70,10 +70,13 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             return;
         }
 
-        const blogHtml = marked.parse(data.toLocaleString(), {
+        let blogHtml = marked.parse(data.toLocaleString(), {
             mangle: false,
             headerIds: false,
         });
+
+
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         const comments = await sql<{
             created_date: Date,
@@ -88,6 +91,7 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             LEFT JOIN Users ON Users.user_id = Comments.user_id
             WHERE post_id = ${postId}
             ORDER BY Comments.created_date DESC`;
+
 
         ejs.renderFile("templated/blog.ejs", {
             user: req.session.user,

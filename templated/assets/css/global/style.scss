@@ -164,6 +164,7 @@ hr {
   cursor: pointer;
   color: var(--white);
   text-align: center;
+  text-decoration: none;
 
   &:visited {
     color: var(--white);
@@ -173,5 +174,4 @@ hr {
     color: var(--white);
     text-decoration: none;
   }
-
 }
