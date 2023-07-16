@@ -3,8 +3,6 @@ import sql from '../../db/connection';
 import { marked } from 'marked';
 import { readFile } from 'fs';
 import ejs from 'ejs';
-import { rateLimit } from 'express-rate-limit';
-import { log } from 'console';
 
 const router = express.Router();
 
