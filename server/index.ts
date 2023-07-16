@@ -31,6 +31,7 @@ async function runServer() {
   }
 
   const app: Express = express();
+  const IS_PROD = app.get('env') === 'production';
 
   const authConfig = {
     authRequired: false,
@@ -49,13 +50,13 @@ async function runServer() {
     resave: true,
     saveUninitialized: true,
     cookie: {
-      secure: false
+      secure: IS_PROD
     }
   };
 
-  if (app.get('env') === 'production') {
-    app.set('trust proxy', 1) // trust first proxy
-    sess.cookie.secure = true // serve secure cookies
+  if (IS_PROD) {
+    app.set('trust proxy', 1); // trust first proxy
+    sess.cookie.secure = true; // serve secure cookies
   }
 
   app.use(session(sess));
@@ -67,10 +68,6 @@ async function runServer() {
   app.use(setupSession);
 
   app.use('/', router);
-
-  app.use('/assets/js/dompurify.js', (_, res) => {
-    res.sendFile(__dirname.substring(0, __dirname.length - 4) + 'node_modules/dompurify/dist/purify.min.js');
-  });
 
   app.get("/*", (req: Request, res: Response, next: Function) => {
     let path = req.url;

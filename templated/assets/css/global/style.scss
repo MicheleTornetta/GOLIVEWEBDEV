@@ -70,32 +70,32 @@ main {
 h1 {
   font-size: 3.6em;
   color: var(--textdk);
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 h2 {
   font-size: 2.5em;
   color: var(--textdk);
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 h3 {
   font-size: 1.5em;
   color: var(--textdk);
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   font-weight: bolder;
 }
 
 h4 {
   font-size: 1.4em;
   color: var(--textdk);
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   font-weight: bolder;
 }
 
 p {
   color: var(--textdk);
-  padding-bottom: 15px;
+  margin-bottom: 15px;
   font-size: 1.2em;
   line-height: calc(1.5 * 1.2em);
 }
@@ -133,13 +133,22 @@ a:hover {
 }
 
 button,
-input[type=submit] {
+input[type=submit],
+.button {
   background-color: var(--background);
   color: var(--textwhite);
   padding: 16px 12px;
   font-size: 1.3em;
   border: none;
   cursor: pointer;
+  text-align: center;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    background-color: var(--btn);
+    color: var(--textwhite);
+    outline: var(--background) 2px solid;
+  }
 }
 
 @media screen and (max-width: 840px) {
@@ -156,14 +165,7 @@ hr {
 }
 
 .button {
-  background-color: var(--background);
-  width: 40%;
-  padding: 16px 12px;
-  margin: 10px 0;
-  font-size: 1.3em;
-  cursor: pointer;
-  color: var(--white);
-  text-align: center;
+  text-decoration: none;
 
   &:visited {
     color: var(--white);
@@ -173,5 +175,4 @@ hr {
     color: var(--white);
     text-decoration: none;
   }
-
 }

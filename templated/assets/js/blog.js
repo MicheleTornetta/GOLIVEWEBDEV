@@ -29,37 +29,44 @@
                 });
 
                 if (res.ok) {
+                    const parsedResult = await res.json();
+
                     const commentsBox = document.getElementById('comments-box');
 
                     // For next time, remove dompurify and just have the
                     // server run it through ejs & send back the result
                     // to display it
-                    commentsBox.innerHTML += `
+                    commentsBox.insertAdjacentHTML('afterend', `
                     <li>
                     <div class="comment-header">
                       <div class="username">
-                        ${DOMPurify.sanitize(username)}
+                        ${username}
                       </div>
                       <div class="date">
                         ${new Date().toLocaleDateString('en-US')}
                       </div>
                     </div>
                     <div class="text">
-                      ${DOMPurify.sanitize(value)}
+                      ${parsedResult.text}
                     </div>
                   </li>
-                    `;
+                    `);
+
+                    commentBox.value = '';
+                }
+                else if (res.status === 429) {
+                    modal.alert('You have made too many comments in short succession, please try again later.');
                 }
                 else {
-                    alert('Error submitting your comment, please try again later.');
+                    modal.alert('Error submitting your comment, please try again later.');
                 }
             }
             catch (ex) {
-                alert('Error submitting your comment, please try again later.');
+                modal.alert('Error submitting your comment, please try again later.');
                 console.error(ex);
             }
 
-            submitBtn.setAttribute('disabled', false);
+            submitBtn.removeAttribute('disabled');
         }
     }
     else {

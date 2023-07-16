@@ -10,56 +10,60 @@
 
 <body>
   <%- include('templates/nav.ejs') %>
+    <%- include('templates/modal.ejs') %>
 
-    <main>
-      <header class="header-big">
-        <div class="header-cover">
-          <div class="header-card">
-            <img src="assets/images/logo/GLWDCirclePur.png" class="logocircle" alt="GoLive WebDev logo." />
-            <h1>
-              <span class="purple">Go</span><span class="white">Live</span>
-              <span class="purple">Web</span><span class="white">Dev</span>
-            </h1>
-            <hr />
-            <p>Go Live on the Web so the world can see you!</p>
+      <main>
+        <header class="header-big">
+          <div class="header-cover">
+            <div class="header-card">
+              <img src="assets/images/logo/GLWDCirclePur.png" class="logocircle" alt="GoLive WebDev logo." />
+              <h1>
+                <span class="purple">Go</span><span class="white">Live</span>
+                <span class="purple">Web</span><span class="white">Dev</span>
+              </h1>
+              <hr />
+              <p>Go Live on the Web so the world can see you!</p>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <section>
-        <div style="
+        <section>
+          <div style="
             display: flex;
             flex-direction: row;
             flex-basis: content;
             flex-wrap: wrap;
             justify-content: center;
           ">
-          <article class="homepage">
-            <h1>How Can You Have A Great Website?</h1>
-            <h2>
-              It's simple, have us build your website and host it for you!  We can develop or even design a website for you!
-            </h2>
-            <p>
-              Let's face it, there are many cookie-cutter, drag and drop website
-              building services available. These website building packages do
-              have their place.
-            </p>
-            <p>
-              However, if you want to stand out from the crowd, you need a
-              custom built website that is unique to your business.
-            </p>
-            <p><strong>Now ask yourself</strong>, is it enough to have a website where people will learn about your business, or do you want the ability to capture your potential customer's information.
-            </p>
-            <p>Tell us your goals, and we'll build you a website to help you meet those goals.</p>
-          </article>
-          <article class="homepage-side">
-            <img style="width: 100%" src="/assets/images/home/gabriel.png" alt="A picture of Gabriel, you potential client." />
-            <p>Connect with your customers and brand your business!</p>
-          </article>
-        </div>
-      </section>
-    </main>
-    <%- include('templates/footer.ejs') %>
+            <article class="homepage">
+              <h1>How Can You Have A Great Website?</h1>
+              <h2>
+                It's simple, have us build your website and host it for you! We can develop or even design a website for
+                you!
+              </h2>
+              <p>
+                Let's face it, there are many cookie-cutter, drag and drop website
+                building services available. These website building packages do
+                have their place.
+              </p>
+              <p>
+                However, if you want to stand out from the crowd, you need a
+                custom built website that is unique to your business.
+              </p>
+              <p><strong>Now ask yourself</strong>, is it enough to have a website where people will learn about your
+                business, or do you want the ability to capture your potential customer's information.
+              </p>
+              <p>Tell us your goals, and we'll build you a website to help you meet those goals.</p>
+            </article>
+            <article class="homepage-side">
+              <img style="width: 100%" src="/assets/images/home/gabriel.png"
+                alt="A picture of Gabriel, you potential client." />
+              <p>Connect with your customers and brand your business!</p>
+            </article>
+          </div>
+        </section>
+      </main>
+      <%- include('templates/footer.ejs') %>
 </body>
 
 </html>
