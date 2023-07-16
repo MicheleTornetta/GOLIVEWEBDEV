@@ -9,16 +9,17 @@
   --textdk: #141414; // dark grey
 }
 
- .main-content {
-    display: flex;
-    margin: 20px 20px;
-    padding: 30px;
-    flex-direction: column;
-    border: solid thin var(--background);
-    img {
-      margin: 10px 0 15px 0;
-    }
- }
+.main-content {
+  display: flex;
+  margin: 20px 20px;
+  padding: 30px;
+  flex-direction: column;
+  border: solid thin var(--background);
+
+  img {
+    margin: 10px 0 15px 0;
+  }
+}
 
 .purple {
   color: var(--btn);
@@ -95,7 +96,22 @@ h4 {
 p {
   color: var(--textdk);
   padding-bottom: 15px;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  line-height: calc(1.5 * 1.2em);
+}
+
+label,
+li {
+  font-size: 1.2em;
+  color: var(--textdk);
+}
+
+input,
+select,
+textarea {
+  font-size: 1.2em;
+  color: var(--textdk);
+  padding: 8px 6px;
 }
 
 li {
@@ -103,7 +119,6 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: var(--background);
   font-size: large;
 }
@@ -117,16 +132,14 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+button,
+input[type=submit] {
   background-color: var(--background);
-  opacity: .9;
   color: var(--textwhite);
   padding: 16px 12px;
   font-size: 1.3em;
-  align-self: center;
   border: none;
   cursor: pointer;
-  justify-self: center;
 }
 
 @media screen and (max-width: 840px) {
@@ -151,13 +164,14 @@ hr {
   cursor: pointer;
   color: var(--white);
   text-align: center;
-  
+  text-decoration: none;
+
   &:visited {
-      color: var(--white);
-  }
-  &:hover {
-      color: var(--white);
-      text-decoration: none;
+    color: var(--white);
   }
 
+  &:hover {
+    color: var(--white);
+    text-decoration: none;
+  }
 }

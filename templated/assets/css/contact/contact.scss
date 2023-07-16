@@ -1,13 +1,9 @@
-h1 {
-  color: var(--textwhite);
-}
-
 .contact {
+
   p,
   h3,
   h2 {
     color: var(--textdk);
-    font-size: larger;
   }
 
   h2 {
@@ -18,7 +14,6 @@ h1 {
 
   h1 {
     color: var(--textdk);
-    font-size: xx-large;
     padding: 10px;
   }
 
@@ -55,11 +50,11 @@ h1 {
 }
 
 .card-contact {
+
   p,
   h3,
   h2 {
     color: var(--textwhite);
-    font-size: larger;
   }
 
   h2 {
@@ -69,7 +64,6 @@ h1 {
 
   h1 {
     color: var(--textwhite);
-    font-size: xx-large;
     padding: 10px;
     align-self: center;
   }
@@ -89,18 +83,8 @@ h1 {
   flex-direction: column;
 
   .email-button {
-    background-color: var(--background);
-    opacity: 0.9;
-    color: var(--textwhite);
     width: 150px;
-    padding: 16px 12px;
-    margin: 10px 0;
-    font-size: 1.3em;
     align-self: center;
-    border: none;
-    cursor: pointer;
-    justify-self: center;
-    margin-top: auto;
   }
 
   .contact-form-text {
@@ -115,12 +99,7 @@ h1 {
   }
 }
 
-input, textarea, option, select {
-  font-size: 1.0em;
-}
-
 label {
   color: var(--textwhite);
-  font-size: 1.2em;
   font-weight: bold;
 }

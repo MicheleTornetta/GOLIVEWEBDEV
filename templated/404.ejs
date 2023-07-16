@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('templates/head.ejs') %>
+
+        <title>GoLive WebDev | 404</title>
+</head>
+
+<body>
+    <%- include('templates/nav.ejs') %>
+
+        <main>
+            <header>
+                <div class="header-cover">
+                    <h1 class="services">Page Not Found</h1>
+                </div>
+            </header>
+            <section style="display: flex; flex: 1; align-items: center; flex-direction: column; margin-top: 40px;">
+                <h3>The page you were looking for was not found.</h3>
+                <p><a href="/" style="color: --var(textdk);">Click here to be taken back to the home page.</a></p>
+            </section>
+        </main>
+        <%- include('templates/footer.ejs') %>
+</body>
+
+</html>
