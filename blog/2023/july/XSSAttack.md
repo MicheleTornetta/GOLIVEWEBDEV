@@ -1,6 +1,6 @@
 ## What is an XSS attack?
 
-A security vulnerability on some web apps called Cross-site scripting and is becomming more and more common.
+## A critical security vulnerability that could affect any website with user-generated content.
 
 <img width="55%" height="auto" src="/assets/images/blog/2023/july/xssblog.png" alt="Cybercriminal using website to attack victim." >
 

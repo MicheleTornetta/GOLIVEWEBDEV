@@ -75,6 +75,8 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             headerIds: false,
         });
 
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
+
         const comments = await sql<{
             created_date: Date,
             commenter: string,
