@@ -3,8 +3,6 @@ import sql from '../../db/connection';
 import { marked } from 'marked';
 import { readFile } from 'fs';
 import ejs from 'ejs';
-import { rateLimit } from 'express-rate-limit';
-import { log } from 'console';
 
 const router = express.Router();
 
@@ -74,6 +72,8 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             mangle: false,
             headerIds: false,
         });
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
+
         blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         const comments = await sql<{

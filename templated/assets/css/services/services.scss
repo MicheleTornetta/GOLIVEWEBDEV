@@ -1,9 +1,240 @@
 h1 {
-    color: var(--textwhite);
+  color: var(--textwhite);
 }
 
-.card img{
+.card img {
+  align-self: center;
+  justify-self: center;
+}
+
+.card.services {
+  width: 90%;
+  display: flex;
+  background-color: var(--white);
+  p,
+  h3,
+  h4,
+  h2 {
+    color: var(--textdk);
+    padding-left: 10px;
+  }
+
+  .websitebldimg {
+    width: 98%;
     align-self: center;
     justify-self: center;
+    background-color: var(--header);
+    img {
+      display: flex;
+      width: 50%;
+      align-items: center;
+      margin: auto;
+      padding: 0px;
     }
+  }
 
+  ul {
+    li {
+      margin-left: 5%;
+      font-size: 20px;
+    }
+    padding-bottom: 10px;
+  }
+
+  .panel {
+    // padding: 0 18px;
+    background-color: var(--white);
+    display: none;
+    overflow: hidden;
+    width: 95%;
+    box-shadow: 7px 5px var(--textdk);
+  }
+
+  button.accordion {
+    display: flex;
+    color: var(--textwhite);
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0 25px 20px;
+    text-align: left;
+    justify-content: center;
+    transition: 0.3s;
+    img {
+      height: .9em;
+      width: auto;
+      padding: 0 0 0 20px;
+      position:static;
+    }
+  }
+
+
+
+  .accordion:hover {
+    background-color: var(--header);
+    font-weight: 450;
+  }
+
+  hr {
+    width: 98%;
+    height: 6px;
+    background-color: var(--header);
+    margin: auto;
+  }
+}
+
+.button-contact {
+  display: flex;
+  flex: 1;
+  // margin: 10px 0 0 15px;
+  margin: auto;
+  background-color: var(--background);
+  width: 40%;
+  padding: 10px 10px;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: var(--white);
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  
+  &:visited {
+    color: var(--textwhite);
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+
+.flex1-removal {
+  flex: 0 !important; 
+}
+
+//Carousel
+
+.carousel-container {
+  display: flex;
+  width: 98%;
+  min-height: 200px;
+  max-height: 300px;
+  position: relative;
+  margin: auto;
+  background-color: var(--header);
+
+  .samples {
+    flex: 1;
+    align-content: center;
+    display: flex;
+  }
+
+  .img-size {
+    display: block;
+    max-height: 90%;
+    max-width: fit-content;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
+/* Hide the images by default */
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  height: 65px;
+  top: calc(50% - 65px / 2);
+  width: auto;
+  padding: 16px;
+  color: var(--textdk);
+  font-weight: bold;
+  font-size: 25px;
+  transition: .2s ease-in-out;
+  border-radius: 0 3px 3px 0;
+  user-select: auto;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: var(--textdk);
+}
+
+/* Caption text */
+.text {
+  color: var(--textwhite);
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: var(--textdk);
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: var(--textdk);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.active,
+.dot:hover {
+  background-color: var(--header);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
