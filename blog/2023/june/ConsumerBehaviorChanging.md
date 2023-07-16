@@ -1,6 +1,6 @@
-# How Can You Keep Up with Consumer Behavior?
+## How Can You Keep Up with Consumer Behavior?
 
-## In today's market, you need to have a website to reach the modern consumer.
+In today's market, you need to have a website to reach the modern consumer.
 
 <img width="45%" height="auto" src="/assets/images/blog/2023/june/cbc6_25_23.jpg" alt="Customer searching on cell phone - photo by Daria Nepriakhina" >
 
@@ -20,6 +20,6 @@ Think about the last time you needed a product or service. If you're like me, th
 
 Having a poorly made website could do more damage than good. When I find a website is unusable on a phone, I am immediately turned off and start searching elsewhere. I am not unique in this practice. Most customers, when given a poor experience on a website, will view your business just as poorly.
 
-## The Bottom Line
+### The Bottom Line
 
 You need a website, but not just any website. You need a good-looking, functional, and accessible website to give your customers a great first impression.
