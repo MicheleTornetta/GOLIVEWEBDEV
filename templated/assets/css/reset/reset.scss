@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: none;
 }
 
 html {
@@ -16,6 +17,4 @@ body, main {
   flex-direction: column;
 }
 
-.button {
-  border: none;
-}
+

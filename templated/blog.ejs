@@ -5,12 +5,6 @@
   <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/blog/blog.css" />
-    <script>
-      var postId = Number('<%= postId %>');
-      var username = '<%= user.username %>';
-    </script>
-    <script defer src="/assets/js/blog.js"></script>
-    <script src="/assets/js/dompurify.js"></script>
     <title>GoLive WebDev</title>
 </head>
 
@@ -25,54 +19,23 @@
         </section>
       </header>
       <section>
-        <div style="
-            display: flex;
-            flex-direction: row;
-            flex-basis: content;
-            flex-wrap: wrap;
-            justify-content: center;
-            flex: 1;
-          ">
+        <div class="for-flex">
           <section class="card-blog main-content">
             <%- blogHtml %>
-              <hr>
-              <div class="comments">
-                <h2>Comments</h2>
-
-                <ul id="comments-box" style="list-style: none;">
-                  <% for(const comment of comments) { %>
-                    <li>
-                      <div class="comment-header">
-                        <div class="username">
-                          <%= comment.username %>
-                        </div>
-                        <div class="date">
-                          <%= comment.created_date.toLocaleDateString('en-US') %>
-                        </div>
-                      </div>
-                      <div class="text">
-                        <%= comment.text %>
-                      </div>
-                    </li>
-                    <% } %>
-                </ul>
-
-                <form method="POST" id="comment-form">
-                  <% if (comments.length===0) { %>
-                    <label for="comment">No comments yet, be the first to say something!</label>
-                    <% } else { %>
-                      <label for="comment">Add your thoughts!</label>
-                      <% } %>
-                        <textarea required minlength="1" maxlength="1999" style="width: 100%;" rows="4" name="comment"
-                          id="comment-text"></textarea>
-                        <input type="submit" id="submit-comment" value="Add Comment" class="comment-button" />
-                </form>
-              </div>
+              <button class="comment-button">Comment</button>
+              <section class="comment-card">
+                <h3>Comments</h3>
+                <div class="comments">
+                  <ul style="list-style: none;">
+                    <li></li>
+                  </ul>
+                </div>
+              </section>
           </section>
 
           <section class="card-bloglist">
             <img src="/assets/images/blog/triangledown.png" />
-            <h2>Articles</h2>
+            <h1>Articles</h1>
             <ul>
               <% for (const article of allPosts) { %>
                 <li class="article-post">

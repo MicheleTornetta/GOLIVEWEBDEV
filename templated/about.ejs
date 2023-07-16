@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('templates/head.ejs') %>
+  <head>
+    <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/about/about.css" />
     <title>GoLive WebDev</title>
-</head>
+  </head>
 
-<body>
-  <%- include('templates/nav.ejs') %>
+  <body>
+    <%- include('templates/nav.ejs') %>
 
     <main>
       <header>
         <h1>About</h1>
       </header>
       <section class="about-article main-content">
-        <article class="aboutpage">
-          <h2>About Us</h2>
-          <h3>
-            We are passionate about developing websites and web apps that
-            communicate to the world what makes you unique.
-          </h3>
-          <hr />
-          <p>
-            GoLive WebDev is run by a mother &amp; son team, Michele and Anthony,
-            both with unique skills. Michele started learning how to build web
-            pages as a personal hobby. Through that, she found her employer
-            needed that type of skill along with marketing skills to start email
-            marketing campaigns.
-          </p>
-          <p>
-            Anthony took an interest in coding by watching his mom work. She
-            encouraged his interest by buying him a computer at a very young
-            age. She taught him some very basic html and signed him up for some
-            computer courses for very young children. He took that interest and
-            actively looked for more languages to learn.
-          </p>
-          <p>
-            Now, they actively share their passion for coding together, having
-            long discussions about the many different technologies used to make
-            modern websites.
-          </p>
-          <p>
-            That being said, when they found they were in need of a product or
-            service, the first place they would look would be online. It amazed
-            them both how many businesses had no online presense or a poorly
-            created website.
-          </p>
-          <p>
-            Thus the creation of GoLive WebDev, a company focused on helping
-            organizations brand themselves with a unique website so they can be
-            found by their future customers.
-          </p>
-        </article>
+        <div class="for-flex">
+          <article class="aboutpage">
+            <h2>About Us</h2>
+            <h3>
+              We are passionate about developing websites and web apps that
+              communicate to the world what makes you unique.
+            </h3>
+            <hr />
+            <p>
+              GoLive WebDev is run by a mother &amp; son team, Michele and
+              Anthony, both with unique skills. Michele started learning how to
+              build web pages as a personal hobby. Through that, she found her
+              employer needed that type of skill along with marketing skills to
+              start email marketing campaigns.
+            </p>
+            <p>
+              Anthony took an interest in coding by watching his mom work. She
+              encouraged his interest by buying him a computer at a very young
+              age. She taught him some very basic html and signed him up for
+              some computer courses for very young children. He took that
+              interest and actively looked for more languages to learn.
+            </p>
+            <p>
+              Now, they actively share their passion for coding together, having
+              long discussions about the many different technologies used to
+              make modern websites.
+            </p>
+            <p>
+              That being said, when they found they were in need of a product or
+              service, the first place they would look would be online. It
+              amazed them both how many businesses had no online presense or a
+              poorly created website.
+            </p>
+            <p>
+              Thus the creation of GoLive WebDev, a company focused on helping
+              organizations brand themselves with a unique website so they can
+              be found by their future customers.
+            </p>
+          </article>
+        </div>
       </section>
       <section class="aboutbio">
         <section class="card bio">
-          <img src="/assets/images/about/michele.png" alt="A picture of Michele - Co-founder of GoLive WebDev" />
+          <img
+            src="/assets/images/about/michele.png"
+            alt="A picture of Michele - Co-founder of GoLive WebDev"
+          />
           <h2>Michele Tornetta</h2>
           <h3>Web Developer & Online Marketing Consultant</h3>
           <h4>Co-Founder of GoLive WebDev</h4>
@@ -85,25 +89,29 @@
           </p>
         </section>
         <section class="card bio">
-          <img src="/assets/images/about/anthony.png" alt="A picture of Anthony - Co-founder of GoLive WebDev" />
+          <img
+            src="/assets/images/about/anthony.png"
+            alt="A picture of Anthony - Co-founder of GoLive WebDev"
+          />
           <h2>Anthony Tornetta</h2>
           <h3>Database, Server and Online Security Developer</h3>
           <h4>Co-Founder of GoLive WebDev</h4>
           <p>
             I am the guy who makes your website useful, with the ability to
             capture your customer's information so it can be used for targeted
-            marketing, online product ordering, or any number of functionalities.
+            marketing, online product ordering, or any number of
+            functionalities.
           </p>
           <p>
             My background includes setting and making servers and databases more
-            secure. I have worked with a healthcare software company developing and
-            maintaining proprietary software. I also have year of experience teaching
-            students various programming languages.
+            secure. I have worked with a healthcare software company developing
+            and maintaining proprietary software. I also have year of experience
+            teaching students various programming languages.
           </p>
           <p>
             I attend <abbr title="Rochester Institute of Technology">RIT</abbr>
-            with Software Engineering as my major and have the of honor of
-            being on the Dean's List.
+            with Software Engineering as my major and have the of honor of being
+            on the Dean's List.
           </p>
           <p>
             My passion is coding, though I also enjoy going out with my friends
@@ -115,6 +123,5 @@
       </section>
     </main>
     <%- include('templates/footer.ejs') %>
-</body>
-
+  </body>
 </html>

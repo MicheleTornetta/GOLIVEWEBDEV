@@ -3,8 +3,6 @@ import sql from '../../db/connection';
 import { marked } from 'marked';
 import { readFile } from 'fs';
 import ejs from 'ejs';
-import { rateLimit } from 'express-rate-limit';
-import { log } from 'console';
 
 const router = express.Router();
 
@@ -75,7 +73,6 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             headerIds: false,
         });
 
-
         blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         const comments = await sql<{
@@ -91,7 +88,6 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             LEFT JOIN Users ON Users.user_id = Comments.user_id
             WHERE post_id = ${postId}
             ORDER BY Comments.created_date DESC`;
-
 
         ejs.renderFile("templated/blog.ejs", {
             user: req.session.user,
