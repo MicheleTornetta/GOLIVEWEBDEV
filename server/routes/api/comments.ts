@@ -6,9 +6,9 @@ import rateLimit from "express-rate-limit";
 
 const router = express.Router();
 
-interface Comment {
-    message: string,
-    postId: number,
+interface RawComment {
+    text?: string,
+    postId?: string,
 }
 
 const ONE_HOUR = 60 * 60 * 1000;
@@ -20,7 +20,7 @@ const commentRateLimiter = rateLimit({
     legacyHeaders: false,
 });
 
-router.post('/create', commentRateLimiter, async (req: Request<any, any, Comment>, res: Response) => {
+router.post('/create-comment', commentRateLimiter, async (req: Request<any, any, RawComment>, res) => {
     if (!req.session.user) {
         res.status(400).send({
             error: 'Must be logged in to do this!'
@@ -28,38 +28,47 @@ router.post('/create', commentRateLimiter, async (req: Request<any, any, Comment
         return;
     }
 
-    const { message, postId } = req.body;
-
-    if (!message.trim()) {
+    const { text: textRaw, postId: postIdRaw } = req.body;
+    if (!textRaw) {
         res.status(400).send({
-            error: 'Cannot create comment with no text.'
+            error: 'Missing text'
         });
         return;
     }
 
-    if (message.length > 2000) {
+    if (!postIdRaw) {
         res.status(400).send({
-            error: 'Message cannot be more than 2000 characters.'
+            error: 'Missing post id'
         });
         return;
     }
 
-    if (!postId) {
+    const text = textRaw.trim();
+    const postId = Number(postIdRaw);
+
+    if (isNaN(postId)) {
         res.status(400).send({
-            error: 'Invalid post id!'
+            error: 'Invalid post id'
         });
         return;
     }
 
-    const userId = req.session.user.userId;
+    if (text.length === 0 || text.length >= 2000) {
+        res.status(400).send({
+            error: 'Invalid text length'
+        });
+        return;
+    }
 
     try {
+        const userId = req.session.user.userId;
+
         await sql`INSERT INTO Comments (comment, created_date, user_id, post_id) VALUES (
-            ${message}, ${new Date()}, ${userId}, ${postId}
+            ${text}, ${new Date()}, ${userId}, ${postId}
         )`;
 
-        res.send({
-            success: 'Comment posted successfully'
+        res.status(200).send({
+            success: 'Comment added and awaiting moderator approval',
         });
     }
     catch (ex) {

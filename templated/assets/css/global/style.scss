@@ -94,7 +94,22 @@ h4 {
 p {
   color: var(--textdk);
   padding-bottom: 15px;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  line-height: calc(1.5 * 1.2em);
+}
+
+label,
+li {
+  font-size: 1.2em;
+  color: var(--textdk);
+}
+
+input,
+select,
+textarea {
+  font-size: 1.2em;
+  color: var(--textdk);
+  padding: 8px 6px;
 }
 
 li {
@@ -115,16 +130,14 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+button,
+input[type=submit] {
   background-color: var(--background);
-  opacity: 0.9;
   color: var(--textwhite);
   padding: 16px 12px;
   font-size: 1.3em;
-  align-self: center;
   border: none;
   cursor: pointer;
-  justify-self: center;
 }
 
 @media screen and (max-width: 840px) {

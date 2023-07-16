@@ -1,6 +1,6 @@
-# What is an XSS attack?
+## What is an XSS attack?
 
-## A critical security vulnerability that could affect any website with user-generated content.
+A security vulnerability on some web apps called Cross-site scripting and is becomming more and more common.
 
 <img width="55%" height="auto" src="/assets/images/blog/2023/july/xssblog.png" alt="Cybercriminal using website to attack victim." >
 
@@ -24,6 +24,6 @@ While prevention is always the best method, mitigation methods should be in plac
 
 One example of this would be to confirm that the login session token matches your customer's IP address. If it doesn't, your website should require that they log in again to ensure it is actually them. This way, even if a malicious actor gets someone's login token, they still cannot login to the victim's account.
 
-## The Bottom Line
+### The Bottom Line
 
 This is just one of many vulnerabilities that could compromise your website. However your website is constructed, make sure that you take the steps necessary to secure it. If you are unsure about the security of your website, the worst thing you can do is ignore it. When security is ignored, you will eventually have an incident like [this](https://www.techrepublic.com/article/british-airways-data-theft-demonstrates-need-for-cross-site-scripting-restrictions/), [this](https://infra.apache.org/blog/apache_org_04_09_2010) or [this](https://www.theguardian.com/technology/blog/2010/sep/21/twitter-hack-explained-xss-javascript).
