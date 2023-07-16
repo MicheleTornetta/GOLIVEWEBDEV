@@ -68,6 +68,10 @@ async function runServer() {
 
   app.use('/', router);
 
+  app.use('/assets/js/dompurify.js', (_, res) => {
+    res.sendFile(__dirname.substring(0, __dirname.length - 4) + 'node_modules/dompurify/dist/purify.min.js');
+  });
+
   app.get("/*", (req: Request, res: Response, next: Function) => {
     let path = req.url;
 
