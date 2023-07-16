@@ -29,6 +29,7 @@ h1 {
       width: 50%;
       align-items: center;
       margin: auto;
+      padding: 0px;
     }
   }
 
@@ -58,11 +59,15 @@ h1 {
     text-align: left;
     justify-content: center;
     transition: 0.3s;
-    width: 15%;
     img {
-      width: 32%;
+      height: .9em;
+      width: auto;
+      padding: 0 0 0 20px;
+      position:static;
     }
   }
+
+
 
   .accordion:hover {
     background-color: var(--header);
@@ -77,11 +82,40 @@ h1 {
   }
 }
 
+.button-contact {
+  display: flex;
+  flex: 1;
+  // margin: 10px 0 0 15px;
+  margin: auto;
+  background-color: var(--background);
+  width: 40%;
+  padding: 10px 10px;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: var(--white);
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  
+  &:visited {
+    color: var(--textwhite);
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+
+.flex1-removal {
+  flex: 0 !important; 
+}
+
 //Carousel
 
 .carousel-container {
   display: flex;
-//   flex: 1;
   width: 98%;
   min-height: 200px;
   max-height: 300px;
@@ -89,7 +123,7 @@ h1 {
   margin: auto;
   background-color: var(--header);
 
-  .Samples {
+  .samples {
     flex: 1;
     align-content: center;
     display: flex;
@@ -97,11 +131,8 @@ h1 {
 
   .img-size {
     display: block;
-    // width: 100%;
-    // max-height: auto;
     max-height: 90%;
-    max-width:fit-content;
-    // align-content: center;
+    max-width: fit-content;
     margin: auto;
     overflow: hidden;
   }
@@ -114,14 +145,14 @@ h1 {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 25%;
+  height: 65px;
+  top: calc(50% - 65px / 2);
   width: auto;
-//   margin-top: -22px;
   padding: 16px;
   color: var(--textdk);
   font-weight: bold;
   font-size: 25px;
-  transition: 1.6s ease;
+  transition: .2s ease-in-out;
   border-radius: 0 3px 3px 0;
   user-select: auto;
 }
@@ -167,7 +198,7 @@ h1 {
   background-color: var(--textdk);
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  transition: background-color 0.1s ease-in-out;
 }
 
 .active,
@@ -177,18 +208,33 @@ h1 {
 
 /* Fading animation */
 .fade {
-  animation-name:fade;
-  animation-duration: 5.5s;
+  animation-name: fade;
+  animation-duration: 1s;
   animation-direction: normal;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes fade {
   from {
-    opacity: 0.4;
+    opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
