@@ -31,8 +31,6 @@
 
 //Global
 
-
-
 .has-aside {
   display: flex;
   flex-direction: row;
@@ -119,7 +117,7 @@ a:hover {
 
 button {
   background-color: var(--background);
-  opacity: .9;
+  opacity: 0.9;
   color: var(--textwhite);
   padding: 16px 12px;
   font-size: 1.3em;
@@ -136,7 +134,7 @@ button {
 }
 
 hr {
-  width: 95%;
+  width: 97%;
   height: 6px;
   background-color: var(--header);
   margin: 0 0 10px 2.5%;
@@ -161,5 +159,13 @@ hr {
     color: var(--white);
     text-decoration: none;
   }
+}
 
+.for-flex {
+  display: flex;
+  flex-direction: row;
+  flex-basis: content;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
 }
