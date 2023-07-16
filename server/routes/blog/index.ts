@@ -72,6 +72,7 @@ async function renderAndSend(filePaths: DatabaseResult, postId: number, req: Req
             mangle: false,
             headerIds: false,
         });
+        blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 
         blogHtml = blogHtml.replaceAll('<a', '<a target="_blank"');
 

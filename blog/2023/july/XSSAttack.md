@@ -1,6 +1,6 @@
 ## What is an XSS attack?
 
-## A critical security vulnerability that could affect any website with user-generated content.
+A critical security vulnerability that could affect any website with user-generated content.
 
 <img width="55%" height="auto" src="/assets/images/blog/2023/july/xssblog.png" alt="Cybercriminal using website to attack victim." >
 

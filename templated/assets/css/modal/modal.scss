@@ -1,0 +1,38 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    modal {
+        box-shadow: 5px 3px 0px 0px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: 300px;
+
+        background-color: #eee;
+
+        text-align: center;
+
+        h2 {
+            background-color: #ccc;
+        }
+
+        .close {
+            width: 100%;
+        }
+
+        .message {
+            margin: 20px 20%;
+            flex: 1;
+            display: flex;
+        }
+    }
+}

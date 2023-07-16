@@ -3,6 +3,7 @@
 import express, { Request, Response } from "express";
 import sql from "../../db/connection";
 import rateLimit from "express-rate-limit";
+import purify from '../../utils/purify';
 
 const router = express.Router();
 
@@ -68,7 +69,7 @@ router.post('/create-comment', commentRateLimiter, async (req: Request<any, any,
         )`;
 
         res.status(200).send({
-            success: 'Comment added and awaiting moderator approval',
+            text: purify(text),
         });
     }
     catch (ex) {
