@@ -60,10 +60,10 @@ h1 {
     justify-content: center;
     transition: 0.3s;
     img {
-      height: .9em;
+      height: 0.9em;
       width: auto;
       padding: 0 0 0 20px;
-      position:static;
+      position: static;
     }
   }
 
@@ -94,7 +94,7 @@ h1 {
   text-align: center;
   justify-content: center;
   text-decoration: none;
-  
+
   &:visited {
     color: var(--textwhite);
     text-decoration: none;
@@ -107,7 +107,7 @@ h1 {
 }
 
 .flex1-removal {
-  flex: 0 !important; 
+  flex: 0 !important;
 }
 
 //Carousel
@@ -115,24 +115,24 @@ h1 {
 .carousel-container {
   display: flex;
   width: 98%;
-  min-height: 300px;
-  max-height: 300px;
+  height: 300px;
   position: relative;
   margin: auto;
   background-color: var(--textwhite);
+  overflow: hidden;
 
-  .samples {
-    flex: 1;
-    align-content: center;
+  #carousel {
+    position: relative;
+    width: 0;
     display: flex;
-  }
 
-  .img-size {
-    display: block;
-    max-height: 300px;
-    max-width: 600px;
-    margin: auto;
-    overflow: hidden;
+    img {
+      width: 600px;
+      height: 100%;
+      display: inline-block;
+      padding: 0;
+      padding-right: 10px;
+    }
   }
 }
 
@@ -150,7 +150,7 @@ h1 {
   color: var(--textdk);
   font-weight: bold;
   font-size: 25px;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   border-radius: 0 3px 3px 0;
   user-select: auto;
 }
