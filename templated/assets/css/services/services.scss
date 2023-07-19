@@ -67,8 +67,6 @@ h1 {
     }
   }
 
-
-
   .accordion:hover {
     background-color: var(--header);
     font-weight: 450;
@@ -117,11 +115,11 @@ h1 {
 .carousel-container {
   display: flex;
   width: 98%;
-  min-height: 200px;
+  min-height: 300px;
   max-height: 300px;
   position: relative;
   margin: auto;
-  background-color: var(--header);
+  background-color: var(--textwhite);
 
   .samples {
     flex: 1;
@@ -131,8 +129,8 @@ h1 {
 
   .img-size {
     display: block;
-    max-height: 90%;
-    max-width: fit-content;
+    max-height: 300px;
+    max-width: 600px;
     margin: auto;
     overflow: hidden;
   }

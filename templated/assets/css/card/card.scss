@@ -27,9 +27,9 @@
         margin-top: auto;
     }
 
-    section {
-        flex: 1;
-    }
+    // section {
+    //     flex: 1;
+    // }
 
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
@@ -40,4 +40,5 @@
     background-color: var(--btn);
     display: flex;
     flex-direction: column;
+    // flex: 1;
 }
