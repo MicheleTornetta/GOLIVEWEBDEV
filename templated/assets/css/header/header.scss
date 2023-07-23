@@ -24,7 +24,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: max(80vh, 600px);
+  height: MAX(80vh, 600px);
 
   background-color: var(--background);
   background-image: url("/assets/images/background/PurBG.png");

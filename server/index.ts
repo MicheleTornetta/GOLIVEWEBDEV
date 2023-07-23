@@ -4,6 +4,7 @@ import http from "http";
 import ejs from "ejs";
 import { auth } from 'express-openid-connect';
 import session from "express-session";
+import sass from "node-sass";
 
 import router from './routes';
 import setupSession from "./auth";
@@ -91,6 +92,45 @@ async function runServer() {
     } else {
       next();
     }
+  });
+
+  const compiledCSS: { [key: string]: string } = {};
+
+  app.get("/*.css", (req: Request, res: Response, next: Function) => {
+    const requestedPath = req.url;
+
+    if (IS_PROD) {
+      // We don't expect changes to CSS in prod
+      const alreadyCompiledCss = compiledCSS[requestedPath];
+      if (alreadyCompiledCss) {
+        res.type('css').send(alreadyCompiledCss);
+        return;
+      }
+    }
+
+    const scssPath = './templated/' + requestedPath.replace('.css', '.scss');
+
+    console.log(scssPath);
+
+    sass.render({
+      file: scssPath,
+    }, (err, result) => {
+      if (err) {
+        if (err.status === 3) {
+          res.sendStatus(404);
+          throw err;
+        }
+        else {
+          res.sendStatus(500);
+          throw err;
+        }
+      }
+      else {
+        const css = result.css.toString();
+        compiledCSS[requestedPath] = css;
+        res.type('css').send(css);
+      }
+    });
   });
 
   app.use(express.static('templated/'));
