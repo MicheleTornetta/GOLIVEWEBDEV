@@ -36,7 +36,7 @@ h1 {
   ul {
     li {
       margin-left: 5%;
-      font-size: 20px;
+      font-size: 1.5em;
     }
     padding-bottom: 10px;
   }
@@ -88,7 +88,7 @@ h1 {
   background-color: var(--background);
   width: 40%;
   padding: 10px 10px;
-  font-size: 1.3em;
+  font-size: 1.5em;
   cursor: pointer;
   color: var(--white);
   text-align: center;
@@ -149,7 +149,7 @@ h1 {
   padding: 16px;
   color: var(--textdk);
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.5em;
   transition: 0.2s ease-in-out;
   border-radius: 0 3px 3px 0;
   user-select: auto;
@@ -170,7 +170,7 @@ h1 {
 /* Caption text */
 .text {
   color: var(--textwhite);
-  font-size: 15px;
+  font-size: 1.5em;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
