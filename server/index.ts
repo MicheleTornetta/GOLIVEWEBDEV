@@ -7,6 +7,7 @@ import session from "express-session";
 
 import router from './routes';
 import setupSession from "./auth";
+import getCompileScssFunction from "./scss-compiler";
 
 interface User {
   username: string,
@@ -92,6 +93,8 @@ async function runServer() {
       next();
     }
   });
+
+  app.get("/*.css", getCompileScssFunction(IS_PROD));
 
   app.use(express.static('templated/'));
 
