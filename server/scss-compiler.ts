@@ -18,16 +18,18 @@ function getCompileScssFunction(isProd: boolean) {
 
         const scssPath = './templated/' + requestedPath.replace('.css', '.scss');
 
-        console.log(scssPath);
-
         sass.render({
             file: scssPath,
         }, (err, result) => {
             if (err) {
-                const error = `[${err.name} (${err.status})] ${err.file} ${err.line}:${err.column} - ${err.message}\n\n${err.stack}`;
+                if (!isProd) {
+                    const error = `[${err.name} (${err.status})] - ${err.message}\n\n${err.stack}`;
 
-                res.sendStatus(404).type('text').send(error);
-                return;
+                    res.status(404).type('text').send(error);
+                }
+                else {
+                    res.sendStatus(404);
+                }
             }
             else {
                 const css = result.css.toString();

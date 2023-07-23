@@ -94,7 +94,7 @@ async function runServer() {
     }
   });
 
-  app.use("/*.css", getCompileScssFunction(IS_PROD));
+  app.get("/*.css", getCompileScssFunction(IS_PROD));
 
   app.use(express.static('templated/'));
 
