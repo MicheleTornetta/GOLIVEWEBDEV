@@ -1,3 +1,6 @@
+DO $$ -- Start of PL/pgSQL block
+BEGIN
+
 IF NOT EXISTS (SELECT FROM posts WHERE file_path = '2023/june/ConsumerBehaviorChanging.md') THEN
     INSERT INTO posts (title, file_path, created_date, author_id)
 	VALUES ('How Can You Keep Up with Consumer Behavior?', '2023/june/ConsumerBehaviorChanging.md', '2023-06-25 19:52:55.255415', 1);
@@ -27,3 +30,5 @@ IF NOT EXISTS (SELECT FROM posts WHERE file_path = '2023/july/color-importance.m
     INSERT INTO posts (title, file_path, created_date, author_id)
     VALUES ('Do Colors Matter in a Website Design?', '2023/july/color-importance.md', "2023-07-23 07:10:26.617006", 1);
 END IF;
+
+END $$; -- End of PL/pgSQL block
