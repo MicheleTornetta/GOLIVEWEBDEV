@@ -4,10 +4,12 @@ import http from "http";
 import ejs from "ejs";
 import { auth } from 'express-openid-connect';
 import session from "express-session";
+import connectPgSimple from 'connect-pg-simple';
 
 import router from './routes';
 import setupSession from "./auth";
 import getCompileScssFunction from "./scss-compiler";
+import sql from "./db/connection";
 
 interface User {
   username: string,
@@ -38,7 +40,7 @@ async function runServer() {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.AUTH_SECRET,
-    baseURL: 'http://localhost:8080',
+    baseURL: process.env.BASE_URL,
     clientID: process.env.AUTH_CLIENT_ID,
     issuerBaseURL: process.env.AUTH_ISSUER_BASE_URL
   };
@@ -48,11 +50,15 @@ async function runServer() {
 
   const sess = {
     secret: process.env.SESSION_SECRET,
-    resave: true,
     saveUninitialized: true,
     cookie: {
-      secure: IS_PROD
-    }
+      secure: IS_PROD,
+    },
+    resave: false,
+    store: new (connectPgSimple(session))({
+      createTableIfMissing: true,
+      conString: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+    }),
   };
 
   if (IS_PROD) {

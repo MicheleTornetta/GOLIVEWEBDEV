@@ -22,6 +22,6 @@ httpProxy.createServer({
 
 http.createServer((req, res) => {
     res.writeHead(302, {
-        'Location': 'https://' + req.headers.host + req.url,
+        'Location': 'https://www.golivewebdev.com/' + req.url,
     }).end();
 }).listen(80);
