@@ -1,77 +1,180 @@
-import { SessionData, Store } from "express-session";
-import sql from "./db/connection";
+import { SessionData, Store } from 'express-session';
+import sql from './db/connection';
 
-function currentTimestamp() {
+const DEFAULT_PRUNE_INTERVAL_IN_SECONDS = 60 * 15;
+const ONE_DAY = 86400;
+
+function currentTimestamp(): number {
     return Math.ceil(Date.now() / 1000);
 }
 
-class PGStore extends Store {
+export default class PGStore extends Store {
+    private pruneSessionInterval: false | number;
+
+    private ttl: number;
+
+    private closed: boolean;
+
+    private pruneTimer: NodeJS.Timeout;
+
+    public constructor(options: {
+        captureRejections?: boolean | undefined,
+        ttl?: number | undefined,
+        pruneSessionInterval?: number | undefined,
+    }) {
+        super(options);
+
+        this.ttl = options.ttl;
+
+        if (options.pruneSessionInterval === undefined) {
+            this.pruneSessionInterval = false;
+        } else {
+            this.pruneSessionInterval = (options.pruneSessionInterval || DEFAULT_PRUNE_INTERVAL_IN_SECONDS) * 1000;
+        }
+    }
+
     /**
-     * Gets the session from the store given a session ID and passes it to `callback`.
+     * Closes the session store
      *
-     * The `session` argument should be a `Session` object if found, otherwise `null` or `undefined` if the session was not found and there was no error.
-     * A special case is made when `error.code === 'ENOENT'` to act like `callback(null, null)`.
+     * Currently only stops the automatic pruning, if any, from continuing
      */
-    public async get(sid: string, callback: (err: any, session?: SessionData | null) => void) {
-        const result = await sql<{ sess: string }[]>`SELECT sess FROM "session" WHERE sid = ${sid} AND expire >= to_timestamp(${currentTimestamp()})`;
+    public async close() {
+        this.closed = true;
 
-        if (result.length === 1) {
-            try {
-                const data = JSON.parse(result[0].sess) as SessionData;
-                callback(null, data);
-            }
-            catch (ex) {
-                callback(ex, null);
-            }
-        }
-        else {
-            callback('No session found', null);
-        }
+        this.clearPruneTimer();
     }
 
-    /** Upsert a session in the store given a session ID and `SessionData` */
-    public async set(sid: string, session: SessionData, callback?: (err?: any) => void) {
-        const result = await sql<{ sess: string }[]>`SELECT sess FROM "session" WHERE sid = ${sid} AND expire >= to_timestamp(${currentTimestamp()})`;
+    private initPruneTimer() {
+        if (this.pruneSessionInterval && !this.closed) {
+            const delay = this.pruneSessionInterval;
 
-        if (result.length === 1) {
-            try {
-                const data = JSON.parse(result[0].sess) as SessionData;
-                callback(null, data);
-            }
-            catch (ex) {
-                callback(ex, null);
-            }
-        }
-        else {
-            callback('No session found', null);
+            this.pruneTimer = setTimeout(
+                () => { this.pruneSessions(); },
+                delay
+            );
+            this.pruneTimer.unref();
         }
     }
 
-    /** Destroys the session with the given session ID. */
-    public async destroy(sid: string, callback?: (err?: any) => void) {
-
+    private clearPruneTimer() {
+        if (this.pruneTimer) {
+            clearTimeout(this.pruneTimer);
+            this.pruneTimer = undefined;
+        }
     }
 
-    /** Returns all sessions in the store */
-    // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/38783, https://github.com/expressjs/session/pull/700#issuecomment-540855551
-    public async all(callback: (err: any, obj?: SessionData[] | { [sid: string]: SessionData } | null) => void) {
+    /**
+     * Does garbage collection for expired session in the database
+     */
+    public async pruneSessions() {
+        try {
+            await sql`DELETE FROM "session" WHERE expire < to_timestamp(${currentTimestamp()})`;
+        }
+        catch (ex) {
+            console.error('Failed to prune sessions');
+            console.error(ex);
+        }
 
+        this.clearPruneTimer();
+        this.initPruneTimer();
     }
 
-    /** Returns the amount of sessions in the store. */
-    public async length(callback: (err: any, length?: number) => void) {
+    /**
+     * Figure out when a session should expire
+     */
+    private getExpireTime(sess: SessionData): number {
+        let expire;
 
+        if (sess && sess.cookie && sess.cookie['expires']) {
+            const expireDate = new Date(sess.cookie['expires']);
+            expire = Math.ceil(expireDate.valueOf() / 1000);
+        } else {
+            const ttl = this.ttl || ONE_DAY;
+            expire = Math.ceil(Date.now() / 1000 + ttl);
+        }
+
+        return expire;
     }
 
-    /** Delete all sessions from the store. */
-    public async clear(callback?: (err?: any) => void) {
+    /**
+     * Attempt to fetch session by the given `sid`.
+     */
+    public async get(sid: string, fn: (err: any, session?: SessionData | null) => void) {
+        this.initPruneTimer();
 
+        try {
+            const res = await sql<{ sess: string }[]>`SELECT sess FROM "session" WHERE sid = ${sid} AND expire >= to_timestamp(${currentTimestamp()})`;
+            if (res.length === 1) {
+                try {
+                    fn(null, JSON.parse(res[0].sess) as SessionData);
+                }
+                catch (ex) {
+                    this.destroy(sid, fn);
+                }
+            }
+            else {
+                fn(null);
+            }
+        }
+        catch (ex) {
+            fn(ex);
+        }
     }
 
-    /** "Touches" a given session, resetting the idle timer. */
-    public async touch(sid: string, session: SessionData, callback?: () => void) {
+    /**
+     * Commit the given `sess` object associated with the given `sid`.
+     */
+    public async set(sid: string, sess: SessionData, fn?: (err?: any) => void) {
+        this.initPruneTimer();
 
+        const sessJson = JSON.stringify(sess);
+
+        const expireTime = this.getExpireTime(sess);
+
+        try {
+            await sql`INSERT INTO "session" (sess, expire, sid) SELECT ${sessJson}, to_timestamp(${expireTime}), ${sid} ON CONFLICT (sid) DO UPDATE SET sess=${sessJson}, expire=to_timestamp(${expireTime}) RETURNING sid`;
+        }
+        catch (ex) {
+            if (fn) {
+                fn(ex);
+            }
+        }
+        // const query = 'INSERT INTO ' + this.quotedTable() + ' (sess, expire, sid) SELECT $1, to_timestamp($2), $3 ON CONFLICT (sid) DO UPDATE SET sess=$1, expire=to_timestamp($2) RETURNING sid';
+    }
+
+    /**
+     * Destroy the session associated with the given `sid`.
+     */
+    public async destroy(sid: string, fn?: (err?: any) => void) {
+        this.initPruneTimer();
+
+        try {
+            await sql`DELETE FROM "session" WHERE sid = ${sid}`;
+        }
+        catch (ex) {
+            if (fn) {
+                fn(ex);
+            }
+        }
+    }
+
+    /**
+     * Touch the given session object associated with the given session ID.
+     */
+    public async touch(sid: string, sess: SessionData, fn?: () => void) {
+        this.initPruneTimer();
+
+        const expireTime = this.getExpireTime(sess);
+
+        try {
+            await sql<{ sid: string }[]>`UPDATE "session" SET expire = to_timestamp(${expireTime}) WHERE sid = ${sid}`;
+        }
+        catch (ex) {
+            console.error(ex);
+        }
+
+        if (fn) {
+            fn();
+        }
     }
 }
-
-export default PGStore;
