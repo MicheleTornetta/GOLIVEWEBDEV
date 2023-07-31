@@ -4,12 +4,12 @@ import http from "http";
 import ejs from "ejs";
 import { auth } from 'express-openid-connect';
 import session from "express-session";
-import connectPgSimple from 'connect-pg-simple';
 
 import router from './routes';
 import setupSession from "./auth";
 import getCompileScssFunction from "./scss-compiler";
 import sql from "./db/connection";
+import PGStore from "./session-store";
 
 interface User {
   username: string,
@@ -55,10 +55,7 @@ async function runServer() {
       secure: IS_PROD,
     },
     resave: false,
-    store: new (connectPgSimple(session))({
-      createTableIfMissing: true,
-      conString: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-    }),
+    store: new PGStore(),
   };
 
   if (IS_PROD) {
