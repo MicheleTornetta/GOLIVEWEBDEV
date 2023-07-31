@@ -27,10 +27,6 @@
         margin-top: auto;
     }
 
-    section {
-        flex: 1;
-    }
-
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
     width: 30%;
@@ -40,4 +36,5 @@
     background-color: var(--btn);
     display: flex;
     flex-direction: column;
+    // flex: 1;
 }

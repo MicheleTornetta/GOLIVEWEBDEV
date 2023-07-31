@@ -2,9 +2,8 @@
 
 In today's market, you need to have a website to reach the modern consumer.
 
-<img width="45%" height="auto" src="/assets/images/blog/2023/june/cbc6_25_23.jpg" alt="Customer searching on cell phone - photo by Daria Nepriakhina" >
+<img width="45%" height="auto" src="/assets/images/blog/2023/june/consumer.png" alt="Customer searching on cell phone - photo by Daria Nepriakhina" >
 
-_Written by: Michele Tornetta_
 
 Showcasing your business online is no longer an additional way to market your business, it's the primary way to attract customers. After all, the most popular way to find a business is through search engines such as Google. Almost half of all consumers use this method. Are you comfortable with half of your potential clients never finding you?
 
@@ -23,3 +22,5 @@ Having a poorly made website could do more damage than good. When I find a websi
 ### The Bottom Line
 
 You need a website, but not just any website. You need a good-looking, functional, and accessible website to give your customers a great first impression.
+
+_Contributed by: Michele Tornetta_

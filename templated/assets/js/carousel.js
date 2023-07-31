@@ -1,44 +1,31 @@
-// let carousel = 0;
-// showSample();
-
-// function showSample() {
-//   let i;
-//   const sample = document.getElementsByClassName("samples");
-//   for (i = 0; i < sample.length; i++) {
-//     sample[i].style.display = "none";
-//   }
-//   carousel++;
-//   if (carousel > sample.length) {carousel = 1}
-//   sample[carousel-1].style.display = "block";
-//   setTimeout(showSample, 5000); // Change image every 5 seconds
-// }
-
-//scroll
 (() => {
-  let carousel = 0;
-  const SHOW_DURATION_MS = 7000;
-  showSample();
+  const SPEED = 100;
 
-  function showSample() {
-    const sample = document.getElementsByClassName("samples");
-    for (let i = 0; i < sample.length; i++) {
-      sample[i].style.display = "none";
+  const carousel = document.getElementById("carousel");
+
+  let left = 0;
+
+  let lastCallTime = 0;
+
+  function animate(now) {
+    const delta = (now - lastCallTime) / 1000;
+    lastCallTime = now;
+
+    const firstImage = carousel.children[0];
+    const width = firstImage.offsetWidth;
+
+    if (-left >= width) {
+      carousel.removeChild(firstImage);
+      carousel.appendChild(firstImage);
+
+      left += width;
     }
 
-    const thisSample = sample[carousel];
-    thisSample.style.display = "block";
-    thisSample.classList.add("fade");
-    thisSample.classList.remove("fade-out");
+    carousel.style.left = left + "px";
+    left -= delta * SPEED;
 
-    setTimeout(() => {
-      thisSample.classList.remove("fade");
-      thisSample.classList.add("fade-out");
-    }, SHOW_DURATION_MS - 1000);
-
-    carousel++;
-    if (carousel >= sample.length) {
-      carousel = 0;
-    }
-    setTimeout(showSample, SHOW_DURATION_MS); // Change image every 3 seconds
+    requestAnimationFrame(animate);
   }
+
+  requestAnimationFrame(animate);
 })();
