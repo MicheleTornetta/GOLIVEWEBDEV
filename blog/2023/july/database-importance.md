@@ -9,7 +9,7 @@ In today's data-driven world, the value of information cannot be understated. Fo
 
 Databases provide a centralized repository for storing vast amounts of data in an organized and structured manner. This centralized approach ensures that all pertinent information is stored in one place, making it easier to access and manage. 
 
-<img style="width: 30%; margin-right: 5%; float:left" src="/assets/images/blog/2023/July/db.png" alt="Image of a variety of screen sizes.">
+<img style="width: 30%; margin-right: 5%; float:left" src="/assets/images/blog/2023/july/db.png" alt="Image of a variety of screen sizes.">
 
 Unlike traditional file systems, databases use specialized algorithms and indexing techniques that optimize data retrieval, facilitating faster and more accurate results.
 
