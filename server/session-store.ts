@@ -17,16 +17,16 @@ export default class PGStore extends Store {
 
     private pruneTimer: NodeJS.Timeout;
 
-    public constructor(options: {
+    public constructor(options?: {
         captureRejections?: boolean | undefined,
         ttl?: number | undefined,
         pruneSessionInterval?: number | undefined,
     }) {
         super(options);
 
-        this.ttl = options.ttl;
+        this.ttl = options?.ttl;
 
-        if (options.pruneSessionInterval === undefined) {
+        if (options?.pruneSessionInterval === undefined) {
             this.pruneSessionInterval = false;
         } else {
             this.pruneSessionInterval = (options.pruneSessionInterval || DEFAULT_PRUNE_INTERVAL_IN_SECONDS) * 1000;

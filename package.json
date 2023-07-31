@@ -27,8 +27,9 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && node dist/index",
-    "setup": "npx tsc && node dist/server/db/init-tables.js"
+    "start": "npx tsc && node dist/server/index",
+    "setup": "npx tsc && node dist/server/db/init-tables.js",
+    "prod-start": "export NODE_ENV=production && npx tsc && ((sudo node dist/proxy/index) & node dist/server/index)"
   },
   "repository": {
     "type": "git",
