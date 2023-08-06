@@ -3,7 +3,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
-    "noImplicitAny": true, 
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
@@ -12,9 +12,16 @@
     ],
     "baseUrl": ".",
     "paths": {
-        "*": ["node_modules/*"]
+      "*": [
+        "node_modules/*"
+      ]
     }
   },
-  "lib": ["es2021"],
-  "include": ["server/**/*"]
+  "lib": [
+    "es2021"
+  ],
+  "include": [
+    "server/**/*",
+    "proxy/**/*"
+  ]
 }
