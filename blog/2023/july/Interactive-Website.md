@@ -7,7 +7,7 @@ When you make a website more interactive it can enhance user engagement and impr
 The suggestions listed here are a small sampling of things you can do to improve the user experience.  You could certainly consider Virtual Reality, converting to a Progressive Web App and other types of user engagement tools.
 <div>
 
-<img style="width: 40%; margin: 5%; float:right" src="/assets/images/blog/2023/July/responsivedesign.png" alt="Image of a variety of screen sizes.">
+<img style="width: 40%; margin: 5%; float:right" src="/assets/images/blog/2023/july/responsivedesign.png" alt="Image of a variety of screen sizes.">
 
 #### Responsive Design
 
