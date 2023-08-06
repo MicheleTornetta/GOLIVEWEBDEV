@@ -133,6 +133,7 @@ export default class PGStore extends Store {
 
         try {
             await sql`INSERT INTO "session" (sess, expire, sid) SELECT ${sessJson}, to_timestamp(${expireTime}), ${sid} ON CONFLICT (sid) DO UPDATE SET sess=${sessJson}, expire=to_timestamp(${expireTime}) RETURNING sid`;
+            fn();
         }
         catch (ex) {
             if (fn) {
@@ -150,11 +151,22 @@ export default class PGStore extends Store {
 
         try {
             await sql`DELETE FROM "session" WHERE sid = ${sid}`;
+
+            fn();
         }
         catch (ex) {
             if (fn) {
                 fn(ex);
             }
+        }
+    }
+
+    public async clear(callback?: (err?: any) => void) {
+        try {
+            await sql`DELETE FROM "session";`;
+            callback();
+        } catch (ex) {
+            callback(ex);
         }
     }
 
