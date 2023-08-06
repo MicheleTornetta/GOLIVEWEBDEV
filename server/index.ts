@@ -8,7 +8,6 @@ import session from "express-session";
 import router from './routes';
 import setupSession from "./auth";
 import getCompileScssFunction from "./scss-compiler";
-import sql from "./db/connection";
 import PGStore from "./session-store";
 
 interface User {
