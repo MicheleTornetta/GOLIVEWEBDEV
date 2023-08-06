@@ -59,7 +59,6 @@ nav {
     li {
       display: inline-block;
       list-style: none;
-      font-size: 1.3em;
       padding: 0 2px;
 
       a {
@@ -67,7 +66,7 @@ nav {
         flex-direction: row;
         padding-right: 20px;
         padding: 16px 10px;
-        font-size: 2em;
+        font-size: 1.4em;
         list-style-type: none;
         color: #eee;
 
@@ -84,7 +83,7 @@ nav {
     }
   }
 
-  @media screen and (max-width: 916px) {
+  @media screen and (max-width: 930px) {
     overflow-y: auto;
 
     #hamburger {
@@ -133,7 +132,7 @@ nav {
 }
 
 .toplogo {
-  height: 75px;
+  height: 70.4px;
   justify-self: baseline;
   padding: 0 20px;
 }
