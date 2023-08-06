@@ -16,6 +16,7 @@ const sql = postgres({
   database: process.env.DB_NAME, // Name of database to connect to
   username: process.env.DB_USER, // Username of database user
   password: process.env.DB_PASSWORD, // Password of database user
+  ssl: 'require',
 });
 
 export default sql;
