@@ -68,16 +68,16 @@ nav {
         padding: 16px 10px;
         font-size: 1.4em;
         list-style-type: none;
-        color: #eee;
+        color: var(--textwhite);
 
         &:visited {
-          color: #eee;
+          color: var(--textwhite);
         }
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.2);
           text-decoration: none;
-          color: #eee;
+          color: var(--textwhite);
         }
       }
     }
