@@ -4,6 +4,7 @@
   --background: #141414; // dark grey
   --btn: #5a5af8; // purple
   --header: #5a5af8; // purple
+  --dark-header: #4141b1; // purple
   --white: #eeeeee;
   --textwhite: #eeeeee;
   --textdk: #141414; // dark grey
@@ -121,11 +122,15 @@ li {
 }
 
 a {
-  color: var(--background);
-}
-
-a:visited {
   color: var(--header);
+
+  &:visited {
+    color: var(--header);
+  }
+
+  &:hover {
+    color: var(--dark-header);
+  }
 }
 
 a:hover {
