@@ -17,6 +17,11 @@
         color: var(--textdk);
     }
 
+    h3 {
+        padding-top: 10px;
+
+    }
+
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
     width: 65%;
@@ -61,6 +66,12 @@
     h2 {
         padding-bottom: 10px;
         padding: 10px;
+        padding-top: 10px;
+    }
+
+    h3 {
+        padding-top: 10px;
+        padding-left: 10px;
     }
 
     h1 {
@@ -71,6 +82,11 @@
     p {
         padding-left: 10px;
     }
+
+    a:hover {
+        color: var(--white);
+        text-decoration: underline;
+      }
 
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
