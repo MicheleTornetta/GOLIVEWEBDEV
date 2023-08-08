@@ -1,6 +1,9 @@
 .about-article {
   width: 95%;
   align-self: center;
+  box-shadow: 5px 3px var(--background);
+  border-radius: 0px 50px 0px 10px;
+  border-width: .15em;
 }
 
 .aboutbio {
@@ -17,5 +20,11 @@
 
   section {
     flex: 1;
+  }
+
+  img {
+    border-radius: 0px 125px 0px 125px;
+    box-shadow: 5px 0px 0px 0px var(--background);
+    margin-bottom: 20px;
   }
 }
