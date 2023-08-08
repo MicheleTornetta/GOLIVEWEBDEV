@@ -133,10 +133,7 @@ a {
   }
 }
 
-a:hover {
-  color: var(--white);
-  text-decoration: underline;
-}
+
 
 button,
 input[type=submit],
@@ -151,6 +148,7 @@ input[type=submit],
   cursor: pointer;
   text-align: center;
   transition: 0.1s ease-in-out;
+  border-radius: 5px 20px 5px;
 
   &:hover {
     background-color: var(--btn);

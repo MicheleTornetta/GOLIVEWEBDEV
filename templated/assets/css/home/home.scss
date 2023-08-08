@@ -17,6 +17,11 @@
         color: var(--textdk);
     }
 
+    h3 {
+        padding-top: 10px;
+
+    }
+
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
     width: 65%;
@@ -28,6 +33,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 2;
+    border-radius: 5px 20px 5px;
 
     button {
         background-color: var(--background);
@@ -61,6 +67,12 @@
     h2 {
         padding-bottom: 10px;
         padding: 10px;
+        padding-top: 10px;
+    }
+
+    h3 {
+        padding-top: 10px;
+        padding-left: 10px;
     }
 
     h1 {
@@ -72,6 +84,11 @@
         padding-left: 10px;
     }
 
+    a:hover {
+        color: var(--white);
+        text-decoration: underline;
+      }
+
     border: solid thin var(--background);
     box-shadow: 7px 5px var(--background);
     width: 25%;
@@ -82,6 +99,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 2;
+    border-radius: 5px 20px 20px 5px;
 
     button {
         background-color: var(--background);
@@ -103,5 +121,6 @@
         justify-self: baseline;
         padding: 5px;
         width: 80%;
+        border-radius: 5px 20px 5px;
     }
 }
