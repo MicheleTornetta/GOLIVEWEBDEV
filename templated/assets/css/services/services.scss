@@ -251,3 +251,15 @@ table, th, td {
   text-align: center;
   font-size: 1.2em;
 }
+section {
+  display: table;
+  width: 100%;
+}
+
+section > * {
+  display: table-row;
+}
+
+section .col {
+  display: table-cell;
+}
