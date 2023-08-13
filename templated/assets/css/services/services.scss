@@ -17,7 +17,6 @@ h1 {
   h2 {
     color: var(--textdk);
     padding-left: 10px;
-
   }
 
   .websitebldimg {
@@ -241,4 +240,32 @@ h1 {
   to {
     opacity: 0;
   }
+}
+
+table,
+th,
+td {
+  border: 1px solid #141414;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.2em;
+
+  section {
+    display: table;
+    width: 100%;
+  }
+
+  section > * {
+    display: table-row;
+  }
+
+  section .col {
+    display: table-cell;
+  }
+}
+
+.button.learn-more {
+  margin-top: 20px;
+  padding: 10px 30px;
 }

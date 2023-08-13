@@ -1,48 +1,48 @@
 .card {
+  img {
+    padding: 10px 20px;
+    width: 70%;
+    align-self: center;
+  }
 
-    img {
-        padding: 10px 20px;
-        width: 70%;
-        align-self: center;
-    }
+  p,
+  h3,
+  h4,
+  h2 {
+    color: var(--textwhite);
+    padding-left: 10px;
+  }
 
-    p,
-    h3,
-    h4,
-    h2 {
-        color: var(--textwhite);
-        padding-left: 10px;
-    }
+  h2 {
+    padding-bottom: 20px;
+    padding-left: 10px;
+  }
 
-    h2 {
-        padding-bottom: 20px;
-        padding-left: 10px;
+  .button {
+    // min-width: 40%;
+    align-self: center;
+    justify-self: center;
+    margin-top: auto;
+  }
 
-    }
+  border: solid thin var(--background);
+  box-shadow: 7px 5px var(--background);
+  width: 30%;
+  min-width: 300px;
+  padding: 20px;
+  margin: 20px;
+  background-color: var(--btn);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px 20px 5px;
+  // flex: 1;
 
+  section {
+    flex: 1;
+  }
 
-    .button {
-        // min-width: 40%;
-        align-self: center;
-        justify-self: center;
-        margin-top: auto;
-    }
-
-    border: solid thin var(--background);
-    box-shadow: 7px 5px var(--background);
-    width: 30%;
-    min-width: 300px;
-    padding: 20px;
-    margin: 20px;
-    background-color: var(--btn);
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px 20px 5px;
-    // flex: 1;
-
-    a:hover {
-        color: var(--white);
-        text-decoration: underline;
-      }
+  a:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
 }
-
