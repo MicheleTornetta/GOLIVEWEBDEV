@@ -242,3 +242,16 @@ h1 {
     opacity: 0;
   }
 }
+
+section {
+  display: table;
+  width: 100%;
+}
+
+section > * {
+  display: table-row;
+}
+
+section .col {
+  display: table-cell;
+}
