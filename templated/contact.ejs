@@ -1,79 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('templates/head.ejs') %>
+  <head>
+    <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/contact/contact.css" />
+    <meta
+      name="description"
+      content="Contact us at GoLive WebDev to help us capture your vision for your business and turn it into a stunning reality!"
+    />
     <title>GoLive WebDev</title>
-</head>
+  </head>
 
-<body>
-  <%- include('templates/nav.ejs') %>
-    <%- include('templates/modal.ejs') %>
+  <body>
+    <%- include('templates/nav.ejs') %> <%- include('templates/modal.ejs') %>
 
-      <main>
-        <header>
-          <div class="header-cover">
-            <h1>Contact Us</h1>
-          </div>
-        </header>
+    <main>
+      <header>
+        <div class="header-cover">
+          <h1>Contact Us</h1>
+        </div>
+      </header>
 
-        <section>
-          <div class="for-flex">
-            <article class="contact">
-              <h2>Let's Talk</h2>
-              <p>Discuss your needs with a specialist.</p>
-              <p>
-                Please do fill out the Contact Us form and we'll connect with you
-                using the method you prefer.
-              </p>
-              <p>Be sure to let us know what interests you:</p>
-              <ul>
-                <li>Building Your Website</li>
-                <li>Hosting Your Website</li>
-                <li>Capturing Visitor information</li>
-                <li>Sending Emails to Opt-In Customers</li>
-              </ul>
-              <img src="/assets/images/contact/womanonphone.png" alt="Woman talking on the phone." />
-            </article>
+      <section>
+        <div class="for-flex">
+          <article class="contact">
+            <h2>Let's Talk</h2>
+            <p>
+              Discuss your needs with us so that we can uncover the vision for
+              your business and turn it into a reality.
+            </p>
+            <p>Be sure to let us know what interests you:</p>
+            <ul>
+              <li>Building Your Website</li>
+              <li>Hosting Your Website</li>
+              <li>Capturing Visitor information</li>
+              <li>Sending Emails to Opt-In Customers</li>
+            </ul>
+            <img
+              src="/assets/images/contact/womanonphone.png"
+              alt="Woman talking on the phone."
+            />
+          </article>
 
-            <form class="card-contact" action="http://localhost:8080/contact" method="post" class="contact-form">
-              <h2>Want more information?</h2>
-              <label>Your Name</label>
-              <input type="text" class="contact-form-text" placeholder="Your name" name="yourname" required />
-              <label>Your Company</label>
-              <input type="text" class="contact-form-text" placeholder="Your Company" companyname="companyname" />
-              <label>Email</label>
-              <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
-              <label>Best Phone Number</label>
-              <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="yourphonenumber"
-                required />
-              <label>Your Time Zone</label>
-              <select type="timezone" class="contact-form-text" placeholder="Your Time Zone" name="yourtimezone"
-                required>
-                <option value="est">EST</option>
-                <option value="cst">CST</option>
-                <option value="mst">MST</option>
-                <option value="pst">PST</option>
-              </select>
-              <label>Preferred Contact Method</label>
-              <select type="contactmethod" class="contact-form-text" placeholder="Preferred Contact Method"
-                name="perferredcontactmethod" required>
-                <option value="nopreference">Any Contact Method</option>
-                <option value="phone">By Phone</option>
-                <option value="email">By Email</option>
-              </select>
-              <label>Subject</label>
-              <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
-              <label>Your Message</label>
-              <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
-              <div class="spacer"></div>
-              <input type="submit" id="form-submit" class="email-button" value="Send" required />
-            </form>
-          </div>
-        </section>
-      </main>
-      <%- include('templates/footer.ejs') %>
-</body>
-
+          <form
+            class="card-contact"
+            action="http://localhost:8080/contact"
+            method="post"
+            class="contact-form"
+          >
+            <h2>Want more information?</h2>
+            <label>Your Name</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              placeholder="Your name"
+              name="yourname"
+              required
+            />
+            <label>Your Company</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              placeholder="Your Company"
+              companyname="companyname"
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              class="contact-form-text"
+              placeholder="Your email"
+              name="youremail"
+              required
+            />
+            <label>Best Phone Number</label>
+            <input
+              type="phone"
+              class="contact-form-text"
+              placeholder="Your Phone Number"
+              name="yourphonenumber"
+              required
+            />
+            <label>Your Time Zone</label>
+            <select
+              type="timezone"
+              class="contact-form-text"
+              placeholder="Your Time Zone"
+              name="yourtimezone"
+              required
+            >
+              <option value="est">EST</option>
+              <option value="cst">CST</option>
+              <option value="mst">MST</option>
+              <option value="pst">PST</option>
+            </select>
+            <label>Preferred Contact Method</label>
+            <select
+              type="contactmethod"
+              class="contact-form-text"
+              placeholder="Preferred Contact Method"
+              name="perferredcontactmethod"
+              required
+            >
+              <option value="nopreference">Any Contact Method</option>
+              <option value="phone">By Phone</option>
+              <option value="email">By Email</option>
+            </select>
+            <label>Subject</label>
+            <input
+              type="text"
+              class="contact-form-text"
+              name="yoursubject"
+              placeholder="Subject"
+              required
+            />
+            <label>Your Message</label>
+            <textarea
+              class="contact-form-message"
+              placeholder="Your message"
+              name="yourmessage"
+            ></textarea>
+            <div class="spacer"></div>
+            <input
+              type="submit"
+              id="form-submit"
+              class="email-button"
+              value="Send"
+              required
+            />
+          </form>
+        </div>
+      </section>
+    </main>
+    <%- include('templates/footer.ejs') %>
+  </body>
 </html>

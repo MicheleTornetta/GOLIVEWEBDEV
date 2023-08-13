@@ -5,9 +5,19 @@
 
     <link rel="stylesheet" href="/assets/css/card/card.css" />
     <link rel="stylesheet" href="/assets/css/services/services.css" />
-    <script src="/assets/js/accordion.js" defer></script>
-    <script src="/assets/js/carousel.js" defer></script>
     <title>GoLive WebDev | Services</title>
+
+    <script>
+      // Prevents the navbar from covering the header
+      window.addEventListener("DOMContentLoaded", () => {
+        if (
+          window.location.href.lastIndexOf("#") >
+          window.location.href.lastIndexOf("/")
+        ) {
+          window.scrollTo(window.scrollX, window.scrollY - 75);
+        }
+      });
+    </script>
   </head>
 
   <body>
@@ -59,12 +69,13 @@
             <p>
               When you look for something on Google, the first results that show
               up are the ones that paid to be there. We will set up
-              advertisements for your business
+              pay-per-click advertisements for your business. This means you
+              only have to pay for advertisements that potential clients are
+              actively clicking on.
             </p>
             <p>
-              While having a great website is the most important step to have
-              people find your business, advertisements are a great way to
-              further boost visibility.
+              <a href="/contact.html">Contact us</a> to learn more about how
+              advertisements can help your business gain new customers!
             </p>
           </section>
         </div>
