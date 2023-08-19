@@ -12,7 +12,7 @@ If you have any type of input field, from a comments box to a search bar, there 
 
 Once the attacker has this information, they can easily log into a customer's account and steal their credit card information, address and any information that should be private to the victim. The cybercriminal will frequently take over the victim's account by changing their password and other login details.
 
-A victim's browser doesn't have a way to recognize malicious scripts, and it's very unlikely the user will notice an illigitamate script being run. Even if they did notice something is wrong with the website, it's too late, the damage has already been done.
+A victim's browser doesn't have a way to recognize malicious scripts, and it's very unlikely the user will notice an illigitimate script being run. Even if they did notice something is wrong with the website, it's too late, the damage has already been done.
 
 ## Protecting Your Users
 
