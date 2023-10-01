@@ -55,14 +55,14 @@
                     commentBox.value = '';
                 }
                 else if (res.status === 429) {
-                    modal.alert('You have made too many comments in short succession, please try again later.');
+                    modal.alert('Error', 'You have made too many comments in short succession, please try again later.');
                 }
                 else {
-                    modal.alert('Error submitting your comment, please try again later.');
+                    modal.alert('Error', 'Error submitting your comment, please try again later.');
                 }
             }
             catch (ex) {
-                modal.alert('Error submitting your comment, please try again later.');
+                modal.alert('Error', 'Error submitting your comment, please try again later.');
                 console.error(ex);
             }
 

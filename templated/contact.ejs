@@ -4,6 +4,7 @@
 <head>
   <%- include('templates/head.ejs') %>
     <link rel="stylesheet" href="/assets/css/contact/contact.css" />
+    <script defer src="/assets/js/contact.js"></script>
     <title>GoLive WebDev</title>
 </head>
 
@@ -37,38 +38,47 @@
               <img src="/assets/images/contact/womanonphone.png" alt="Woman talking on the phone." />
             </article>
 
-            <form class="card-contact" action="http://localhost:8080/contact" method="post" class="contact-form">
+            <form id="contact-form" class="card-contact" action="/contact" method="post" class="contact-form">
               <h2>Want more information?</h2>
-              <label>Your Name</label>
-              <input type="text" class="contact-form-text" placeholder="Your name" name="yourname" required />
-              <label>Your Company</label>
-              <input type="text" class="contact-form-text" placeholder="Your Company" companyname="companyname" />
-              <label>Email</label>
-              <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
-              <label>Best Phone Number</label>
-              <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="yourphonenumber"
-                required />
-              <label>Your Time Zone</label>
-              <select type="timezone" class="contact-form-text" placeholder="Your Time Zone" name="yourtimezone"
-                required>
+              <label for="name">Your Name</label>
+              <input type="text" class="contact-form-text" placeholder="Your name" name="name" id="name" required />
+
+              <label for="company">Your Company</label>
+              <input type="text" class="contact-form-text" placeholder="Your Company" name="company" id="company" />
+
+              <label for="email">Email</label>
+              <input type="email" class="contact-form-text" placeholder="Your email" name="email" id="email" required />
+
+              <label for="phoneNumber">Best Phone Number</label>
+              <input type="phone" class="contact-form-text" placeholder="Your Phone Number" name="phoneNumber"
+                id="phoneNumber" required />
+
+              <label for="timeZone">Your Time Zone</label>
+              <select type="timezone" class="contact-form-text" placeholder="Your Time Zone" name="timeZone"
+                id="timeZone" required>
                 <option value="est">EST</option>
                 <option value="cst">CST</option>
                 <option value="mst">MST</option>
                 <option value="pst">PST</option>
               </select>
-              <label>Preferred Contact Method</label>
+
+              <label for="preferredContactMethod">Preferred Contact Method</label>
               <select type="contactmethod" class="contact-form-text" placeholder="Preferred Contact Method"
-                name="perferredcontactmethod" required>
-                <option value="nopreference">Any Contact Method</option>
+                name="preferredContactMethod" id="preferredContactMethod" required>
+                <option value="any">Any Contact Method</option>
                 <option value="phone">By Phone</option>
                 <option value="email">By Email</option>
               </select>
-              <label>Subject</label>
-              <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
-              <label>Your Message</label>
-              <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
+
+              <label for="subject">Subject</label>
+              <input type="text" class="contact-form-text" name="subject" id="subject" placeholder="Subject" required />
+
+              <label for="message">Your Message</label>
+              <textarea class="contact-form-message" placeholder="Your message" name="message" id="message"></textarea>
+
               <div class="spacer"></div>
-              <input type="submit" id="form-submit" class="email-button" value="Send" required />
+
+              <input type="submit" id="form-submit" class="email-button" value="Send" />
             </form>
           </div>
         </section>

@@ -77,7 +77,7 @@ ${message}
 
         const mailOptions = {
             from: 'contact.form@golivewebdev.com',
-            to: process.env.CONTACT_EMAIL_ACCOUNT,
+            to: process.env.SEND_TO_CONTACT_EMAIL_ACCOUNT,
             subject: 'GOLIVEWEBDEV: ' + subject,
             text
         };
