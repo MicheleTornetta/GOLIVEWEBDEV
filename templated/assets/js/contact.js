@@ -10,11 +10,8 @@
             const element = e.target[i];
             if (element.name) {
                 request[element.name] = element.value;
-                // console.log(element.name + ' - ' + element.value);
             }
         }
-
-        console.log(request);
 
         try {
             const result = await (await fetch('/api/contact/', {
