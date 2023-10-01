@@ -2,7 +2,6 @@
 <div class="full-width">
 
 <img style="width: 45%; margin: 5%; float:right" src="/assets/images/blog/2023/july/colorchart.png" alt="Image of a variety of screen sizes.">We are living in the digital age and websites serve as the front door to businesses, organizations, and individuals. The design of a website can significantly influence a visitor's perception, engagement, and overall experience. Among the many elements that contribute to a website's design, color stands out as one of the most crucial and powerful components. The importance of color in website design cannot be overstated, as it plays a fundamental role in shaping emotions, establishing brand identity, and enhancing usability.
-
 </div>
 
 ### The Psychology of Color
