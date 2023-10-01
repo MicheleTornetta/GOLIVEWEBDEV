@@ -2,9 +2,11 @@ h1 {
   color: var(--textwhite);
 }
 
-.card img {
-  align-self: center;
-  justify-self: center;
+.card .img-holder {
+  height: 146px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .card.services {
