@@ -108,3 +108,7 @@ vars.env
 
 *.css
 *.css.map
+
+# Logs
+log_compile.txt
+log_server.txt
